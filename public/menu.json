@@ -1,0 +1,36 @@
+{
+	"menu": [
+		{
+			"title": "ilk baslik",
+			"link": "/contents/first.md",
+			"status": 0,
+			"children": []
+		},
+		{
+			"title": "Another title",
+			"link": "/contents/another.md",
+			"status": 1,
+			"children": []
+		},
+		{
+			"title": "Entity framework",
+			"link": "/contents/ef.md",
+			"status": 2,
+			"children": [
+				{
+					"title": "DBContext without link",
+					"link": "",
+					"status": -1,
+					"children": [
+						{
+							"title": "DBContextdd",
+							"link": "/contents/inner.md",
+							"status": 1,
+							"children": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
