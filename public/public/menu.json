@@ -1,0 +1,13 @@
+{
+	"menu": [
+		{
+			"title": "How to Add a Content?",
+			"author": "Esra",
+			"version": "1.2",
+			"link": "/contents/addingcontent.md",
+			"status": 0,
+			"children": []
+		}
+
+	]
+}
