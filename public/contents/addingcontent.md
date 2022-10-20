@@ -1,4 +1,4 @@
-Wellcome to Patika Framework developed by .NEt team. We are glad you are here to add a new content! 😃
+Wellcome to Patika Framework developed by .NET team. We are glad you are here to add a new content! 😃
 
 You should follow the steps to add new content in the framework documentation:
 
