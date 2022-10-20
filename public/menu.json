@@ -3,12 +3,30 @@
 		{
 			"title": "How to Add a Content?",
 			"author": "Esra Yazıcı",
-			"version": "1.2",
-			"link": "/contents/addingcontent.md",
+			"version": "",
+			"link": "/contents/general/addingcontent.md",
 			"status": 0,
 			"isGeneral":true,
 			"children": []
+		},
+		{
+			"title": "Syntax Code",
+			"author": "Esra Yazıcı",
+			"version": "",
+			"link": "/contents/general/syntaxcode.md",
+			"status": 0,
+			"isGeneral":true,
+			"children": [		{
+				"title": "naming",
+				"author": "Esra Yazıcı",
+				"version": "",
+				"link": "/contents/general/naming.md",
+				"status": 0,
+				"isGeneral":true,
+				"children": []
+			}]
 		}
+		
 
 	]
 }
