@@ -6,7 +6,26 @@
 			"version": "1.2",
 			"link": "/contents/addingcontent.md",
 			"status": 0,
+			"isGeneral":true,
 			"children": []
+		},
+		{
+			"title": "Example Title",
+			"author": "Cemil Aydıngöz",
+			"version": "1.2",
+			"link": "/contents/exampletitle.md",
+			"status": 1,
+			"isGeneral":true,
+			"children": [{
+				"title": "Example Title 2",
+				"author": "Cemil Aydıngöz",
+				"version": "1.2",
+				"link": "/contents/subexampletitle.md",
+				"status": 1,
+				"isGeneral":true,
+				"children": []
+			}
+	]
 		}
 
 	]
