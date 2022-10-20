@@ -7,7 +7,6 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Header from "./components/Header";
-
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import { Divider } from "@mui/material";
