@@ -1,4 +1,4 @@
-#Class
+# Class
 
 Naming a class in C# is critical since it must give sufficient information to a reader about its content.
 In out framework we will obey the following rules to name a class:
@@ -10,7 +10,7 @@ In out framework we will obey the following rules to name a class:
 - It must be meaningfull [WRONG!("Hlp", "AA")].
 - It cannot be a sentence.
 
-#Interface
+# Interface
 Naming an interface in C# is critical since it must give sufficient information to a reader about its content.
 In out framework we will obey the following rules to name a interface:
 
@@ -21,7 +21,7 @@ In out framework we will obey the following rules to name a interface:
 - It must be meaningfull [WRONG!("IOccsn", "IPp")].
 - It cannot be a sentence.
 
-#Field
+# Field
 
 Naming a field in C# is critical since it must give sufficient information to a reader about its content.
 In out framework we will obey the following rules to name a field:
@@ -32,7 +32,7 @@ In out framework we will obey the following rules to name a field:
 - It cannot be a sentence.
 - It should not be a command such as ("doThis", "goToThere").
 
-#Property
+# Property
 
 Naming a property in C# is critical since it must give sufficient information to a reader about its content.
 In out framework we will obey the following rules to name a property:
@@ -44,7 +44,7 @@ In out framework we will obey the following rules to name a property:
 - It must be meaningfull [WRONG!("Hlp", "AA")].
 - It cannot be a sentence.
   
-#Method
+# Method
 
 Naming a method in C# is critical since it must give sufficient information to a reader about its content.
 In out framework we will obey the following rules to name a method:
