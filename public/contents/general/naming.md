@@ -10,6 +10,10 @@ In out framework we will obey the following rules to name a class:
 - It must be meaningfull [WRONG!("Hlp", "AA")].
 - It cannot be a sentence.
 
+**Example**
+
+> ![ClassExample](/images/ClassExample.jpg)
+
 # Interface
 Naming an interface in C# is critical since it must give sufficient information to a reader about its content.
 In out framework we will obey the following rules to name a interface:
@@ -43,6 +47,12 @@ In out framework we will obey the following rules to name a property:
 - It should be a command such as ("DoThis", "GoToThere").
 - It must be meaningfull [WRONG!("Hlp", "AA")].
 - It cannot be a sentence.
+
+# Variables & Consts
+
+- Do not use Screaming Caps for constants or readonly variables
+- Use meaningful names for variables
+- Do not use Underscores in identifiers
   
 # Method
 
@@ -55,3 +65,7 @@ In out framework we will obey the following rules to name a method:
 - It should not contain any number.
 - It must be meaningfull [WRONG!("Go", "Do")].
 - It cannot be a sentence.
+
+# Enum
+
+We are naming enums same as classes additionally put "Enum" at the end.
