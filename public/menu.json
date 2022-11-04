@@ -6,7 +6,8 @@
 			"version": "",
 			"link": "/contents/general/addingcontent.md",
 			"status": 0,
-			"isGeneral":true,
+			"isGeneral": true,
+			"isReact": false,
 			"children": []
 		},
 		{
@@ -15,18 +16,90 @@
 			"version": "",
 			"link": "/contents/general/syntaxcode.md",
 			"status": 0,
-			"isGeneral":true,
-			"children": [		{
-				"title": "Naming",
-				"author": "Esra Yazıcı",
-				"version": "",
-				"link": "/contents/general/naming.md",
-				"status": 0,
-				"isGeneral":true,
-				"children": []
-			}]
+			"isGeneral": true,
+			"children": [
+				{
+					"title": "Naming",
+					"author": "Esra Yazıcı",
+					"version": "",
+					"link": "/contents/general/naming.md",
+					"status": 0,
+					"isGeneral": true,
+					"children": []
+				}
+			]
+		},
+		{
+			"title": "Auth Server",
+			"author": "Dotnet Team",
+			"version": "",
+			"link": "/contents/authserver/authserver",
+			"status": 0,
+			"isGeneral": true,
+			"isReact": true,
+			"children": [
+				{
+					"title": "Password",
+					"author": "Saim Nasır",
+					"version": "1.0",
+					"link": "/contents/authserver/password",
+					"status": 0,
+					"isGeneral": true,
+					"isReact": true,
+					"children": []
+				},
+				{
+					"title": "External Auth",
+					"author": "Dotnet Team",
+					"version": "",
+					"link": "/contents/authserver/external/external",
+					"status": 0,
+					"isGeneral": true,
+					"isReact": true,
+					"children": [
+						{
+							"title": "Apple",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/authserver/external/apple",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Google",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/authserver/external/google",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Facebook",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/authserver/external/facebook",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Okta",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/authserver/external/okta",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						}
+					]
+				}
+			]
 		}
-		
-
 	]
 }

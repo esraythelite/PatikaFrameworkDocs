@@ -10,6 +10,16 @@ import Header from "./components/Header";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import { Divider } from "@mui/material";
+import { Route, Routes } from "react-router-dom";
+import AuthServer from "./components/Authserver/AuthServerMain";
+import Switcher from "./components/Switcher";
+import AuthWithPassword from "./components/Authserver/AuthWithPassword";
+import Home from "./components/Home";
+import ExternalAuth from "./components/Authserver/External/ExternalAuth";
+import AppleAuth from "./components/Authserver/External/AppleAuth";
+import FacebookAuth from "./components/Authserver/External/FacebookAuth";
+import GoogleAuth from "./components/Authserver/External/GoogleAuth";
+import OktaAuth from "./components/Authserver/External/OktaAuth";
 
 let theme = createTheme({
 	palette: {
@@ -17,7 +27,7 @@ let theme = createTheme({
 			light: "#63ccff",
 			main: "#009be5",
 			dark: "#006db3",
-			
+
 		},
 		secondary: {
 			light: "#000",
@@ -25,7 +35,7 @@ let theme = createTheme({
 			dark: "#000",
 		},
 		third: {
-			patika:"#001b34"
+			patika: "#001b34"
 		}
 	},
 	typography: {
@@ -169,13 +179,18 @@ function App() {
 	const [menu, setMenu] = useState(null);
 	const [mdBody, setMDBody] = useState("");
 	const [selectedItem, setSelectedItem] = useState("");
-	const onMDUrl = ({ link, title, status }) => {
-		setSelectedItem({ title, status });
-		axios.get(link).then((data) => {
-			setMDBody(data.data);
-		});
-	};
 
+	const onMDUrl = ({ link, title, status, isReact }) => {
+		console.log('onMDUrl')
+		setSelectedItem({ title, status, isReact, link });
+		if (!isReact) {
+			axios.get(link).then((data) => {
+				setMDBody(data.data);
+			});
+		} else {
+			setMDBody("");
+		}
+	};
 	useEffect(() => {
 		axios.get("/menu.json").then((data) => {
 			setMenu(data.data);
@@ -184,6 +199,12 @@ function App() {
 			setMDBody(data.data);
 		});
 	}, []);
+
+	useEffect(() => {
+		axios.get("/menu.json").then((data) => {
+			setMenu(data.data);
+		});		
+	}, [selectedItem]);
 
 	const [mobileOpen, setMobileOpen] = useState(false);
 	const isSmUp = useMediaQuery(theme.breakpoints.up("sm"));
@@ -212,9 +233,9 @@ function App() {
 							}}
 							gutterBottom
 						>
-							Patika framework
+							Patika Framework
 						</Typography>
-						<Divider sx={{ marginBottom: "15px"}} />
+						<Divider sx={{ marginBottom: "15px" }} />
 						{menu && <Menu menu={menu.menu} onMDUrl={onMDUrl} />}
 					</Drawer>
 				</Box>
@@ -228,7 +249,25 @@ function App() {
 						component="main"
 						sx={{ flex: 1, py: 6, px: 4, bgcolor: "#eaeff1" }}
 					>
-						<MDrenderer body={mdBody} />
+						<Routes>
+							<Route path="/home" element={<Home />} />
+							<Route path="contents/authserver/authserver" element={<AuthServer />} />
+							<Route path="contents/authserver/password" element={<AuthWithPassword />} />
+							<Route path="contents/authserver/external/external" element={<ExternalAuth />} />
+							<Route path="contents/authserver/external/apple" element={<AppleAuth />} />
+							<Route path="contents/authserver/external/google" element={<GoogleAuth />} />
+							<Route path="contents/authserver/external/facebook" element={<FacebookAuth />} />
+							<Route path="contents/authserver/external/okta" element={<OktaAuth />} />
+						</Routes>
+						{
+							selectedItem.isReact ?
+								(
+									<Switcher link={selectedItem.link} />
+								) :
+								(
+									<MDrenderer body={mdBody} />
+								)
+						}
 					</Box>
 					<Box component="footer" sx={{ p: 2, bgcolor: "#1986ce" }}>
 						<img src="/images/patika_black_icon.png" alt="image" height='100px' />
