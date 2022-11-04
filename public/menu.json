@@ -34,7 +34,7 @@
 			"author": "Dotnet Team",
 			"version": "",
 			"link": "/contents/authserver/authserver",
-			"status": 1,
+			"status": 0,
 			"isGeneral": true,
 			"isReact": true,
 			"children": [
