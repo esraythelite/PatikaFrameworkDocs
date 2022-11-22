@@ -33,7 +33,7 @@ const contents = [
 const Consts = () => {
     return (
         <Stack spacing={2} direction='column'>
-            <Typography variant='h4' sx={{ mb: 2 }}>Shared.Consts</Typography>
+            <Typography variant='h4' sx={{ mb: 2 }}>Patika.Shared.Consts</Typography>
             {contents.sort((a, b) => (a.order - b.order)).map((content) => {
                 return (
                     content.type === 'code' ? <>

@@ -109,7 +109,7 @@ const contents = [
 const Identity = () => {
     return (
         <Stack spacing={2} direction='column'>
-            <Typography variant='h4' sx={{ mb: 2 }}>Shared.DTO.Identity</Typography>
+            <Typography variant='h4' sx={{ mb: 2 }}>Patika.Shared.DTO.Identity</Typography>
             {contents.sort((a, b) => (a.order - b.order)).map((content) => {
                 return (
                     content.type === 'code' ? <>
