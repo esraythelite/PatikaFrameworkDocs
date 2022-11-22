@@ -10,7 +10,8 @@ const Highlighter = ({ title, descriptions, code, language = 'csharp', startingL
             <CardContent  >
                 <SyntaxHighlighter
                     customStyle={{
-                        maxWidth: '100%'
+                        maxWidth: '100%',
+                        maxHeight : '400px'
                     }}
                     children={code}
                     language={language}

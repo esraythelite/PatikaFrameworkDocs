@@ -20,6 +20,20 @@ import AppleAuth from "./components/Authserver/External/AppleAuth";
 import FacebookAuth from "./components/Authserver/External/FacebookAuth";
 import GoogleAuth from "./components/Authserver/External/GoogleAuth";
 import OktaAuth from "./components/Authserver/External/OktaAuth";
+import Framework from "./components/Framework/Framework";
+import Shared from "./components/Framework/Shared/Shared";
+import Consts from "./components/Framework/Shared/components/Consts/Consts";
+import Controllers from "./components/Framework/Shared/components/Controllers/Controllers";
+import Dto from "./components/Framework/Shared/components/Dto/Dto";
+import Identity from "./components/Framework/Shared/components/Dto/Identity";
+import Entities from "./components/Framework/Shared/components/Entities/Entities";
+import Enums from "./components/Framework/Shared/components/Enums/Enums";
+import Interfaces from "./components/Framework/Shared/components/Interfaces/Interfaces";
+import Mapper from "./components/Framework/Shared/components/Mapper/Mapper";
+import Services from "./components/Framework/Shared/components/Services/Services";
+import Events from "./components/Framework/Shared/components/Events/Events";
+import Exceptions from "./components/Framework/Shared/components/Exceptions/Exceptions";
+import Extensions from "./components/Framework/Shared/components/Extensions/Extensions";
 
 let theme = createTheme({
 	palette: {
@@ -258,6 +272,21 @@ function App() {
 							<Route path="contents/authserver/external/google" element={<GoogleAuth />} />
 							<Route path="contents/authserver/external/facebook" element={<FacebookAuth />} />
 							<Route path="contents/authserver/external/okta" element={<OktaAuth />} />
+							
+							<Route path="contents/framework/packages" element={<Framework />} />
+							<Route path="contents/framework/packages/shared" element={<Shared />} />
+							<Route path="contents/framework/packages/shared/consts" element={<Consts />} />
+							<Route path="contents/framework/packages/shared/controllers" element={<Controllers />} />
+							<Route path="contents/framework/packages/shared/dto" element={<Dto />} />
+							<Route path="contents/framework/packages/shared/dto/identity" element={<Identity />} />
+							<Route path="contents/framework/packages/shared/entities" element={<Entities />} />
+							<Route path="contents/framework/packages/shared/enums" element={<Enums />} />
+							<Route path="contents/framework/packages/shared/events" element={<Events />} />
+							<Route path="contents/framework/packages/shared/exceptions" element={<Exceptions />} />
+							<Route path="contents/framework/packages/shared/extensions" element={<Extensions />} />
+							<Route path="contents/framework/packages/shared/interfaces" element={<Interfaces />} />
+							<Route path="contents/framework/packages/shared/mapper" element={<Mapper />} />
+							<Route path="contents/framework/packages/shared/services" element={<Services />} />
 						</Routes>
 						{
 							selectedItem.isReact ?
