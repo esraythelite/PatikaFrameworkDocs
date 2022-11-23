@@ -8,22 +8,24 @@ const Highlighter = ({ title, descriptions, code, language = 'csharp', startingL
         <Card elevation={1} sx={{ m: 1 }}>
             <CardHeader title={title} />
             <CardContent  >
-                <SyntaxHighlighter
-                    customStyle={{
-                        maxWidth: '100%'
-                    }}
-                    children={code}
-                    language={language}
-                    style={dracula}
-                    showLineNumbers={true}
-                    startingLineNumber={startingLineNumber} />
-                {
+            {
                     descriptions.map((description, index) => {
                         return (
                             <Typography key={index} variant='body1'>{description}</Typography>
                         )
                     })
                 }
+                <SyntaxHighlighter
+                    customStyle={{
+                        maxWidth: '100%',
+                        maxHeight : '400px'
+                    }}
+                    children={code}
+                    language={language}
+                    style={dracula}
+                    showLineNumbers={true}
+                    startingLineNumber={startingLineNumber} />
+               
             </CardContent>
         </Card >
 

@@ -30,6 +30,251 @@
 			]
 		},
 		{
+			"title": "Framework Packages",
+			"author": "Saim Nasır",
+			"version": "",
+			"link": "/contents/framework/packages",
+			"status": 0,
+			"isGeneral": true,
+			"isReact": true,
+			"children": [
+				{
+					"title": "Shared",
+					"author": "Saim Nasır",
+					"version": "1.0",
+					"link": "/contents/framework/packages/shared",
+					"status": 0,
+					"isGeneral": true,
+					"isReact": true,
+					"children": [
+						{
+							"title": "Consts",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/shared/consts",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Controllers",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/shared/controllers",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "DTO",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/shared/dto",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": [
+								{
+									"title": "Identity DTO's",
+									"author": "Saim Nasır",
+									"version": "1.0",
+									"link": "/contents/framework/packages/shared/dto/identity",
+									"status": 0,
+									"isGeneral": true,
+									"isReact": true,
+									"children": []
+								}
+							]
+						},
+						{
+							"title": "Entities",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/shared/entities",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Enums",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/shared/enums",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Events",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/shared/events",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Exceptions",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/shared/exceptions",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Extensions",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/shared/extensions",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": [
+								{
+									"title": "EnumHelper",
+									"author": "Saim Nasır",
+									"version": "1.0",
+									"link": "/contents/framework/packages/shared/extensions/enumhelper",
+									"status": 0,
+									"isGeneral": true,
+									"isReact": true,
+									"children": []
+								},
+								{
+									"title": "FlagEnum",
+									"author": "Saim Nasır",
+									"version": "1.0",
+									"link": "/contents/framework/packages/shared/extensions/flagEnumExtensions",
+									"status": 0,
+									"isGeneral": true,
+									"isReact": true,
+									"children": []
+								},
+								{
+									"title": "GeneralResponseDTO",
+									"author": "Saim Nasır",
+									"version": "1.0",
+									"link": "/contents/framework/packages/shared/extensions/responseExtensions",
+									"status": 0,
+									"isGeneral": true,
+									"isReact": true,
+									"children": []
+								},
+								{
+									"title": "GeneralType",
+									"author": "Saim Nasır",
+									"version": "1.0",
+									"link": "/contents/framework/packages/shared/extensions/generalTypeExtensions",
+									"status": 0,
+									"isGeneral": true,
+									"isReact": true,
+									"children": []
+								},
+								{
+									"title": "Linq",
+									"author": "Saim Nasır",
+									"version": "1.0",
+									"link": "/contents/framework/packages/shared/extensions/linqExtensions",
+									"status": 0,
+									"isGeneral": true,
+									"isReact": true,
+									"children": []
+								},
+								{
+									"title": "LogWriter",
+									"author": "Saim Nasır",
+									"version": "1.0",
+									"link": "/contents/framework/packages/shared/extensions/logWriterExtensions",
+									"status": 0,
+									"isGeneral": true,
+									"isReact": true,
+									"children": []
+								}
+							]
+						},
+						{
+							"title": "Interfaces",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/shared/interfaces",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Mapper",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/shared/mapper",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Services",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/shared/services",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": [
+								{
+									"title": "HttpClientService",
+									"author": "Saim Nasır",
+									"version": "1.0",
+									"link": "/contents/framework/packages/shared/services/httpClient",
+									"status": 0,
+									"isGeneral": true,
+									"isReact": true,
+									"children": []
+								},
+								{
+									"title": "InMemoryCacheService",
+									"author": "Saim Nasır",
+									"version": "1.0",
+									"link": "/contents/framework/packages/shared/services/inMemoryCache",
+									"status": 0,
+									"isGeneral": true,
+									"isReact": true,
+									"children": []
+								},
+								{
+									"title": "NullLogWriter",
+									"author": "Saim Nasır",
+									"version": "1.0",
+									"link": "/contents/framework/packages/shared/services/nullLogWriter",
+									"status": 0,
+									"isGeneral": true,
+									"isReact": true,
+									"children": []
+								},
+								{
+									"title": "Sha256Hasher",
+									"author": "Saim Nasır",
+									"version": "1.0",
+									"link": "/contents/framework/packages/shared/services/sha256Hasher",
+									"status": 0,
+									"isGeneral": true,
+									"isReact": true,
+									"children": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"title": "Auth Server",
 			"author": "Dotnet Team",
 			"version": "",
