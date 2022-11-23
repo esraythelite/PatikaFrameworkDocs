@@ -34,6 +34,16 @@ import Services from "./components/Framework/Shared/components/Services/Services
 import Events from "./components/Framework/Shared/components/Events/Events";
 import Exceptions from "./components/Framework/Shared/components/Exceptions/Exceptions";
 import Extensions from "./components/Framework/Shared/components/Extensions/Extensions";
+import EnumHelper from "./components/Framework/Shared/components/Extensions/EnumHelper";
+import FlagEnumExtensions from "./components/Framework/Shared/components/Extensions/FlagEnumExtensions";
+import ResponseExtensions from "./components/Framework/Shared/components/Extensions/ResponseExtensions";
+import GeneralTypeExtensions from "./components/Framework/Shared/components/Extensions/GeneralTypeExtensions";
+import LinqExtensions from "./components/Framework/Shared/components/Extensions/LinqExtensions";
+import LogWriterExtensions from "./components/Framework/Shared/components/Extensions/LogWriterExtensions";
+import HttpClientService from "./components/Framework/Shared/components/Services/HttpClientService";
+import InMemoryCacheService from "./components/Framework/Shared/components/Services/InMemoryCacheService";
+import NullLogWriter from "./components/Framework/Shared/components/Services/NullLogWriter";
+import Sha256Hasher from "./components/Framework/Shared/components/Services/Sha256Hasher";
 
 let theme = createTheme({
 	palette: {
@@ -283,10 +293,24 @@ function App() {
 							<Route path="contents/framework/packages/shared/enums" element={<Enums />} />
 							<Route path="contents/framework/packages/shared/events" element={<Events />} />
 							<Route path="contents/framework/packages/shared/exceptions" element={<Exceptions />} />
+
 							<Route path="contents/framework/packages/shared/extensions" element={<Extensions />} />
+							<Route path="contents/framework/packages/shared/extensions/enumhelper" element={<EnumHelper />} /> 
+							<Route path="contents/framework/packages/shared/extensions/flagEnumExtensions" element={<FlagEnumExtensions />} /> 
+							<Route path="contents/framework/packages/shared/extensions/responseExtensions" element={<ResponseExtensions />} /> 
+							<Route path="contents/framework/packages/shared/extensions/generalTypeExtensions" element={<GeneralTypeExtensions />} /> 
+							<Route path="contents/framework/packages/shared/extensions/linqExtensions" element={<LinqExtensions />} /> 
+							<Route path="contents/framework/packages/shared/extensions/logWriterExtensions" element={<LogWriterExtensions />} /> 
+							
 							<Route path="contents/framework/packages/shared/interfaces" element={<Interfaces />} />
 							<Route path="contents/framework/packages/shared/mapper" element={<Mapper />} />
+						
 							<Route path="contents/framework/packages/shared/services" element={<Services />} />
+							<Route path="contents/framework/packages/shared/services/httpClient" element={<HttpClientService />} />
+							<Route path="contents/framework/packages/shared/services/inMemoryCache" element={<InMemoryCacheService />} />
+							<Route path="contents/framework/packages/shared/services/nullLogWriter" element={<NullLogWriter />} />
+							<Route path="contents/framework/packages/shared/services/sha256Hasher" element={<Sha256Hasher />} />							
+							
 						</Routes>
 						{
 							selectedItem.isReact ?

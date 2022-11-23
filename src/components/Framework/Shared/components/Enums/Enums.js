@@ -100,7 +100,7 @@ const contents = [
 const Enums = () => {
   return (
     <Stack spacing={2} direction='column'>
-      <Typography variant='h4' sx={{ mb: 2 }}>Patika.Shared.DTO.Enums</Typography>
+      <Typography variant='h4' sx={{ mb: 2 }}>Patika.Shared.Enums</Typography>
       {contents.sort((a, b) => (a.order - b.order)).map((content) => {
         return (
           content.type === 'code' ? <>
