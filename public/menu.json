@@ -289,7 +289,7 @@
 					"status": 0,
 					"isGeneral": true,
 					"isReact": true,
-					"children": [ 
+					"children": [
 						{
 							"title": "Interfaces",
 							"author": "Saim Nasır",
@@ -305,6 +305,37 @@
 							"author": "Saim Nasır",
 							"version": "1.0",
 							"link": "/contents/framework/packages/applicationcontracts/mapper",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						}
+					]
+				},
+				{
+					"title": "Application",
+					"author": "Saim Nasır",
+					"version": "1.0",
+					"link": "/contents/framework/packages/application",
+					"status": 0,
+					"isGeneral": true,
+					"isReact": true,
+					"children": [
+						{
+							"title": "Mapper",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/application/mapper",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Services",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/application/services",
 							"status": 0,
 							"isGeneral": true,
 							"isReact": true,

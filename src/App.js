@@ -69,6 +69,9 @@ import ConstsIdentityShared from "./components/Framework/IdentityShared/componen
 import ApplicationContracts from "./components/Framework/ApplicationContracts/ApplicationContracts";
 import InterfacesAppContracts from "./components/Framework/ApplicationContracts/components/Interfaces/InterfacesAppContracts";
 import MapperAppContracts from "./components/Framework/ApplicationContracts/components/Mapper/MapperAppContracts";
+import Application from "./components/Framework/Application/Application";
+import ServicesApplication from "./components/Framework/Application/components/Services/ServicesApplication";
+import MapperApplication from "./components/Framework/Application/components/Mapper/MapperApplication";
 
 let theme = createTheme({
 	palette: {
@@ -343,6 +346,10 @@ function App() {
 							<Route path="contents/framework/packages/applicationcontracts" element={<ApplicationContracts />} />
 							<Route path="contents/framework/packages/applicationcontracts/interfaces" element={<InterfacesAppContracts />} />
 							<Route path="contents/framework/packages/applicationcontracts/mapper" element={<MapperAppContracts />} />
+					
+							<Route path="contents/framework/packages/application" element={<Application />} />
+							<Route path="contents/framework/packages/application/services" element={<ServicesApplication />} />
+							<Route path="contents/framework/packages/application/mapper" element={<MapperApplication />} />
 						</Routes>
 						{
 							selectedItem.isReact ?
