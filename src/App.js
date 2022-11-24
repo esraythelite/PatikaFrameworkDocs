@@ -56,6 +56,17 @@ import GenericRepository from "./components/Framework/Domain/components/Services
 import RedisConnectionHelper from "./components/Framework/Domain/components/Services/RedisConnectionHelper";
 import DomainRepository from "./components/Framework/Domain/components/Services/DomainRepository";
 import LogWriter from "./components/Framework/Domain/components/Services/LogWriter";
+import IdentityShared from "./components/Framework/IdentityShared/IdentityShared";
+import AttributesIdentityShared from "./components/Framework/IdentityShared/components/Attributes/AttributesIdentityShared";
+import DtoIdentityShared from "./components/Framework/IdentityShared/components/Dto/DtoIdentityShared";
+import ExceptionsIdentityShared from "./components/Framework/IdentityShared/components/Exceptions/ExceptionsIdentityShared";
+import IdentitySharedDbContext from "./components/Framework/IdentityShared/components/DBContext/IdentitySharedDbContext";
+import EntitiesIdentityShared from "./components/Framework/IdentityShared/components/DBContext/EntitiesIdentityShared";
+import IRepositoryIdentityShared from "./components/Framework/IdentityShared/components/DBContext/IRepositoryIdentityShared";
+import RepositoryIdentityShared from "./components/Framework/IdentityShared/components/DBContext/RepositoryIdentityShared";
+import InterfacesIdentityShared from "./components/Framework/IdentityShared/components/Interfaces/InterfacesIdentityShared";
+import ModelsIdentityShared from "./components/Framework/IdentityShared/components/Models/Models";
+import ConstsIdentityShared from "./components/Framework/IdentityShared/components/ConstsIdentityShared";
 
 let theme = createTheme({
 	palette: {
@@ -337,6 +348,19 @@ function App() {
 							<Route path="contents/framework/packages/domain/services/logrepository" element={<LogRepository />} /> 
 							<Route path="contents/framework/packages/domain/services/logwriter" element={<LogWriter />} /> 
 							<Route path="contents/framework/packages/domain/services/redisconnectorhelper" element={<RedisConnectionHelper />} /> 
+					
+							<Route path="contents/framework/packages/identityshared" element={<IdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/attributes" element={<AttributesIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/dto" element={<DtoIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/exceptions" element={<ExceptionsIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/dbcontext" element={<IdentitySharedDbContext />} />
+							<Route path="contents/framework/packages/identityshared/dbcontext/entities" element={<EntitiesIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/dbcontext/irepository" element={<IRepositoryIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/dbcontext/repository" element={<RepositoryIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/interfaces" element={<InterfacesIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/models" element={<ModelsIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/consts" element={<ConstsIdentityShared />} />
+						
 						</Routes>
 						{
 							selectedItem.isReact ?

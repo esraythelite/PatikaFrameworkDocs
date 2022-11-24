@@ -299,7 +299,8 @@
 									"isGeneral": true,
 									"isReact": true,
 									"children": []
-								},{
+								},
+								{
 									"title": "Repository",
 									"author": "Saim Nasır",
 									"version": "1.0",
@@ -319,8 +320,7 @@
 							"status": 0,
 							"isGeneral": true,
 							"isReact": true,
-							"children": [								 
-							]
+							"children": []
 						},
 						{
 							"title": "Services",
@@ -339,8 +339,7 @@
 									"status": 0,
 									"isGeneral": true,
 									"isReact": true,
-									"children": [										
-									]
+									"children": []
 								},
 								{
 									"title": "GenericRepository",
@@ -350,8 +349,7 @@
 									"status": 0,
 									"isGeneral": true,
 									"isReact": true,
-									"children": [										
-									]
+									"children": []
 								},
 								{
 									"title": "Repository",
@@ -361,8 +359,7 @@
 									"status": 0,
 									"isGeneral": true,
 									"isReact": true,
-									"children": [										
-									]
+									"children": []
 								},
 								{
 									"title": "LogRepository",
@@ -372,8 +369,7 @@
 									"status": 0,
 									"isGeneral": true,
 									"isReact": true,
-									"children": [										
-									]
+									"children": []
 								},
 								{
 									"title": "LogWriter",
@@ -396,6 +392,118 @@
 									"children": []
 								}
 							]
+						}
+					]
+				},
+				{
+					"title": "Identity.Shared",
+					"author": "Saim Nasır",
+					"version": "1.0",
+					"link": "/contents/framework/packages/identityshared",
+					"status": 0,
+					"isGeneral": true,
+					"isReact": true,
+					"children": [
+						{
+							"title": "Attributes",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityshared/attributes",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "DTO",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityshared/dto",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Exceptions",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityshared/exceptions",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "DbContext",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityshared/dbcontext",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": [
+								{
+									"title": "Entities",
+									"author": "Saim Nasır",
+									"version": "1.0",
+									"link": "/contents/framework/packages/identityshared/DbContext/entities",
+									"status": 0,
+									"isGeneral": true,
+									"isReact": true,
+									"children": []
+								},
+								{
+									"title": "RepositoryInterfaces",
+									"author": "Saim Nasır",
+									"version": "1.0",
+									"link": "/contents/framework/packages/identityshared/DbContext/irepository",
+									"status": 0,
+									"isGeneral": true,
+									"isReact": true,
+									"children": []
+								},
+								{
+									"title": "Repository",
+									"author": "Saim Nasır",
+									"version": "1.0",
+									"link": "/contents/framework/packages/identityshared/DbContext/repository",
+									"status": 0,
+									"isGeneral": true,
+									"isReact": true,
+									"children": []
+								}
+							]
+						},
+						{
+							"title": "Interfaces",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityshared/interfaces",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Models",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityshared/models",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Consts",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityshared/consts",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
 						}
 					]
 				}
