@@ -1,8 +1,7 @@
 import { Box, Card, CardContent, CardHeader, Paper, Stack, Typography } from '@mui/material'
 import { purple } from '@mui/material/colors'
 import React from 'react'
-import Highlighter from '../../../../Highlighter'
-import ImageItem from '../../../../ImageItem'
+import DocPaper from '../../../../DocPaper' 
 
 const contents = [
   {
@@ -102,31 +101,18 @@ const contents = [
     ],
   }
 ]
-
+const header = 'Patika.Framework.Domain.Interfaces.UnitOfWork';
+const commonDetails = [ 
+    "UnitOfWork is used for cascading transactions.",
+    "If all transactions are applied as successfully then UnitOfWork will committed. ",
+    "Otherwise all applied transactions will be roll backed with exception message.",
+    "The interfaces below are using in repositories to handle cascading transactions.",
+    "You do not need to use all of them. ",
+    "Just use IUnitOfWorkHostInterface in application service to control cascading transactions.",
+]
 const Uow = () => {
   return (
-    <Stack spacing={2} direction='column'>
-      <Typography variant='h4' sx={{ mb: 2 }}>Patika.Domain.Interfaces.UnitOfWork</Typography>
-      <Typography variant='body1' sx={{ mb: 2 }}>
-        <Paper sx={{ mb: 2, p:2 }}>
-          UnitOfWork is used for cascading transactions. <br />
-          If all transactions are applied as successfully then UnitOfWork will committed. <br />
-          Otherwise all applied transactions will be roll backed with exception message..<br />
-          The interfaces below are using in repositories to handle cascading transactions.<br />
-          You do not need to use all of them. <br />
-          Just use IUnitOfWorkHostInterface in application service to control cascading transactions.<br />
-        </Paper>
-      </Typography>
-      {contents.sort((a, b) => (a.order - b.order)).map((content) => {
-        return (
-          content.type === 'code' ? <>
-            <Highlighter key={content.order} title={content.title} descriptions={content.descriptions} code={content.item} language={content.language} startingLineNumber={content.startingLineNumber} />
-          </>
-            :
-            <>  <ImageItem key={content.order} item={content.item}></ImageItem></>
-        )
-      })}
-    </Stack>
+    <DocPaper header={header} contents={contents} commonDetails = {commonDetails} />     
   )
-}
+} 
 export default Uow

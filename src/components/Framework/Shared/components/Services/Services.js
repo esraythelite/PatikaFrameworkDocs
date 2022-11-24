@@ -1,14 +1,57 @@
 import { Box, Card, CardContent, CardHeader, Paper, Stack, Typography } from '@mui/material'
-import { purple } from '@mui/material/colors'
-import React from 'react' 
- 
+import { grey, purple } from '@mui/material/colors'
+import React from 'react'
+import Tab from '@mui/material/Tab';
+import { TabContext, TabList, TabPanel } from '@mui/lab'    
+import HttpClientService from './HttpClientService';
+import InMemoryCacheService from './InMemoryCacheService';
+import NullLogWriter from './NullLogWriter'; 
+import Sha256Hasher from './Sha256Hasher';
 
 const Services = () => {
+
+  const [selectedTab, setSelectedTab] = React.useState('HttpClientService');
+  const handleChangeTab = (event, newValue) => {
+    setSelectedTab(newValue);
+  };
+
+  const width = '95%';
   return (
-    <Stack spacing={2} direction='column'>
-      <Typography variant='h4' sx={{ mb: 2 }}>Patika.Shared.Services</Typography>
-      <Typography variant='body1' sx={{ mb: 2 }}>Implementations of Interfaces and other services without interfaces</Typography>      
-    </Stack>
+    <Box
+      sx={{ width: '100%',   typography: 'body1' }}
+    >
+      <TabContext value={selectedTab}  >
+        <Box sx={{   position: "fixed", bgcolor: grey[50] , border: 2,   borderColor: 'divider'  }}>
+          <TabList
+            onChange={handleChangeTab}
+            //orientation="vertical" 
+              indicatorColor="primary"
+            sx={{ alignContent: 'center', overflow: 'visible' }}
+            selectionFollowsFocus
+          >
+            <Tab label='HttpClientService' value='HttpClientService' sx={{ alignContent: 'center' }} />
+            <Tab label='InMemoryCacheService' value='InMemoryCacheService' sx={{ alignContent: 'center' }} />  
+            <Tab label='NullLogWriter' value='NullLogWriter' sx={{ alignContent: 'center' }} />  
+            <Tab label='Sha256Hasher' value='Sha256Hasher' sx={{ alignContent: 'center' }} />   
+            
+          </TabList>
+
+        </Box>
+        <TabPanel value="HttpClientService" sx={{ width: width}}>
+          <HttpClientService />
+        </TabPanel>
+        <TabPanel value="InMemoryCacheService" sx={{ width: width}}>
+          <InMemoryCacheService />
+        </TabPanel>
+        <TabPanel value="NullLogWriter" sx={{ width: width }}>
+          <NullLogWriter />
+        </TabPanel>  
+        <TabPanel value="Sha256Hasher" sx={{ width: width }}>
+          <Sha256Hasher />
+        </TabPanel>   
+        
+      </TabContext>
+    </Box>
   )
 }
 

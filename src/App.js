@@ -44,8 +44,7 @@ import HttpClientService from "./components/Framework/Shared/components/Services
 import InMemoryCacheService from "./components/Framework/Shared/components/Services/InMemoryCacheService";
 import NullLogWriter from "./components/Framework/Shared/components/Services/NullLogWriter";
 import Sha256Hasher from "./components/Framework/Shared/components/Services/Sha256Hasher";
-import Domain from "./components/Framework/Domain/Domain";  
-import RepositoryInterface from "./components/Framework/Domain/components/Interfaces/RepositoryInterface";
+import Domain from "./components/Framework/Domain/Domain";   
 import Uow from "./components/Framework/Domain/components/Interfaces/Uow";
 import DomainInterfaces from "./components/Framework/Domain/components/Interfaces/DomainInterfaces"; 
 import LogDbContext from "./components/Framework/Domain/components/LogDbContext/LogDbContext";
@@ -56,6 +55,17 @@ import GenericRepository from "./components/Framework/Domain/components/Services
 import RedisConnectionHelper from "./components/Framework/Domain/components/Services/RedisConnectionHelper";
 import DomainRepository from "./components/Framework/Domain/components/Services/DomainRepository";
 import LogWriter from "./components/Framework/Domain/components/Services/LogWriter";
+import IdentityShared from "./components/Framework/IdentityShared/IdentityShared";
+import AttributesIdentityShared from "./components/Framework/IdentityShared/components/Attributes/AttributesIdentityShared";
+import DtoIdentityShared from "./components/Framework/IdentityShared/components/Dto/DtoIdentityShared";
+import ExceptionsIdentityShared from "./components/Framework/IdentityShared/components/Exceptions/ExceptionsIdentityShared";
+import IdentitySharedDbContext from "./components/Framework/IdentityShared/components/DBContext/IdentitySharedDbContext";
+import EntitiesIdentityShared from "./components/Framework/IdentityShared/components/DBContext/EntitiesIdentityShared";
+import IRepositoryIdentityShared from "./components/Framework/IdentityShared/components/DBContext/IRepositoryIdentityShared";
+import RepositoryIdentityShared from "./components/Framework/IdentityShared/components/DBContext/RepositoryIdentityShared";
+import InterfacesIdentityShared from "./components/Framework/IdentityShared/components/Interfaces/InterfacesIdentityShared";
+import ModelsIdentityShared from "./components/Framework/IdentityShared/components/Models/Models";
+import ConstsIdentityShared from "./components/Framework/IdentityShared/components/ConstsIdentityShared";
 
 let theme = createTheme({
 	palette: {
@@ -283,7 +293,7 @@ function App() {
 					/>
 					<Box
 						component="main"
-						sx={{ flex: 1, py: 6, px: 4, bgcolor: "#eaeff1" }}
+						sx={{ flex: 1, py: 1, px: 1, bgcolor: "#eaeff1" }}
 					>
 						<Routes>
 							<Route path="/home" element={<Home />} />
@@ -324,8 +334,7 @@ function App() {
 							<Route path="contents/framework/packages/shared/services/sha256Hasher" element={<Sha256Hasher />} />
 
 							<Route path="contents/framework/packages/domain" element={<Domain />} />
-							<Route path="contents/framework/packages/domain/interfaces" element={<DomainInterfaces />} /> 
-							<Route path="contents/framework/packages/domain/interfaces/repository" element={<RepositoryInterface />} /> 
+							<Route path="contents/framework/packages/domain/interfaces" element={<DomainInterfaces />} />  
 							<Route path="contents/framework/packages/domain/interfaces/uow" element={<Uow />} /> 
 							 
 							<Route path="contents/framework/packages/domain/logdbcontext" element={<LogDbContext />} /> 
@@ -337,6 +346,19 @@ function App() {
 							<Route path="contents/framework/packages/domain/services/logrepository" element={<LogRepository />} /> 
 							<Route path="contents/framework/packages/domain/services/logwriter" element={<LogWriter />} /> 
 							<Route path="contents/framework/packages/domain/services/redisconnectorhelper" element={<RedisConnectionHelper />} /> 
+					
+							<Route path="contents/framework/packages/identityshared" element={<IdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/attributes" element={<AttributesIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/dto" element={<DtoIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/exceptions" element={<ExceptionsIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/dbcontext" element={<IdentitySharedDbContext />} />
+							<Route path="contents/framework/packages/identityshared/dbcontext/entities" element={<EntitiesIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/dbcontext/irepository" element={<IRepositoryIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/dbcontext/repository" element={<RepositoryIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/interfaces" element={<InterfacesIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/models" element={<ModelsIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/consts" element={<ConstsIdentityShared />} />
+						
 						</Routes>
 						{
 							selectedItem.isReact ?

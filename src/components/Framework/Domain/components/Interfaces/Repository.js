@@ -1,8 +1,7 @@
 import { Box, Card, CardContent, CardHeader, Paper, Stack, Typography } from '@mui/material'
 import { purple } from '@mui/material/colors'
 import React from 'react'
-import Highlighter from '../../../../Highlighter'
-import ImageItem from '../../../../ImageItem'
+import DocPaper from '../../../../DocPaper' 
 
 const contents = [
   {
@@ -144,27 +143,10 @@ const contents = [
     ],
   }
 ]
-
-const RepositoryInterface = () => {
+const header = 'Patika.Framework.Domain.Interfaces.Repository';
+const Repository = () => {
   return (
-    <Stack spacing={2} direction='column'>
-      <Typography variant='h4' sx={{ mb: 2 }}>Patika.Domain.Interfaces.Repository</Typography>
-      <Typography variant='body1' sx={{ mb: 2 }}>
-        <Paper sx={{ mb: 2, p:2 }}>
-        CUD and Query repositories are seperaated. 
-        This repository interface help us to to CUD actions and Query.
-        </Paper>
-      </Typography>
-      {contents.sort((a, b) => (a.order - b.order)).map((content) => {
-        return (
-          content.type === 'code' ? <>
-            <Highlighter key={content.order} title={content.title} descriptions={content.descriptions} code={content.item} language={content.language} startingLineNumber={content.startingLineNumber} />
-          </>
-            :
-            <>  <ImageItem key={content.order} item={content.item}></ImageItem></>
-        )
-      })}
-    </Stack>
+    <DocPaper header={header} contents={contents} />     
   )
 } 
-export default RepositoryInterface
+export default Repository
