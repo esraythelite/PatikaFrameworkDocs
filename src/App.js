@@ -66,6 +66,9 @@ import RepositoryIdentityShared from "./components/Framework/IdentityShared/comp
 import InterfacesIdentityShared from "./components/Framework/IdentityShared/components/Interfaces/InterfacesIdentityShared";
 import ModelsIdentityShared from "./components/Framework/IdentityShared/components/Models/Models";
 import ConstsIdentityShared from "./components/Framework/IdentityShared/components/ConstsIdentityShared";
+import ApplicationContracts from "./components/Framework/ApplicationContracts/ApplicationContracts";
+import InterfacesAppContracts from "./components/Framework/ApplicationContracts/components/Interfaces/InterfacesAppContracts";
+import MapperAppContracts from "./components/Framework/ApplicationContracts/components/Mapper/MapperAppContracts";
 
 let theme = createTheme({
 	palette: {
@@ -310,55 +313,36 @@ function App() {
 							<Route path="contents/framework/packages/shared" element={<Shared />} />
 							<Route path="contents/framework/packages/shared/consts" element={<Consts />} />
 							<Route path="contents/framework/packages/shared/controllers" element={<Controllers />} />
-							<Route path="contents/framework/packages/shared/dto" element={<Dto />} />
-							<Route path="contents/framework/packages/shared/dto/identity" element={<Identity />} />
+							<Route path="contents/framework/packages/shared/dto" element={<Dto />} /> 
 							<Route path="contents/framework/packages/shared/entities" element={<Entities />} />
 							<Route path="contents/framework/packages/shared/enums" element={<Enums />} />
 							<Route path="contents/framework/packages/shared/events" element={<Events />} />
 							<Route path="contents/framework/packages/shared/exceptions" element={<Exceptions />} />
 
-							<Route path="contents/framework/packages/shared/extensions" element={<Extensions />} />
-							<Route path="contents/framework/packages/shared/extensions/enumhelper" element={<EnumHelper />} />
-							<Route path="contents/framework/packages/shared/extensions/flagEnumExtensions" element={<FlagEnumExtensions />} />
-							<Route path="contents/framework/packages/shared/extensions/responseExtensions" element={<ResponseExtensions />} />
-							<Route path="contents/framework/packages/shared/extensions/generalTypeExtensions" element={<GeneralTypeExtensions />} />
-							<Route path="contents/framework/packages/shared/extensions/linqExtensions" element={<LinqExtensions />} />
-							<Route path="contents/framework/packages/shared/extensions/logWriterExtensions" element={<LogWriterExtensions />} />
+							<Route path="contents/framework/packages/shared/extensions" element={<Extensions />} /> 
 
 							<Route path="contents/framework/packages/shared/interfaces" element={<Interfaces />} />
 							<Route path="contents/framework/packages/shared/mapper" element={<Mapper />} />
-							<Route path="contents/framework/packages/shared/services" element={<Services />} />
-							<Route path="contents/framework/packages/shared/services/httpClient" element={<HttpClientService />} />
-							<Route path="contents/framework/packages/shared/services/inMemoryCache" element={<InMemoryCacheService />} />
-							<Route path="contents/framework/packages/shared/services/nullLogWriter" element={<NullLogWriter />} />
-							<Route path="contents/framework/packages/shared/services/sha256Hasher" element={<Sha256Hasher />} />
+							<Route path="contents/framework/packages/shared/services" element={<Services />} /> 
 
 							<Route path="contents/framework/packages/domain" element={<Domain />} />
-							<Route path="contents/framework/packages/domain/interfaces" element={<DomainInterfaces />} />  
-							<Route path="contents/framework/packages/domain/interfaces/uow" element={<Uow />} /> 
+							<Route path="contents/framework/packages/domain/interfaces" element={<DomainInterfaces />} />   
 							 
 							<Route path="contents/framework/packages/domain/logdbcontext" element={<LogDbContext />} /> 
 
-							<Route path="contents/framework/packages/domain/services" element={<DomainServices />} /> 
-							<Route path="contents/framework/packages/domain/services/dbcontextWithuow" element={<DbContextWithUOW />} /> 
-							<Route path="contents/framework/packages/domain/services/genericrepository" element={<GenericRepository />} /> 
-							<Route path="contents/framework/packages/domain/services/repository" element={<DomainRepository />} /> 
-							<Route path="contents/framework/packages/domain/services/logrepository" element={<LogRepository />} /> 
-							<Route path="contents/framework/packages/domain/services/logwriter" element={<LogWriter />} /> 
-							<Route path="contents/framework/packages/domain/services/redisconnectorhelper" element={<RedisConnectionHelper />} /> 
-					
+							<Route path="contents/framework/packages/domain/services" element={<DomainServices />} />  
+
 							<Route path="contents/framework/packages/identityshared" element={<IdentityShared />} />
 							<Route path="contents/framework/packages/identityshared/attributes" element={<AttributesIdentityShared />} />
 							<Route path="contents/framework/packages/identityshared/dto" element={<DtoIdentityShared />} />
 							<Route path="contents/framework/packages/identityshared/exceptions" element={<ExceptionsIdentityShared />} />
-							<Route path="contents/framework/packages/identityshared/dbcontext" element={<IdentitySharedDbContext />} />
-							<Route path="contents/framework/packages/identityshared/dbcontext/entities" element={<EntitiesIdentityShared />} />
-							<Route path="contents/framework/packages/identityshared/dbcontext/irepository" element={<IRepositoryIdentityShared />} />
-							<Route path="contents/framework/packages/identityshared/dbcontext/repository" element={<RepositoryIdentityShared />} />
-							<Route path="contents/framework/packages/identityshared/interfaces" element={<InterfacesIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/dbcontext" element={<IdentitySharedDbContext />} />							<Route path="contents/framework/packages/identityshared/interfaces" element={<InterfacesIdentityShared />} />
 							<Route path="contents/framework/packages/identityshared/models" element={<ModelsIdentityShared />} />
-							<Route path="contents/framework/packages/identityshared/consts" element={<ConstsIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/consts" element={<ConstsIdentityShared />} />						
 						
+							<Route path="contents/framework/packages/applicationcontracts" element={<ApplicationContracts />} />
+							<Route path="contents/framework/packages/applicationcontracts/interfaces" element={<InterfacesAppContracts />} />
+							<Route path="contents/framework/packages/applicationcontracts/mapper" element={<MapperAppContracts />} />
 						</Routes>
 						{
 							selectedItem.isReact ?
