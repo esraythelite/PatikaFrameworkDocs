@@ -17,7 +17,7 @@ const Highlighter = ({ title, descriptions, code, language = 'csharp', startingL
                 }
                 <SyntaxHighlighter
                     customStyle={{
-                        maxWidth: '100%',
+                        // maxWidth: '70%',
                         maxHeight : '400px'
                     }}
                     children={code}

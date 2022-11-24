@@ -44,6 +44,18 @@ import HttpClientService from "./components/Framework/Shared/components/Services
 import InMemoryCacheService from "./components/Framework/Shared/components/Services/InMemoryCacheService";
 import NullLogWriter from "./components/Framework/Shared/components/Services/NullLogWriter";
 import Sha256Hasher from "./components/Framework/Shared/components/Services/Sha256Hasher";
+import Domain from "./components/Framework/Domain/Domain";  
+import RepositoryInterface from "./components/Framework/Domain/components/Interfaces/RepositoryInterface";
+import Uow from "./components/Framework/Domain/components/Interfaces/Uow";
+import DomainInterfaces from "./components/Framework/Domain/components/Interfaces/DomainInterfaces"; 
+import LogDbContext from "./components/Framework/Domain/components/LogDbContext/LogDbContext";
+import LogRepository from "./components/Framework/Domain/components/Services/LogRepository"; 
+import DomainServices from "./components/Framework/Domain/components/Services/DomainServices";
+import DbContextWithUOW from "./components/Framework/Domain/components/Services/DbContextWithUOW";
+import GenericRepository from "./components/Framework/Domain/components/Services/GenericRepository";
+import RedisConnectionHelper from "./components/Framework/Domain/components/Services/RedisConnectionHelper";
+import DomainRepository from "./components/Framework/Domain/components/Services/DomainRepository";
+import LogWriter from "./components/Framework/Domain/components/Services/LogWriter";
 
 let theme = createTheme({
 	palette: {
@@ -227,7 +239,7 @@ function App() {
 	useEffect(() => {
 		axios.get("/menu.json").then((data) => {
 			setMenu(data.data);
-		});		
+		});
 	}, [selectedItem]);
 
 	const [mobileOpen, setMobileOpen] = useState(false);
@@ -282,8 +294,9 @@ function App() {
 							<Route path="contents/authserver/external/google" element={<GoogleAuth />} />
 							<Route path="contents/authserver/external/facebook" element={<FacebookAuth />} />
 							<Route path="contents/authserver/external/okta" element={<OktaAuth />} />
-							
+
 							<Route path="contents/framework/packages" element={<Framework />} />
+
 							<Route path="contents/framework/packages/shared" element={<Shared />} />
 							<Route path="contents/framework/packages/shared/consts" element={<Consts />} />
 							<Route path="contents/framework/packages/shared/controllers" element={<Controllers />} />
@@ -295,22 +308,35 @@ function App() {
 							<Route path="contents/framework/packages/shared/exceptions" element={<Exceptions />} />
 
 							<Route path="contents/framework/packages/shared/extensions" element={<Extensions />} />
-							<Route path="contents/framework/packages/shared/extensions/enumhelper" element={<EnumHelper />} /> 
-							<Route path="contents/framework/packages/shared/extensions/flagEnumExtensions" element={<FlagEnumExtensions />} /> 
-							<Route path="contents/framework/packages/shared/extensions/responseExtensions" element={<ResponseExtensions />} /> 
-							<Route path="contents/framework/packages/shared/extensions/generalTypeExtensions" element={<GeneralTypeExtensions />} /> 
-							<Route path="contents/framework/packages/shared/extensions/linqExtensions" element={<LinqExtensions />} /> 
-							<Route path="contents/framework/packages/shared/extensions/logWriterExtensions" element={<LogWriterExtensions />} /> 
-							
+							<Route path="contents/framework/packages/shared/extensions/enumhelper" element={<EnumHelper />} />
+							<Route path="contents/framework/packages/shared/extensions/flagEnumExtensions" element={<FlagEnumExtensions />} />
+							<Route path="contents/framework/packages/shared/extensions/responseExtensions" element={<ResponseExtensions />} />
+							<Route path="contents/framework/packages/shared/extensions/generalTypeExtensions" element={<GeneralTypeExtensions />} />
+							<Route path="contents/framework/packages/shared/extensions/linqExtensions" element={<LinqExtensions />} />
+							<Route path="contents/framework/packages/shared/extensions/logWriterExtensions" element={<LogWriterExtensions />} />
+
 							<Route path="contents/framework/packages/shared/interfaces" element={<Interfaces />} />
 							<Route path="contents/framework/packages/shared/mapper" element={<Mapper />} />
-						
 							<Route path="contents/framework/packages/shared/services" element={<Services />} />
 							<Route path="contents/framework/packages/shared/services/httpClient" element={<HttpClientService />} />
 							<Route path="contents/framework/packages/shared/services/inMemoryCache" element={<InMemoryCacheService />} />
 							<Route path="contents/framework/packages/shared/services/nullLogWriter" element={<NullLogWriter />} />
-							<Route path="contents/framework/packages/shared/services/sha256Hasher" element={<Sha256Hasher />} />							
-							
+							<Route path="contents/framework/packages/shared/services/sha256Hasher" element={<Sha256Hasher />} />
+
+							<Route path="contents/framework/packages/domain" element={<Domain />} />
+							<Route path="contents/framework/packages/domain/interfaces" element={<DomainInterfaces />} /> 
+							<Route path="contents/framework/packages/domain/interfaces/repository" element={<RepositoryInterface />} /> 
+							<Route path="contents/framework/packages/domain/interfaces/uow" element={<Uow />} /> 
+							 
+							<Route path="contents/framework/packages/domain/logdbcontext" element={<LogDbContext />} /> 
+
+							<Route path="contents/framework/packages/domain/services" element={<DomainServices />} /> 
+							<Route path="contents/framework/packages/domain/services/dbcontextWithuow" element={<DbContextWithUOW />} /> 
+							<Route path="contents/framework/packages/domain/services/genericrepository" element={<GenericRepository />} /> 
+							<Route path="contents/framework/packages/domain/services/repository" element={<DomainRepository />} /> 
+							<Route path="contents/framework/packages/domain/services/logrepository" element={<LogRepository />} /> 
+							<Route path="contents/framework/packages/domain/services/logwriter" element={<LogWriter />} /> 
+							<Route path="contents/framework/packages/domain/services/redisconnectorhelper" element={<RedisConnectionHelper />} /> 
 						</Routes>
 						{
 							selectedItem.isReact ?
