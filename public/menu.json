@@ -75,18 +75,7 @@
 							"status": 0,
 							"isGeneral": true,
 							"isReact": true,
-							"children": [
-								{
-									"title": "Identity DTO's",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/shared/dto/identity",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								}
-							]
+							"children": []
 						},
 						{
 							"title": "Entities",
@@ -136,68 +125,7 @@
 							"status": 0,
 							"isGeneral": true,
 							"isReact": true,
-							"children": [
-								{
-									"title": "EnumHelper",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/shared/extensions/enumhelper",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								},
-								{
-									"title": "FlagEnum",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/shared/extensions/flagEnumExtensions",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								},
-								{
-									"title": "GeneralResponseDTO",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/shared/extensions/responseExtensions",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								},
-								{
-									"title": "GeneralType",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/shared/extensions/generalTypeExtensions",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								},
-								{
-									"title": "Linq",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/shared/extensions/linqExtensions",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								},
-								{
-									"title": "LogWriter",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/shared/extensions/logWriterExtensions",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								}
-							]
+							"children": []
 						},
 						{
 							"title": "Interfaces",
@@ -227,48 +155,7 @@
 							"status": 0,
 							"isGeneral": true,
 							"isReact": true,
-							"children": [
-								{
-									"title": "HttpClientService",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/shared/services/httpClient",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								},
-								{
-									"title": "InMemoryCacheService",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/shared/services/inMemoryCache",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								},
-								{
-									"title": "NullLogWriter",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/shared/services/nullLogWriter",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								},
-								{
-									"title": "Sha256Hasher",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/shared/services/sha256Hasher",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								}
-							]
+							"children": []
 						}
 					]
 				},
@@ -289,28 +176,7 @@
 							"status": 0,
 							"isGeneral": true,
 							"isReact": true,
-							"children": [
-								{
-									"title": "Unit of Work",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/domain/interfaces/uow",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								},
-								{
-									"title": "Repository",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/domain/interfaces/repository",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								}
-							]
+							"children": []
 						},
 						{
 							"title": "LogDbContext",
@@ -330,68 +196,7 @@
 							"status": 0,
 							"isGeneral": true,
 							"isReact": true,
-							"children": [
-								{
-									"title": "DbContextWithUoW",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/domain/services/dbcontextWithuow",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								},
-								{
-									"title": "GenericRepository",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/domain/services/genericrepository",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								},
-								{
-									"title": "Repository",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/domain/services/repository",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								},
-								{
-									"title": "LogRepository",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/domain/services/logrepository",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								},
-								{
-									"title": "LogWriter",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/domain/services/logwriter",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								},
-								{
-									"title": "RedisConnectorHelper",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/domain/services/redisconnectorhelper",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								}
-							]
+							"children": []
 						}
 					]
 				},
@@ -442,38 +247,7 @@
 							"status": 0,
 							"isGeneral": true,
 							"isReact": true,
-							"children": [
-								{
-									"title": "Entities",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/identityshared/DbContext/entities",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								},
-								{
-									"title": "RepositoryInterfaces",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/identityshared/DbContext/irepository",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								},
-								{
-									"title": "Repository",
-									"author": "Saim Nasır",
-									"version": "1.0",
-									"link": "/contents/framework/packages/identityshared/DbContext/repository",
-									"status": 0,
-									"isGeneral": true,
-									"isReact": true,
-									"children": []
-								}
-							]
+							"children": []
 						},
 						{
 							"title": "Interfaces",

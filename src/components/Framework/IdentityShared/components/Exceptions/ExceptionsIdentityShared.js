@@ -1,6 +1,7 @@
 import { Box, Card, CardContent, CardHeader, Paper, Stack, Typography } from '@mui/material'
 import { purple } from '@mui/material/colors'
 import React from 'react'
+import DocPaper from '../../../../DocPaper'
 import Highlighter from '../../../../Highlighter'
 import ImageItem from '../../../../ImageItem'
 
@@ -24,7 +25,7 @@ const contents = [
     descriptions: [
       "Throw this exception if user account not confirmed yet"
     ],
-  }, 
+  },
   {
     order: 2,
     type: 'code',
@@ -46,7 +47,7 @@ const contents = [
       "Remember we supports machine to machine authorization.",
       "For this purpose, application must be registered"
     ],
-  }, 
+  },
   {
     order: 3,
     type: 'code',
@@ -66,7 +67,7 @@ const contents = [
     descriptions: [
       "Throw this exception user creation failed on user registration."
     ],
-  }, 
+  },
   {
     order: 4,
     type: 'code',
@@ -86,7 +87,7 @@ const contents = [
     descriptions: [
       "Throw this exception user instance creation failed on user registration."
     ],
-  }, 
+  },
   {
     order: 5,
     type: 'code',
@@ -107,7 +108,7 @@ const contents = [
       "Throw this exception if callback is not defined in external authentication.",
       "External authentication is login with social accounts, okta etc."
     ],
-  }, 
+  },
   {
     order: 6,
     type: 'code',
@@ -128,7 +129,7 @@ const contents = [
       "Throw this exception if external login failed.",
       "External authentication is login with social accounts, okta etc."
     ],
-  }, 
+  },
   {
     order: 7,
     type: 'code',
@@ -149,7 +150,7 @@ const contents = [
       "Throw this exception if external provider response with errors",
       "External authentication is login with social accounts, okta etc."
     ],
-  }, 
+  },
   {
     order: 8,
     type: 'code',
@@ -167,9 +168,9 @@ const contents = [
         }
     }`,
     descriptions: [
-      "Throw this exception in authentication if there is no special exception", 
+      "Throw this exception in authentication if there is no special exception",
     ],
-  }, 
+  },
   {
     order: 9,
     type: 'code',
@@ -187,9 +188,9 @@ const contents = [
         }
     }`,
     descriptions: [
-      "Throw this exception when getting user principals from expired token", 
+      "Throw this exception when getting user principals from expired token",
     ],
-  }, 
+  },
   {
     order: 10,
     type: 'code',
@@ -207,9 +208,9 @@ const contents = [
         }
     }    `,
     descriptions: [
-      "Throw this exception when getting user claims failed", 
+      "Throw this exception when getting user claims failed",
     ],
-  }, 
+  },
   {
     order: 11,
     type: 'code',
@@ -227,9 +228,9 @@ const contents = [
         }
     }`,
     descriptions: [
-      "Throw this exception when user token is not valid", 
+      "Throw this exception when user token is not valid",
     ],
-  }, 
+  },
   {
     order: 12,
     type: 'code',
@@ -247,9 +248,9 @@ const contents = [
         }
     }`,
     descriptions: [
-      "Throw this exception when user refresh token is not valid", 
+      "Throw this exception when user refresh token is not valid",
     ],
-  }, 
+  },
   {
     order: 13,
     type: 'code',
@@ -267,9 +268,9 @@ const contents = [
         }
     }`,
     descriptions: [
-      "Throw this exception when user password is not appriate with required format (regex etc.)", 
+      "Throw this exception when user password is not appriate with required format (regex etc.)",
     ],
-  }, 
+  },
   {
     order: 14,
     type: 'code',
@@ -287,9 +288,9 @@ const contents = [
         }
     }`,
     descriptions: [
-      "Throw this exception when user login with password fails", 
+      "Throw this exception when user login with password fails",
     ],
-  }, 
+  },
   {
     order: 15,
     type: 'code',
@@ -307,9 +308,9 @@ const contents = [
         }
     }`,
     descriptions: [
-      "Throw this exception when setting username fails", 
+      "Throw this exception when setting username fails",
     ],
-  }, 
+  },
   {
     order: 16,
     type: 'code',
@@ -328,9 +329,9 @@ const contents = [
         }
     }`,
     descriptions: [
-      "Throw this exception when user is not authorized", 
+      "Throw this exception when user is not authorized",
     ],
-  }, 
+  },
   {
     order: 17,
     type: 'code',
@@ -348,9 +349,9 @@ const contents = [
         }
     }`,
     descriptions: [
-      "Throw this exception when user creation on registration process fails", 
+      "Throw this exception when user creation on registration process fails",
     ],
-  }, 
+  },
   {
     order: 18,
     type: 'code',
@@ -368,9 +369,9 @@ const contents = [
         }
     }`,
     descriptions: [
-      "Throw this exception if user is locked", 
+      "Throw this exception if user is locked",
     ],
-  }, 
+  },
   {
     order: 19,
     type: 'code',
@@ -388,9 +389,9 @@ const contents = [
         }
     }`,
     descriptions: [
-      "Throw this exception if userManager does not support Email", 
+      "Throw this exception if userManager does not support Email",
     ],
-  }, 
+  },
   {
     order: 20,
     type: 'code',
@@ -408,9 +409,9 @@ const contents = [
         }
     }`,
     descriptions: [
-      "Throw this exception when user is not found", 
+      "Throw this exception when user is not found",
     ],
-  }, 
+  },
   {
     order: 21,
     type: 'code',
@@ -428,9 +429,9 @@ const contents = [
         }
     }`,
     descriptions: [
-      "Throw this exception when userroles is not match with required role", 
+      "Throw this exception when userroles is not match with required role",
     ],
-  }, 
+  },
   {
     order: 22,
     type: 'code',
@@ -448,34 +449,22 @@ const contents = [
         }
     }`,
     descriptions: [
-      "Throw this exception when username and/or password is wrong in login process", 
+      "Throw this exception when username and/or password is wrong in login process",
     ],
   }
 ]
 
+const header = 'Patika.Framework.Identity.Shared.Exceptions';
+const commonDetails = [
+  "Exception base classes are written in Patika.Framework.Shared package.",
+  "All exceptions of this package is inheried from BaseApplicationException.",
+  "Exception.Code and Exception.Message is the same and equals to exception class full name.",
+  "FullName is Interface + ClassName.",
+  "This full name will be localized as user friendly exception message.",
+]
 const ExceptionsIdentityShared = () => {
   return (
-    <Stack spacing={2} direction='column'>
-      <Typography variant='h4' sx={{ mb: 2 }}>Patika.Framework.Identity.Shared.Attributes</Typography>
-      <Typography variant='body1' sx={{ mb: 2 }}>
-        <Paper sx={{ mb: 2, p:2 }}>
-          Exception base classes are written in Patika.Framework.Shared package. <br />
-          All exceptions of this package is inheried from BaseApplicationException <br />
-          Exception.Code and Exception.Message is the same and equals to exception class full name.<br />
-          FullName is Interface + ClassName.<br />
-          This full name will be localized as user friendly exception message.
-        </Paper>
-      </Typography>
-      {contents.sort((a, b) => (a.order - b.order)).map((content) => {
-        return (
-          content.type === 'code' ? <>
-            <Highlighter key={content.order} title={content.title} descriptions={content.descriptions} code={content.item} language={content.language} startingLineNumber={content.startingLineNumber} />
-          </>
-            :
-            <>  <ImageItem key={content.order} item={content.item}></ImageItem></>
-        )
-      })}
-    </Stack>
+    <DocPaper header={header} contents={contents} commonDetails={commonDetails} />
   )
-}
+} 
 export default ExceptionsIdentityShared

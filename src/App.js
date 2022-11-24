@@ -44,8 +44,7 @@ import HttpClientService from "./components/Framework/Shared/components/Services
 import InMemoryCacheService from "./components/Framework/Shared/components/Services/InMemoryCacheService";
 import NullLogWriter from "./components/Framework/Shared/components/Services/NullLogWriter";
 import Sha256Hasher from "./components/Framework/Shared/components/Services/Sha256Hasher";
-import Domain from "./components/Framework/Domain/Domain";  
-import RepositoryInterface from "./components/Framework/Domain/components/Interfaces/RepositoryInterface";
+import Domain from "./components/Framework/Domain/Domain";   
 import Uow from "./components/Framework/Domain/components/Interfaces/Uow";
 import DomainInterfaces from "./components/Framework/Domain/components/Interfaces/DomainInterfaces"; 
 import LogDbContext from "./components/Framework/Domain/components/LogDbContext/LogDbContext";
@@ -294,7 +293,7 @@ function App() {
 					/>
 					<Box
 						component="main"
-						sx={{ flex: 1, py: 6, px: 4, bgcolor: "#eaeff1" }}
+						sx={{ flex: 1, py: 1, px: 1, bgcolor: "#eaeff1" }}
 					>
 						<Routes>
 							<Route path="/home" element={<Home />} />
@@ -335,8 +334,7 @@ function App() {
 							<Route path="contents/framework/packages/shared/services/sha256Hasher" element={<Sha256Hasher />} />
 
 							<Route path="contents/framework/packages/domain" element={<Domain />} />
-							<Route path="contents/framework/packages/domain/interfaces" element={<DomainInterfaces />} /> 
-							<Route path="contents/framework/packages/domain/interfaces/repository" element={<RepositoryInterface />} /> 
+							<Route path="contents/framework/packages/domain/interfaces" element={<DomainInterfaces />} />  
 							<Route path="contents/framework/packages/domain/interfaces/uow" element={<Uow />} /> 
 							 
 							<Route path="contents/framework/packages/domain/logdbcontext" element={<LogDbContext />} /> 
