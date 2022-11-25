@@ -44,11 +44,11 @@ import HttpClientService from "./components/Framework/Shared/components/Services
 import InMemoryCacheService from "./components/Framework/Shared/components/Services/InMemoryCacheService";
 import NullLogWriter from "./components/Framework/Shared/components/Services/NullLogWriter";
 import Sha256Hasher from "./components/Framework/Shared/components/Services/Sha256Hasher";
-import Domain from "./components/Framework/Domain/Domain";   
+import Domain from "./components/Framework/Domain/Domain";
 import Uow from "./components/Framework/Domain/components/Interfaces/Uow";
-import DomainInterfaces from "./components/Framework/Domain/components/Interfaces/DomainInterfaces"; 
+import DomainInterfaces from "./components/Framework/Domain/components/Interfaces/DomainInterfaces";
 import LogDbContext from "./components/Framework/Domain/components/LogDbContext/LogDbContext";
-import LogRepository from "./components/Framework/Domain/components/Services/LogRepository"; 
+import LogRepository from "./components/Framework/Domain/components/Services/LogRepository";
 import DomainServices from "./components/Framework/Domain/components/Services/DomainServices";
 import DbContextWithUOW from "./components/Framework/Domain/components/Services/DbContextWithUOW";
 import GenericRepository from "./components/Framework/Domain/components/Services/GenericRepository";
@@ -79,6 +79,8 @@ import JwtTokenModels from "./components/Framework/JwtToken/JwtTokenModels";
 import JwtTokenMiddlewares from "./components/Framework/JwtToken/JwtTokenMiddlewares";
 import JwtTokenExtensions from "./components/Framework/JwtToken/JwtTokenExtensions";
 import JwtTokenExceptions from "./components/Framework/JwtToken/JwtTokenExceptions";
+import JwtAuthProvider from "./components/Framework/JwtAuthProvider/JwtAuthProvider";
+import JwtAuthProviderExtensions from "./components/Framework/JwtAuthProvider/JwtAuthProviderExtensions";
 
 let theme = createTheme({
 	palette: {
@@ -323,24 +325,24 @@ function App() {
 							<Route path="contents/framework/packages/shared" element={<Shared />} />
 							<Route path="contents/framework/packages/shared/consts" element={<Consts />} />
 							<Route path="contents/framework/packages/shared/controllers" element={<Controllers />} />
-							<Route path="contents/framework/packages/shared/dto" element={<Dto />} /> 
+							<Route path="contents/framework/packages/shared/dto" element={<Dto />} />
 							<Route path="contents/framework/packages/shared/entities" element={<Entities />} />
 							<Route path="contents/framework/packages/shared/enums" element={<Enums />} />
 							<Route path="contents/framework/packages/shared/events" element={<Events />} />
 							<Route path="contents/framework/packages/shared/exceptions" element={<Exceptions />} />
 
-							<Route path="contents/framework/packages/shared/extensions" element={<Extensions />} /> 
+							<Route path="contents/framework/packages/shared/extensions" element={<Extensions />} />
 
 							<Route path="contents/framework/packages/shared/interfaces" element={<Interfaces />} />
 							<Route path="contents/framework/packages/shared/mapper" element={<Mapper />} />
-							<Route path="contents/framework/packages/shared/services" element={<Services />} /> 
+							<Route path="contents/framework/packages/shared/services" element={<Services />} />
 
 							<Route path="contents/framework/packages/domain" element={<Domain />} />
-							<Route path="contents/framework/packages/domain/interfaces" element={<DomainInterfaces />} />   
-							 
-							<Route path="contents/framework/packages/domain/logdbcontext" element={<LogDbContext />} /> 
+							<Route path="contents/framework/packages/domain/interfaces" element={<DomainInterfaces />} />
 
-							<Route path="contents/framework/packages/domain/services" element={<DomainServices />} />  
+							<Route path="contents/framework/packages/domain/logdbcontext" element={<LogDbContext />} />
+
+							<Route path="contents/framework/packages/domain/services" element={<DomainServices />} />
 
 							<Route path="contents/framework/packages/identityshared" element={<IdentityShared />} />
 							<Route path="contents/framework/packages/identityshared/attributes" element={<AttributesIdentityShared />} />
@@ -348,12 +350,12 @@ function App() {
 							<Route path="contents/framework/packages/identityshared/exceptions" element={<ExceptionsIdentityShared />} />
 							<Route path="contents/framework/packages/identityshared/dbcontext" element={<IdentitySharedDbContext />} />							<Route path="contents/framework/packages/identityshared/interfaces" element={<InterfacesIdentityShared />} />
 							<Route path="contents/framework/packages/identityshared/models" element={<ModelsIdentityShared />} />
-							<Route path="contents/framework/packages/identityshared/consts" element={<ConstsIdentityShared />} />						
-						
+							<Route path="contents/framework/packages/identityshared/consts" element={<ConstsIdentityShared />} />
+
 							<Route path="contents/framework/packages/applicationcontracts" element={<ApplicationContracts />} />
 							<Route path="contents/framework/packages/applicationcontracts/interfaces" element={<InterfacesAppContracts />} />
 							<Route path="contents/framework/packages/applicationcontracts/mapper" element={<MapperAppContracts />} />
-					
+
 							<Route path="contents/framework/packages/application" element={<Application />} />
 							<Route path="contents/framework/packages/application/services" element={<ServicesApplication />} />
 							<Route path="contents/framework/packages/application/mapper" element={<MapperApplication />} />
@@ -365,6 +367,10 @@ function App() {
 							<Route path="contents/framework/packages/identityjwttoken/middlewares" element={<JwtTokenMiddlewares />} />
 							<Route path="contents/framework/packages/identityjwttoken/extensions" element={<JwtTokenExtensions />} />
 							<Route path="contents/framework/packages/identityjwttoken/exceptions" element={<JwtTokenExceptions />} />
+
+
+							<Route path="contents/framework/packages/identityjwtauthprovider" element={<JwtAuthProvider />} />
+							<Route path="contents/framework/packages/identityjwtauthprovider/extensions" element={<JwtAuthProviderExtensions />} />
 						</Routes>
 						{
 							selectedItem.isReact ?
