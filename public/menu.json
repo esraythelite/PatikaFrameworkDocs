@@ -344,7 +344,7 @@
 					]
 				},
 				{
-					"title": "IdentityJwtToken",
+					"title": "Identity.JwtToken",
 					"author": "Saim Nasır",
 					"version": "1.0",
 					"link": "/contents/framework/packages/identityjwttoken",
@@ -407,6 +407,27 @@
 							"author": "Saim Nasır",
 							"version": "1.0",
 							"link": "/contents/framework/packages/identityjwttoken/exceptions",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						}
+					]
+				},
+				{
+					"title": "Identity.JwtAuthProvider",
+					"author": "Saim Nasır",
+					"version": "1.0",
+					"link": "/contents/framework/packages/identityjwtauthprovider",
+					"status": 0,
+					"isGeneral": true,
+					"isReact": true,
+					"children": [ 
+						{
+							"title": "Extensions",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityjwtauthprovider/extensions",
 							"status": 0,
 							"isGeneral": true,
 							"isReact": true,

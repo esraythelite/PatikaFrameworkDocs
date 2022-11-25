@@ -26,7 +26,7 @@ const DocPaper = ({ contents, header, commonDetails }) => {
                 {contents.sort((a, b) => (a.order - b.order)).map((content) => {
                     return (
                         content.type === 'code' ? <>
-                            <Highlighter key={content.order} title={content.title} descriptions={content.descriptions} code={content.item} language={content.language} startingLineNumber={content.startingLineNumber} />
+                            <Highlighter key={content.order} title={content.title} descriptions={content.descriptions} code={content.item} language={content.language} showLineNumbers={content.showLineNumbers} startingLineNumber={content.startingLineNumber} />
                         </>
                             :
                             <>  <ImageItem key={content.order} item={content.item}></ImageItem></>
