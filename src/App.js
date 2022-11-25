@@ -72,6 +72,13 @@ import MapperAppContracts from "./components/Framework/ApplicationContracts/comp
 import Application from "./components/Framework/Application/Application";
 import ServicesApplication from "./components/Framework/Application/components/Services/ServicesApplication";
 import MapperApplication from "./components/Framework/Application/components/Mapper/MapperApplication";
+import JwtToken from "./components/Framework/JwtToken/JwtToken";
+import JwtTokenInterfaces from "./components/Framework/JwtToken/JwtTokenInterfaces";
+import JwtTokenServices from "./components/Framework/JwtToken/JwtTokenServices";
+import JwtTokenModels from "./components/Framework/JwtToken/JwtTokenModels";
+import JwtTokenMiddlewares from "./components/Framework/JwtToken/JwtTokenMiddlewares";
+import JwtTokenExtensions from "./components/Framework/JwtToken/JwtTokenExtensions";
+import JwtTokenExceptions from "./components/Framework/JwtToken/JwtTokenExceptions";
 
 let theme = createTheme({
 	palette: {
@@ -350,6 +357,14 @@ function App() {
 							<Route path="contents/framework/packages/application" element={<Application />} />
 							<Route path="contents/framework/packages/application/services" element={<ServicesApplication />} />
 							<Route path="contents/framework/packages/application/mapper" element={<MapperApplication />} />
+
+							<Route path="contents/framework/packages/identityjwttoken" element={<JwtToken />} />
+							<Route path="contents/framework/packages/identityjwttoken/interfaces" element={<JwtTokenInterfaces />} />
+							<Route path="contents/framework/packages/identityjwttoken/services" element={<JwtTokenServices />} />
+							<Route path="contents/framework/packages/identityjwttoken/models" element={<JwtTokenModels />} />
+							<Route path="contents/framework/packages/identityjwttoken/middlewares" element={<JwtTokenMiddlewares />} />
+							<Route path="contents/framework/packages/identityjwttoken/extensions" element={<JwtTokenExtensions />} />
+							<Route path="contents/framework/packages/identityjwttoken/exceptions" element={<JwtTokenExceptions />} />
 						</Routes>
 						{
 							selectedItem.isReact ?
