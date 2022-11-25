@@ -6,7 +6,7 @@ import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
 const Highlighter = ({ title, descriptions, code, language = 'csharp',showLineNumbers = true, startingLineNumber = 1 }) => {
     return (
         <Card elevation={1} sx={{ m: 1 }}>
-            <CardHeader title={title} />
+            <CardHeader title={title} style={{ textAlign: 'center' }} />
             <CardContent  >
             {
                     descriptions.map((description, index) => {

@@ -1,8 +1,11 @@
 import React from 'react'
+import NugetApp from '../NugetApp';
 
 const JwtAuthProvider = () => {
+  const name = 'Patika.Framework.Identity.JwtAuthProvider';
+  const description = 'Provides login and registration with jst (basic authentication) ';
   return (
-    <div>JwtAuthProvider</div>
+    <NugetApp name={name} description={description} />
   )
 }
 
