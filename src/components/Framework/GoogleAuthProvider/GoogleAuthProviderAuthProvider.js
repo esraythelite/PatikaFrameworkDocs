@@ -3,9 +3,9 @@ import NugetApp from '../NugetApp';
 
 const GoogleAuthProvider = () => {
   const name = 'Patika.Framework.Identity.GoogleAuthProvider';
-  const description = 'Provides login and registration with google account ';
+  const descriptions = ['Provides login and registration with google account '];
   return (
-    <NugetApp name={name} description={description} />
+    <NugetApp name={name} descriptions={descriptions} />
   )
 }
 
