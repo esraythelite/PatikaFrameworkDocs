@@ -3,9 +3,9 @@ import NugetApp from '../NugetApp'
 
 const AppleAuthProvider = () => {
   const name = 'Patika.Framework.Identity.AppleAuthProvider';
-  const description = 'Provides login and registration witk apple id ';
+  const descriptions = ['Provides login and registration witk apple id '];
   return (
-    <NugetApp name={name} description={description} />
+    <NugetApp name={name} descriptions={descriptions} />
   )
 }
 

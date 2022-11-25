@@ -11,21 +11,13 @@ import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import { Divider } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
-import AuthServer from "./components/Authserver/AuthServerMain";
 import Switcher from "./components/Switcher";
-import AuthWithPassword from "./components/Authserver/AuthWithPassword";
-import Home from "./components/Home";
-import ExternalAuth from "./components/Authserver/External/ExternalAuth";
-import AppleAuth from "./components/Authserver/External/AppleAuth";
-import FacebookAuth from "./components/Authserver/External/FacebookAuth";
-import GoogleAuth from "./components/Authserver/External/GoogleAuth";
-import OktaAuth from "./components/Authserver/External/OktaAuth";
+import Home from "./components/Home"; 
 import Framework from "./components/Framework/Framework";
 import Shared from "./components/Framework/Shared/Shared";
 import Consts from "./components/Framework/Shared/components/Consts/Consts";
 import Controllers from "./components/Framework/Shared/components/Controllers/Controllers";
 import Dto from "./components/Framework/Shared/components/Dto/Dto";
-import Identity from "./components/Framework/Shared/components/Dto/Identity";
 import Entities from "./components/Framework/Shared/components/Entities/Entities";
 import Enums from "./components/Framework/Shared/components/Enums/Enums";
 import Interfaces from "./components/Framework/Shared/components/Interfaces/Interfaces";
@@ -34,35 +26,15 @@ import Services from "./components/Framework/Shared/components/Services/Services
 import Events from "./components/Framework/Shared/components/Events/Events";
 import Exceptions from "./components/Framework/Shared/components/Exceptions/Exceptions";
 import Extensions from "./components/Framework/Shared/components/Extensions/Extensions";
-import EnumHelper from "./components/Framework/Shared/components/Extensions/EnumHelper";
-import FlagEnumExtensions from "./components/Framework/Shared/components/Extensions/FlagEnumExtensions";
-import ResponseExtensions from "./components/Framework/Shared/components/Extensions/ResponseExtensions";
-import GeneralTypeExtensions from "./components/Framework/Shared/components/Extensions/GeneralTypeExtensions";
-import LinqExtensions from "./components/Framework/Shared/components/Extensions/LinqExtensions";
-import LogWriterExtensions from "./components/Framework/Shared/components/Extensions/LogWriterExtensions";
-import HttpClientService from "./components/Framework/Shared/components/Services/HttpClientService";
-import InMemoryCacheService from "./components/Framework/Shared/components/Services/InMemoryCacheService";
-import NullLogWriter from "./components/Framework/Shared/components/Services/NullLogWriter";
-import Sha256Hasher from "./components/Framework/Shared/components/Services/Sha256Hasher";
 import Domain from "./components/Framework/Domain/Domain";
-import Uow from "./components/Framework/Domain/components/Interfaces/Uow";
 import DomainInterfaces from "./components/Framework/Domain/components/Interfaces/DomainInterfaces";
 import LogDbContext from "./components/Framework/Domain/components/LogDbContext/LogDbContext";
-import LogRepository from "./components/Framework/Domain/components/Services/LogRepository";
 import DomainServices from "./components/Framework/Domain/components/Services/DomainServices";
-import DbContextWithUOW from "./components/Framework/Domain/components/Services/DbContextWithUOW";
-import GenericRepository from "./components/Framework/Domain/components/Services/GenericRepository";
-import RedisConnectionHelper from "./components/Framework/Domain/components/Services/RedisConnectionHelper";
-import DomainRepository from "./components/Framework/Domain/components/Services/DomainRepository";
-import LogWriter from "./components/Framework/Domain/components/Services/LogWriter";
 import IdentityShared from "./components/Framework/IdentityShared/IdentityShared";
 import AttributesIdentityShared from "./components/Framework/IdentityShared/components/Attributes/AttributesIdentityShared";
 import DtoIdentityShared from "./components/Framework/IdentityShared/components/Dto/DtoIdentityShared";
 import ExceptionsIdentityShared from "./components/Framework/IdentityShared/components/Exceptions/ExceptionsIdentityShared";
 import IdentitySharedDbContext from "./components/Framework/IdentityShared/components/DBContext/IdentitySharedDbContext";
-import EntitiesIdentityShared from "./components/Framework/IdentityShared/components/DBContext/EntitiesIdentityShared";
-import IRepositoryIdentityShared from "./components/Framework/IdentityShared/components/DBContext/IRepositoryIdentityShared";
-import RepositoryIdentityShared from "./components/Framework/IdentityShared/components/DBContext/RepositoryIdentityShared";
 import InterfacesIdentityShared from "./components/Framework/IdentityShared/components/Interfaces/InterfacesIdentityShared";
 import ModelsIdentityShared from "./components/Framework/IdentityShared/components/Models/Models";
 import ConstsIdentityShared from "./components/Framework/IdentityShared/components/ConstsIdentityShared";
@@ -73,34 +45,39 @@ import Application from "./components/Framework/Application/Application";
 import ServicesApplication from "./components/Framework/Application/components/Services/ServicesApplication";
 import MapperApplication from "./components/Framework/Application/components/Mapper/MapperApplication";
 import JwtToken from "./components/Framework/JwtToken/JwtToken";
-import JwtTokenInterfaces from "./components/Framework/JwtToken/JwtTokenInterfaces";
-import JwtTokenServices from "./components/Framework/JwtToken/JwtTokenServices";
-import JwtTokenModels from "./components/Framework/JwtToken/JwtTokenModels";
-import JwtTokenMiddlewares from "./components/Framework/JwtToken/JwtTokenMiddlewares";
-import JwtTokenExtensions from "./components/Framework/JwtToken/JwtTokenExtensions";
-import JwtTokenExceptions from "./components/Framework/JwtToken/JwtTokenExceptions";
+import JwtTokenInterfaces from "./components/Framework/JwtToken/components/JwtTokenInterfaces";
+import JwtTokenServices from "./components/Framework/JwtToken/components/JwtTokenServices";
+import JwtTokenModels from "./components/Framework/JwtToken/components/JwtTokenModels";
+import JwtTokenMiddlewares from "./components/Framework/JwtToken/components/JwtTokenMiddlewares";
+import JwtTokenExtensions from "./components/Framework/JwtToken/components/JwtTokenExtensions";
+import JwtTokenExceptions from "./components/Framework/JwtToken/components/JwtTokenExceptions";
 import JwtAuthProvider from "./components/Framework/JwtAuthProvider/JwtAuthProvider";
-import JwtAuthProviderExtensions from "./components/Framework/JwtAuthProvider/JwtAuthProviderExtensions";
-import AppleAuthProviderConsts from "./components/Framework/AppleAuthProvider/AppleAuthProviderConsts";
-import AppleAuthProviderEnums from "./components/Framework/AppleAuthProvider/AppleAuthProviderEnums";
-import AppleAuthProviderModels from "./components/Framework/AppleAuthProvider/AppleAuthProviderModels";
-import AppleAuthProviderExtensions from "./components/Framework/AppleAuthProvider/AppleAuthProviderExtensions";
+import JwtAuthProviderExtensions from "./components/Framework/JwtAuthProvider/components/JwtAuthProviderExtensions";
+import AppleAuthProviderConsts from "./components/Framework/AppleAuthProvider/components/AppleAuthProviderConsts";
+import AppleAuthProviderEnums from "./components/Framework/AppleAuthProvider/components/AppleAuthProviderEnums";
+import AppleAuthProviderModels from "./components/Framework/AppleAuthProvider/components/AppleAuthProviderModels";
+import AppleAuthProviderExtensions from "./components/Framework/AppleAuthProvider/components/AppleAuthProviderExtensions";
 import AppleAuthProvider from "./components/Framework/AppleAuthProvider/AppleAuthProviderAuthProvider";
 import FacebookAuthProvider from "./components/Framework/FacebookAuthProvider/FacebookAuthProviderAuthProvider";
-import FacebookAuthProviderConsts from "./components/Framework/FacebookAuthProvider/FacebookAuthProviderConsts";
-import FacebookAuthProviderEnums from "./components/Framework/FacebookAuthProvider/FacebookAuthProviderEnums";
-import FacebookAuthProviderModels from "./components/Framework/FacebookAuthProvider/FacebookAuthProviderModels";
-import FacebookAuthProviderExtensions from "./components/Framework/FacebookAuthProvider/FacebookAuthProviderExtensions";
+import FacebookAuthProviderConsts from "./components/Framework/FacebookAuthProvider/components/FacebookAuthProviderConsts";
+import FacebookAuthProviderEnums from "./components/Framework/FacebookAuthProvider/components/FacebookAuthProviderEnums";
+import FacebookAuthProviderModels from "./components/Framework/FacebookAuthProvider/components/FacebookAuthProviderModels";
+import FacebookAuthProviderExtensions from "./components/Framework/FacebookAuthProvider/components/FacebookAuthProviderExtensions";
 import GoogleAuthProvider from "./components/Framework/GoogleAuthProvider/GoogleAuthProviderAuthProvider";
-import GoogleAuthProviderConsts from "./components/Framework/GoogleAuthProvider/GoogleAuthProviderConsts";
-import GoogleAuthProviderEnums from "./components/Framework/GoogleAuthProvider/GoogleAuthProviderEnums";
-import GoogleAuthProviderModels from "./components/Framework/GoogleAuthProvider/GoogleAuthProviderModels";
-import GoogleAuthProviderExtensions from "./components/Framework/GoogleAuthProvider/GoogleAuthProviderExtensions";
+import GoogleAuthProviderConsts from "./components/Framework/GoogleAuthProvider/components/GoogleAuthProviderConsts";
+import GoogleAuthProviderEnums from "./components/Framework/GoogleAuthProvider/components/GoogleAuthProviderEnums";
+import GoogleAuthProviderModels from "./components/Framework/GoogleAuthProvider/components/GoogleAuthProviderModels";
+import GoogleAuthProviderExtensions from "./components/Framework/GoogleAuthProvider/components/GoogleAuthProviderExtensions";
 import OktaAuthProvider from "./components/Framework/OktaAuthProvider/OktaAuthProviderAuthProvider";
-import OktaAuthProviderConsts from "./components/Framework/OktaAuthProvider/OktaAuthProviderConsts";
-import OktaAuthProviderEnums from "./components/Framework/OktaAuthProvider/OktaAuthProviderEnums";
-import OktaAuthProviderModels from "./components/Framework/OktaAuthProvider/OktaAuthProviderModels";
-import OktaAuthProviderExtensions from "./components/Framework/OktaAuthProvider/OktaAuthProviderExtensions";
+import OktaAuthProviderConsts from "./components/Framework/OktaAuthProvider/components/OktaAuthProviderConsts";
+import OktaAuthProviderEnums from "./components/Framework/OktaAuthProvider/components/OktaAuthProviderEnums";
+import OktaAuthProviderModels from "./components/Framework/OktaAuthProvider/components/OktaAuthProviderModels";
+import OktaAuthProviderExtensions from "./components/Framework/OktaAuthProvider/components/OktaAuthProviderExtensions";
+import IdentityModels from "./components/Framework/Identity/components/IdentityModels";
+import IdentityInterfaces from "./components/Framework/Identity/components/IdentityInterfaces";
+import IdentityServices from "./components/Framework/Identity/components/IdentityServices";
+import IdentityExtensions from "./components/Framework/Identity/components/IdentityExtensions";
+import IdentityPackage from "./components/Framework/Identity/IdentityPackage";
 
 let theme = createTheme({
 	palette: {
@@ -331,14 +308,7 @@ function App() {
 						sx={{ flex: 1, py: 1, px: 1, bgcolor: "#eaeff1" }}
 					>
 						<Routes>
-							<Route path="/home" element={<Home />} />
-							<Route path="contents/authserver/authserver" element={<AuthServer />} />
-							<Route path="contents/authserver/password" element={<AuthWithPassword />} />
-							<Route path="contents/authserver/external/external" element={<ExternalAuth />} />
-							<Route path="contents/authserver/external/apple" element={<AppleAuth />} />
-							<Route path="contents/authserver/external/google" element={<GoogleAuth />} />
-							<Route path="contents/authserver/external/facebook" element={<FacebookAuth />} />
-							<Route path="contents/authserver/external/okta" element={<OktaAuth />} />
+							<Route path="/home" element={<Home />} /> 
 
 							<Route path="contents/framework/packages" element={<Framework />} />
 
@@ -418,6 +388,12 @@ function App() {
 							<Route path="contents/framework/packages/identityoktaauthprovider/models" element={<OktaAuthProviderModels />} />
 							<Route path="contents/framework/packages/identityoktaauthprovider/extensions" element={<OktaAuthProviderExtensions/>} />
 
+							<Route path="contents/framework/packages/identity" element={<IdentityPackage />} />
+							<Route path="contents/framework/packages/identity/models" element={<IdentityModels />} />
+							<Route path="contents/framework/packages/identity/interfaces" element={<IdentityInterfaces />} />
+							<Route path="contents/framework/packages/identity/services" element={<IdentityServices />} />
+							<Route path="contents/framework/packages/identity/extensions" element={<IdentityExtensions />} />
+						
 						</Routes>
 						{
 							selectedItem.isReact ?

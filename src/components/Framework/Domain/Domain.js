@@ -3,9 +3,9 @@ import NugetApp from '../NugetApp';
 
 const Domain = () => {
   const name = 'Patika.Framework.Domain';
-  const description = '* about package';
+  const descriptions = ['* about package'];
   return (
-    <NugetApp name={name} description={description} />
+    <NugetApp name={name} descriptions={descriptions} />
   )
 }
 
