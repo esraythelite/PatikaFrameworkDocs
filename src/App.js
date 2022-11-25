@@ -81,6 +81,26 @@ import JwtTokenExtensions from "./components/Framework/JwtToken/JwtTokenExtensio
 import JwtTokenExceptions from "./components/Framework/JwtToken/JwtTokenExceptions";
 import JwtAuthProvider from "./components/Framework/JwtAuthProvider/JwtAuthProvider";
 import JwtAuthProviderExtensions from "./components/Framework/JwtAuthProvider/JwtAuthProviderExtensions";
+import AppleAuthProviderConsts from "./components/Framework/AppleAuthProvider/AppleAuthProviderConsts";
+import AppleAuthProviderEnums from "./components/Framework/AppleAuthProvider/AppleAuthProviderEnums";
+import AppleAuthProviderModels from "./components/Framework/AppleAuthProvider/AppleAuthProviderModels";
+import AppleAuthProviderExtensions from "./components/Framework/AppleAuthProvider/AppleAuthProviderExtensions";
+import AppleAuthProvider from "./components/Framework/AppleAuthProvider/AppleAuthProviderAuthProvider";
+import FacebookAuthProvider from "./components/Framework/FacebookAuthProvider/FacebookAuthProviderAuthProvider";
+import FacebookAuthProviderConsts from "./components/Framework/FacebookAuthProvider/FacebookAuthProviderConsts";
+import FacebookAuthProviderEnums from "./components/Framework/FacebookAuthProvider/FacebookAuthProviderEnums";
+import FacebookAuthProviderModels from "./components/Framework/FacebookAuthProvider/FacebookAuthProviderModels";
+import FacebookAuthProviderExtensions from "./components/Framework/FacebookAuthProvider/FacebookAuthProviderExtensions";
+import GoogleAuthProvider from "./components/Framework/GoogleAuthProvider/GoogleAuthProviderAuthProvider";
+import GoogleAuthProviderConsts from "./components/Framework/GoogleAuthProvider/GoogleAuthProviderConsts";
+import GoogleAuthProviderEnums from "./components/Framework/GoogleAuthProvider/GoogleAuthProviderEnums";
+import GoogleAuthProviderModels from "./components/Framework/GoogleAuthProvider/GoogleAuthProviderModels";
+import GoogleAuthProviderExtensions from "./components/Framework/GoogleAuthProvider/GoogleAuthProviderExtensions";
+import OktaAuthProvider from "./components/Framework/OktaAuthProvider/OktaAuthProviderAuthProvider";
+import OktaAuthProviderConsts from "./components/Framework/OktaAuthProvider/OktaAuthProviderConsts";
+import OktaAuthProviderEnums from "./components/Framework/OktaAuthProvider/OktaAuthProviderEnums";
+import OktaAuthProviderModels from "./components/Framework/OktaAuthProvider/OktaAuthProviderModels";
+import OktaAuthProviderExtensions from "./components/Framework/OktaAuthProvider/OktaAuthProviderExtensions";
 
 let theme = createTheme({
 	palette: {
@@ -371,6 +391,33 @@ function App() {
 
 							<Route path="contents/framework/packages/identityjwtauthprovider" element={<JwtAuthProvider />} />
 							<Route path="contents/framework/packages/identityjwtauthprovider/extensions" element={<JwtAuthProviderExtensions />} />
+
+							<Route path="contents/framework/packages/identityappleauthprovider" element={<AppleAuthProvider />} />
+							<Route path="contents/framework/packages/identityappleauthprovider/consts" element={<AppleAuthProviderConsts />} />
+							<Route path="contents/framework/packages/identityappleauthprovider/enums" element={<AppleAuthProviderEnums />} />
+							<Route path="contents/framework/packages/identityappleauthprovider/models" element={<AppleAuthProviderModels />} />
+							<Route path="contents/framework/packages/identityappleauthprovider/extensions" element={<AppleAuthProviderExtensions />} />
+
+							<Route path="contents/framework/packages/identityfacebookauthprovider" element={<FacebookAuthProvider />} />
+							<Route path="contents/framework/packages/identityfacebookauthprovider/consts" element={<FacebookAuthProviderConsts />} />
+							<Route path="contents/framework/packages/identityfacebookauthprovider/enums" element={<FacebookAuthProviderEnums />} />
+							<Route path="contents/framework/packages/identityfacebookauthprovider/models" element={<FacebookAuthProviderModels />} />
+							<Route path="contents/framework/packages/identityfacebookauthprovider/extensions" element={<FacebookAuthProviderExtensions />} />
+
+
+							<Route path="contents/framework/packages/identitygoogleauthprovider" element={<GoogleAuthProvider />} />
+							<Route path="contents/framework/packages/identitygoogleauthprovider/consts" element={<GoogleAuthProviderConsts />} />
+							<Route path="contents/framework/packages/identitygoogleauthprovider/enums" element={<GoogleAuthProviderEnums />} />
+							<Route path="contents/framework/packages/identitygoogleauthprovider/models" element={<GoogleAuthProviderModels />} />
+							<Route path="contents/framework/packages/identitygoogleauthprovider/extensions" element={<GoogleAuthProviderExtensions />} />
+
+
+							<Route path="contents/framework/packages/identityoktaauthprovider" element={<OktaAuthProvider />} />
+							<Route path="contents/framework/packages/identityoktaauthprovider/consts" element={<OktaAuthProviderConsts />} />
+							<Route path="contents/framework/packages/identityoktaauthprovider/enums" element={<OktaAuthProviderEnums />} />
+							<Route path="contents/framework/packages/identityoktaauthprovider/models" element={<OktaAuthProviderModels />} />
+							<Route path="contents/framework/packages/identityoktaauthprovider/extensions" element={<OktaAuthProviderExtensions/>} />
+
 						</Routes>
 						{
 							selectedItem.isReact ?

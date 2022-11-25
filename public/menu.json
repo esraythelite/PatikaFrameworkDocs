@@ -415,7 +415,7 @@
 					]
 				},
 				{
-					"title": "Identity.JwtAuthProvider",
+					"title": "Identity.Jwt",
 					"author": "Saim Nasır",
 					"version": "1.0",
 					"link": "/contents/framework/packages/identityjwtauthprovider",
@@ -428,6 +428,210 @@
 							"author": "Saim Nasır",
 							"version": "1.0",
 							"link": "/contents/framework/packages/identityjwtauthprovider/extensions",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						}
+					]
+				},
+				{
+					"title": "Identity.Apple",
+					"author": "Saim Nasır",
+					"version": "1.0",
+					"link": "/contents/framework/packages/identityappleauthprovider",
+					"status": 0,
+					"isGeneral": true,
+					"isReact": true,
+					"children": [ 						
+						{
+							"title": "Consts",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityappleauthprovider/consts",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						}, 						
+						{
+							"title": "Enums",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityappleauthprovider/enums",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},						
+						{
+							"title": "Models",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityappleauthprovider/models",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Extensions",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityappleauthprovider/extensions",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						}
+					]
+				}, 
+				{
+					"title": "Identity.Facebook",
+					"author": "Saim Nasır",
+					"version": "1.0",
+					"link": "/contents/framework/packages/identityfacebookauthprovider",
+					"status": 0,
+					"isGeneral": true,
+					"isReact": true,
+					"children": [ 						
+						{
+							"title": "Consts",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityfacebookauthprovider/consts",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						}, 						
+						{
+							"title": "Enums",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityfacebookauthprovider/enums",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},						
+						{
+							"title": "Models",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityfacebookauthprovider/models",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Extensions",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityfacebookauthprovider/extensions",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						}
+					]
+				}, 
+				{
+					"title": "Identity.Google",
+					"author": "Saim Nasır",
+					"version": "1.0",
+					"link": "/contents/framework/packages/identitygoogleauthprovider",
+					"status": 0,
+					"isGeneral": true,
+					"isReact": true,
+					"children": [ 						
+						{
+							"title": "Consts",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identitygoogleauthprovider/consts",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						}, 						
+						{
+							"title": "Enums",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identitygoogleauthprovider/enums",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},						
+						{
+							"title": "Models",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identitygoogleauthprovider/models",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Extensions",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identitygoogleauthprovider/extensions",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						}
+					]
+				}, 
+				{
+					"title": "Identity.Okta",
+					"author": "Saim Nasır",
+					"version": "1.0",
+					"link": "/contents/framework/packages/identityoktaauthprovider",
+					"status": 0,
+					"isGeneral": true,
+					"isReact": true,
+					"children": [ 						
+						{
+							"title": "Consts",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityoktaauthprovider/consts",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						}, 						
+						{
+							"title": "Enums",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityoktaauthprovider/enums",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},						
+						{
+							"title": "Models",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityoktaauthprovider/models",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Extensions",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityoktaauthprovider/extensions",
 							"status": 0,
 							"isGeneral": true,
 							"isReact": true,

@@ -1,8 +1,11 @@
 import React from 'react'
+import NugetApp from '../NugetApp';
 
 const Shared = () => {
+  const name = 'Patika.Framework.Shared';
+  const description = '* about package';
   return (
-    <div>Patika.Framework.Shared</div>
+    <NugetApp name={name} description={description} />
   )
 }
 
