@@ -3,7 +3,9 @@ import NugetApp from '../NugetApp';
 
 const Application = () => {
   const name = 'Patika.Framework.Application';
-  const descriptions = ['* about package'];
+  const descriptions = [
+    'Contains implementation of Application.Contracts',
+  ];
   return (
     <NugetApp name={name} descriptions={descriptions} />
   )

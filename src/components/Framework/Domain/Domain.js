@@ -3,7 +3,7 @@ import NugetApp from '../NugetApp';
 
 const Domain = () => {
   const name = 'Patika.Framework.Domain';
-  const descriptions = ['* about package'];
+  const descriptions = ['Contains interfaces and services about repositories and logDbContext.'];
   return (
     <NugetApp name={name} descriptions={descriptions} />
   )

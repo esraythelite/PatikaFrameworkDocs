@@ -3,7 +3,7 @@ import NugetApp from '../NugetApp';
 
 const Shared = () => {
   const name = 'Patika.Framework.Shared';
-  const descriptions = ['* about package'];
+  const descriptions = ['Contains shared things globally'];
   return (
     <NugetApp name={name} descriptions={descriptions} />
   )

@@ -3,7 +3,9 @@ import NugetApp from '../NugetApp';
 
 const IdentityShared = () => {
   const name = 'Patika.Framework.Identity.Shared';
-  const descriptions = ['* about package'];
+  const descriptions = [
+    'Contains all shared things about Identity'
+  ];
   return (
     <NugetApp name={name} descriptions={descriptions} />
   )
