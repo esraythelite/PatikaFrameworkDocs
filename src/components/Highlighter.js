@@ -1,32 +1,44 @@
 import { Card, CardContent, CardHeader, Typography } from '@mui/material';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-const Highlighter = ({ title, descriptions, code, language = 'csharp', showLineNumbers = true, startingLineNumber = 1 }) => {
+const Highlighter = ({ item }) => {
+    const [data, setData] = useState(item)
+    useEffect(() => {
+        setData({
+            ...data,
+            language: data.language ?? 'csharp',
+            showLineNumbers: (data.showLineNumbers !== undefined ? data.showLineNumbers : true),
+            startingLineNumber: (data.startingLineNumber !== undefined ? data.startingLineNumber : 1)
+        })
+    }, [item]) 
+    
     return (
         <Card elevation={1} sx={{ m: 1 }}>
-            <CardHeader title={title} style={{ textAlign: 'center' }} />
+            <CardHeader title={data.title} subheader={data.subtitle} style={{ textAlign: 'center' }} />
             <CardContent  >
                 {
-                    descriptions.map((description, index) => {
+                    data.descriptions.map((description, index) => {
                         return (
                             <Typography key={index} variant='body1'>{description}</Typography>
                         )
                     })
                 }
-                {code &&
+                {
+                    data.item &&
                     <SyntaxHighlighter
                         customStyle={{
                             maxWidth: '100%',
                             width: '100%',
                             maxHeight: '400px'
                         }}
-                        children={code}
-                        language={language}
+                        children={data.item}
+                        language={data.language}
                         style={dracula}
-                        showLineNumbers={showLineNumbers}
-                        startingLineNumber={startingLineNumber} />
+                        showLineNumbers={data.showLineNumbers}
+                        startingLineNumber={data.startingLineNumber} 
+                        />
                 }
             </CardContent>
         </Card >
