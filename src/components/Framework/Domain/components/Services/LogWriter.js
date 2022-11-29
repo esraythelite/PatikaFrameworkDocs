@@ -1,9 +1,5 @@
-import { Box, Card, CardContent, CardHeader, Paper, Stack, Typography } from '@mui/material'
-import { purple } from '@mui/material/colors'
 import React from 'react'
-import DocPaper from '../../../../DocPaper'
-import Highlighter from '../../../../Highlighter'
-import ImageItem from '../../../../ImageItem'
+import DocPaper from '../../../../DocPaper' 
 
 const contents = [
   {
@@ -15,13 +11,13 @@ const contents = [
     item: `
     namespace Patika.Framework.Domain.Services
     {
-        public class LogWriter : ILogWriter
+        public class LogWriter : CoreService, ILogWriter
         {
             ILogRepository LogRepository { get; }
     
-            public LogWriter(ILogRepository logRepository)
+            public LogWriter(IServiceProvider serviceProvider) : base(serviceProvider)
             {
-                LogRepository = logRepository;
+                LogRepository = GetService<ILogRepository>();
             }`,
     descriptions: [
       "Constructor and props",
@@ -33,7 +29,7 @@ const contents = [
     type: 'code',
     title: 'CreateLog',
     language: 'csharp',
-    startingLineNumber: 26,
+    startingLineNumber: 27,
     item: `        
         public async Task<Log> CreateLog(string applicationName, Guid? userId = null, LogStatusEnum intialStatus = LogStatusEnum.Started)
         {
@@ -57,7 +53,7 @@ const contents = [
     type: 'code',
     title: 'AddLogDetail',
     language: 'csharp',
-    startingLineNumber: 16,
+    startingLineNumber: 17,
     item: `
         public async Task AddLogDetail(Guid logId, LogDetail detail)
         {
@@ -77,7 +73,7 @@ const contents = [
     type: 'code',
     title: 'FinishLog',
     language: 'csharp',
-    startingLineNumber: 40,
+    startingLineNumber: 41,
     item: `
         public async Task FinishLog(Guid logId, LogStatusEnum finalStatus = LogStatusEnum.Success)
         {
