@@ -689,6 +689,88 @@
 							"children": []
 						}
 					]
+				}, 
+				{
+					"title": "Utilities.File",
+					"author": "Saim Nasır",
+					"version": "1.0",
+					"link": "/contents/framework/packages/fileuitilities",
+					"status": 0,
+					"isGeneral": true,
+					"isReact": true,
+					"children": [ 						
+						{
+							"title": "Extensions",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/fileuitilities/extensions",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						}, 
+						{
+							"title": "Exceptions",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/fileuitilities/exceptions",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						}
+					]
+				}, 
+				{
+					"title": "Utilities.Excel",
+					"author": "Saim Nasır",
+					"version": "1.0",
+					"link": "/contents/framework/packages/exceluitilities",
+					"status": 0,
+					"isGeneral": true,
+					"isReact": true,
+					"children": [ 	
+						{
+							"title": "Interfaces",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/exceluitilities/interfaces",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						}, 
+						{
+							"title": "Models",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/exceluitilities/models",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						}, 					
+						{
+							"title": "Extensions",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/exceluitilities/extensions",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						}, 
+						{
+							"title": "Exceptions",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/exceluitilities/exceptions",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						}
+					]
 				}
 			]
 		} 

@@ -78,6 +78,14 @@ import IdentityInterfaces from "./components/Framework/Identity/components/Ident
 import IdentityServices from "./components/Framework/Identity/components/IdentityServices";
 import IdentityExtensions from "./components/Framework/Identity/components/IdentityExtensions";
 import IdentityPackage from "./components/Framework/Identity/IdentityPackage";
+import UtilitiesFile from "./components/Framework/UtilitiesFile/UtilitiesFile";
+import FileExtensions from "./components/Framework/UtilitiesFile/components/FileExtensions"; 
+import FileExceptions from "./components/Framework/UtilitiesFile/components/FileExceptions";
+import UtilitiesExcel from "./components/Framework/UtilitiesExcel/UtilitiesExcel";
+import ExcelExtensions from "./components/Framework/UtilitiesExcel/components/ExcelExtensions";
+import ExcelExceptions from "./components/Framework/UtilitiesExcel/components/ExcelExceptions";
+import ExcelInterfaces from "./components/Framework/UtilitiesExcel/components/ExcelInterfaces";
+import ExcelModels from "./components/Framework/UtilitiesExcel/components/ExcelModels";
 
 let theme = createTheme({
 	palette: {
@@ -393,6 +401,17 @@ function App() {
 							<Route path="contents/framework/packages/identity/interfaces" element={<IdentityInterfaces />} />
 							<Route path="contents/framework/packages/identity/services" element={<IdentityServices />} />
 							<Route path="contents/framework/packages/identity/extensions" element={<IdentityExtensions />} />
+
+							<Route path="contents/framework/packages/fileuitilities" element={<UtilitiesFile />} />
+							<Route path="contents/framework/packages/fileuitilities/extensions" element={<FileExtensions />} />
+							<Route path="contents/framework/packages/fileuitilities/exceptions" element={<FileExceptions />} />
+
+							
+							<Route path="contents/framework/packages/exceluitilities" element={<UtilitiesExcel />} />
+							<Route path="contents/framework/packages/exceluitilities/extensions" element={<ExcelExtensions />} />
+							<Route path="contents/framework/packages/exceluitilities/exceptions" element={<ExcelExceptions />} />
+							<Route path="contents/framework/packages/exceluitilities/interfaces" element={<ExcelInterfaces />} />
+							<Route path="contents/framework/packages/exceluitilities/models" element={<ExcelModels />} />
 						
 						</Routes>
 						{
