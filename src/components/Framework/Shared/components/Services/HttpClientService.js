@@ -15,7 +15,7 @@ const contents = [
         item: `
         namespace Patika.Framework.Shared.Services
         {
-            public class HttpClientService
+            public class HttpClientService : CoreService
             {
                 static DateTime LastTokenAcequireTime = DateTime.MinValue;
                 static string Token = "";
@@ -28,14 +28,16 @@ const contents = [
                     set => HttpClient.DefaultRequestHeaders.Authorization = value;
                 }
                 public HttpRequestHeaders RequestHeaders => HttpClient.DefaultRequestHeaders;
-                public HttpClientService(string baseAPIUrl, ClientAuthenticationParams? authenticationParams = null)
+        
+                public HttpClientService(string baseAPIUrl, IServiceProvider serviceProvider) : base(serviceProvider)
                 {
                     if (!baseAPIUrl.EndsWith("/"))
                         baseAPIUrl += "/";
-                    AuthenticationParams = authenticationParams ?? new ClientAuthenticationParams();
+                    AuthenticationParams = GetService<ClientAuthenticationParams>();
                     BaseAPIUrl = baseAPIUrl;
                     HttpClient = GetHttpClient();
                 }
+
                 private HttpClient GetHttpClient()
                 {
                     var client = new HttpClient
@@ -49,7 +51,7 @@ const contents = [
         descriptions: [
             "This service help us to send request microservices by using HttpClient.",
             "We can use it for external api requests too.",
-            "ClientAuthenticationParams is for Microservice to microservice authentication.", 
+            "ClientAuthenticationParams is for Microservice to microservice authentication.",
         ],
     },
     {

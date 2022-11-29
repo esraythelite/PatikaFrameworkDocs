@@ -15,12 +15,12 @@ const contents = [
         item: `
         namespace Patika.Framework.Shared.Services
         {
-            public class InMemoryCacheService<T> : IStorage<T> where T : class
+            public class InMemoryCacheService<T> : CoreService, IStorage<T> where T : class
             {
                 private readonly IMemoryCache MemoryCache;
-                public InMemoryCacheService(IMemoryCache memoryCache)
+                public InMemoryCacheService(IServiceProvider serviceProvider) : base(serviceProvider)
                 {
-                    MemoryCache = memoryCache;
+                    MemoryCache = GetService<IMemoryCache>();
                 }`,
         descriptions: [
             "Inherited from IStorage",
@@ -33,7 +33,7 @@ const contents = [
         type: 'code',
         title: 'RemoveAsync',
         language: 'csharp',
-        startingLineNumber: 44,
+        startingLineNumber:13,
         item: `
                 public async Task RemoveAsync(string key)
                 {
@@ -49,7 +49,7 @@ const contents = [
         type: 'code',
         title: 'SetAsync',
         language: 'csharp',
-        startingLineNumber: 64,
+        startingLineNumber: 19,
         item: `
                 public async Task SetAsync(string key, T value)
                 {
@@ -65,7 +65,7 @@ const contents = [
         type: 'code',
         title: 'TryGetAsync',
         language: 'csharp',
-        startingLineNumber: 96,
+        startingLineNumber: 25,
         item: `
                 public async Task<T?> TryGetAsync(string key)
                 {

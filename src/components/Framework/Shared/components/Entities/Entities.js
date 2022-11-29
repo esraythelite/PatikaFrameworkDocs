@@ -311,7 +311,7 @@ const contents = [
   {
     order: 13,
     type: 'code',
-    title: 'Log',
+    title: 'LogDetail',
     language: 'csharp',
     startingLineNumber: 1,
     item: `namespace Patika.Framework.Shared.Entities

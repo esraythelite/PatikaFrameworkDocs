@@ -1,9 +1,5 @@
-import { Box, Card, CardContent, CardHeader, Paper, Stack, Typography } from '@mui/material'
-import { purple } from '@mui/material/colors'
 import React from 'react'
-import DocPaper from '../../../../DocPaper'
-import Highlighter from '../../../../Highlighter'
-import ImageItem from '../../../../ImageItem'
+import DocPaper from '../../../../DocPaper' 
 
 const contents = [
     {
@@ -11,7 +7,7 @@ const contents = [
         type: 'code',
         title: 'Constructor',
         language: 'csharp',
-        startingLineNumber: 12,
+        startingLineNumber: 16,
         item: `namespace Patika.Framework.Shared.Controllers
 {
     [ApiController]
@@ -22,11 +18,14 @@ const contents = [
         protected ILogWriter LogWriter { get; }
         protected Configuration Configuration { get; }
 
-        public GenericApiController(ILogWriter logWriter, Configuration configuration)
+        public IServiceProvider ServiceProvider { get; }
+
+        public GenericApiController(IServiceProvider serviceProvider)
         {
-            LogWriter = logWriter;
-            Configuration = configuration;
-            HttpClientService = new HttpClientService(configuration.GatewayUrl);
+            ServiceProvider = serviceProvider;
+            LogWriter = GetService<ILogWriter>();
+            Configuration = GetService<Configuration>(); 
+            HttpClientService = new HttpClientService(Configuration.GatewayUrl, serviceProvider);
         }`,
         descriptions: [
             "All controllers must be inherited from GenericApiController thats provides some common functionalities.",
@@ -37,6 +36,20 @@ const contents = [
     },
     {
         order: 2,
+        type: 'code',
+        title: 'GetService',
+        language: 'csharp',
+        startingLineNumber: 35,
+        item: `
+        protected T GetService<T>() => ServiceProvider.GetService<T>() ?? throw new ServiceInjectionFailedexception($"{typeof(T).FullName}");
+        `,
+        descriptions: [
+            "Gets injected service",
+            "throws exception if service not found"
+        ],
+    },
+    {
+        order: 3,
         type: 'code',
         title: 'GetToken',
         language: 'csharp',
@@ -60,7 +73,7 @@ const contents = [
         ],
     },
     {
-        order: 3,
+        order: 4,
         type: 'code',
         title: 'User Info',
         language: 'csharp',
@@ -105,7 +118,7 @@ const contents = [
         ],
     },
     {
-        order: 4,
+        order: 5,
         type: 'code',
         title: 'WithLogging OverAll', 
         // item: ``,
@@ -117,7 +130,7 @@ const contents = [
         ],
     },
     {
-        order: 5,
+        order: 6,
         type: 'code',
         title: 'WithLogging (GeneralResponseDTO)',
         language: 'csharp',
@@ -161,7 +174,7 @@ const contents = [
         ],
     },
     {
-        order: 6,
+        order: 7,
         type: 'code',
         title: 'WithLogging (FileContentResult)',
         language: 'csharp',
@@ -207,7 +220,7 @@ const contents = [
         ],
     },
     {
-        order: 7,
+        order:8,
         type: 'code',
         title: 'WithLoggingFinalResponse (FinalResponseDTO)',
         language: 'csharp',

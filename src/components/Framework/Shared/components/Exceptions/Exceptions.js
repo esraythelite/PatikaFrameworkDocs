@@ -256,6 +256,27 @@ const contents = [
     descriptions: [
       "You must throw this exception user token is invalid or not found"
     ],
+  },
+  {
+    order: 9,
+    type: 'code',
+    title: 'ServiceNotInjectedException',
+    language: 'csharp',
+    startingLineNumber: 6,
+    item: `
+    namespace Patika.Framework.Shared.Exceptions
+    {
+        public class ServiceNotInjectedException : BaseApplicationException
+        {
+            public ServiceNotInjectedException(string serviceFullName) 
+              : base($"{serviceFullName}.ServiceNotInjectedException", $"You must inject {serviceFullName} before getting")
+            {
+            }
+        }
+    }`,
+    descriptions: [
+      "Auto throwed when GetService failed with null service"
+    ],
   }
 ]
 const header = 'Patika.Framework.Shared.Exceptions';
