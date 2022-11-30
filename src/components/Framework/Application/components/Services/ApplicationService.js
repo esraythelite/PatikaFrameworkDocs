@@ -9,37 +9,24 @@ const contents = [
     type: 'code',
     title: 'ApplicationService',
     language: 'csharp',
-    startingLineNumber: 12,
+    startingLineNumber: 14,
     item: `
     namespace Patika.Framework.Application.Services
     {
         public abstract class ApplicationService : BaseService, IApplicationService
         {
-            MappingProfile MappingProfile { get; set; }
+            public MappingProfile MappingProfile { get; set; }
             protected IMapper Mapper => MappingProfile.Mapper;
             protected HttpClientService HttpClientService { get; set; }
-            public ApplicationUser ApplicationUser { get; set; }
+            public ApplicationUser ApplicationUser { get; set; } = new();
     
-            public ApplicationService(Configuration configuration) 
-                : this(configuration, new GeneralMappingProfile(), new NullLogWriter())
+            public ApplicationService(IServiceProvider serviceProvider) : base(serviceProvider)
             {
-            }
-    
-            public ApplicationService(ILogWriter logWriter, Configuration configuration) 
-                : this(configuration, new GeneralMappingProfile(), logWriter)
-            { 
-            }
-    
-            public ApplicationService(
-                Configuration configuration,
-                MappingProfile mappingProfile,
-                ILogWriter logWriter) : base(logWriter, configuration)
-            {
-                MappingProfile = mappingProfile;
-                HttpClientService = new HttpClientService(configuration.GatewayUrl);
+                MappingProfile = new GeneralMappingProfile();
+                HttpClientService = new HttpClientService(Configuration.GatewayUrl, serviceProvider);
             }`,
     descriptions: [
-        "Constructors and props"
+        "Constructor and props"
     ],
   }, 
   {
@@ -47,7 +34,7 @@ const contents = [
     type: 'code',
     title: 'AddCodeMileStoneLogAsync',
     language: 'csharp',
-    startingLineNumber: 40,
+    startingLineNumber: 29,
     item: `
             protected async Task AddCodeMileStoneLogAsync(
                 IDTO dto, string message, 
@@ -66,7 +53,7 @@ const contents = [
     type: 'code',
     title: 'MapTo',
     language: 'csharp',
-    startingLineNumber: 49,
+    startingLineNumber: 38,
     item: `    
             public T MapTo<T, S>(S from) => Mapper.Map<S, T>(from);
             public T MapTo<T>(object from) => Mapper.Map<T>(from);      `,
@@ -79,7 +66,7 @@ const contents = [
     type: 'code',
     title: 'GetTokenAsync',
     language: 'csharp',
-    startingLineNumber: 52,
+    startingLineNumber: 41,
     item: ` 
             public async Task<TokenResultDTO> GetTokenAsync(string token)
             {
@@ -103,7 +90,7 @@ const contents = [
     type: 'code',
     title: 'GetApplicationUser',
     language: 'csharp',
-    startingLineNumber: 66,
+    startingLineNumber: 55,
     item: `
             public async Task<ApplicationUserDTO> GetApplicationUser(string token)
             {
@@ -127,7 +114,7 @@ const contents = [
     type: 'code',
     title: 'SetApplicationUserAsync',
     language: 'csharp',
-    startingLineNumber: 80,
+    startingLineNumber: 69,
     item: ` 
             public Task SetApplicationUserAsync(ApplicationUser user)
             {

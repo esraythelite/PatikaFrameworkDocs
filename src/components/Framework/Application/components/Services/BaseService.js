@@ -13,18 +13,19 @@ const contents = [
     item: `
     namespace Patika.Framework.Application.Services
     {
-        public abstract class BaseService
+        public abstract class BaseService : CoreService
         {
             public ILogWriter LogWriter { get; }
             public Configuration Configuration { get; }
     
-            public BaseService(ILogWriter logger, Configuration configuration)
+            public BaseService(IServiceProvider serviceProvider) : base(serviceProvider)
             {
-                LogWriter = logger;
-                Configuration = configuration;
-            } `,
+                LogWriter = GetService<ILogWriter>();
+                Configuration = GetService<Configuration>();
+            }`,
     descriptions: [
-      "Constructor and props"
+      "Constructor and props",
+      "Inherited from CoreService for using the same common ServiceProvider"
     ],
   },
   {
@@ -32,7 +33,7 @@ const contents = [
     type: 'code',
     title: 'WithLogging',
     language: 'csharp',
-    startingLineNumber: 4,
+    startingLineNumber: 20,
     item: `
     public async Task<T> WithLogging<T>(
         IDTO input, 
@@ -55,7 +56,7 @@ const contents = [
     type: 'code',
     title: 'WithLogging',
     language: 'csharp',
-    startingLineNumber: 4,
+    startingLineNumber: 32,
     item: `
     public async Task WithLogging(
         IDTO input, 
