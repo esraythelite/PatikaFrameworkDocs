@@ -1,9 +1,5 @@
-import { Box, Card, CardContent, CardHeader, Paper, Stack, Typography } from '@mui/material'
-import { purple } from '@mui/material/colors'
 import React from 'react'
 import DocPaper from '../../../../DocPaper'
-import Highlighter from '../../../../Highlighter'
-import ImageItem from '../../../../ImageItem'
 
 const contents = [
   {

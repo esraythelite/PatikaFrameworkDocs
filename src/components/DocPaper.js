@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, CardHeader, Paper, Stack, Typography } from '@mui/material'
+import { Box, Paper, Stack, Typography } from '@mui/material'
 import React from 'react'
 import Highlighter from './Highlighter'
 import ImageItem from './ImageItem'
