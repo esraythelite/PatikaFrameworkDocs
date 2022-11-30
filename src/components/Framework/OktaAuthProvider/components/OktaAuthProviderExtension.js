@@ -9,7 +9,7 @@ const contents = [
     type: 'code',
     title: 'AddOktaAuthentication',
     language: 'csharp',
-    startingLineNumber: 4,
+    startingLineNumber: 7,
     item: `
     using OktaAuthProviderConsts = Patika.Framework.Identity.OktaAuthProvider.Consts.Consts;
 
@@ -18,9 +18,7 @@ const contents = [
         public static class OktaAuthProviderExtension
         {
             public static AuthenticationBuilder AddOktaAuthentication(this AuthenticationBuilder builder, Configuration configuration)
-            {
-                configuration.Validate();
-    
+            {    
                 AddConfiguration(builder.Services, configuration);
     
                 var scopes = GetScopes(configuration);
@@ -52,7 +50,7 @@ const contents = [
     type: 'code',
     title: 'AddConfiguration',
     language: 'csharp',
-    startingLineNumber: 4,
+    startingLineNumber: 35,
     item: `  
           private static void AddConfiguration(IServiceCollection services, Configuration configuration)
           {
@@ -67,7 +65,7 @@ const contents = [
     type: 'code',
     title: 'GetScopes',
     language: 'csharp',
-    startingLineNumber: 4,
+    startingLineNumber: 40,
     item: `
           private static List<string> GetScopes(Configuration configuration)
           {

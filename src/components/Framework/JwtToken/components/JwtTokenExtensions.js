@@ -1,33 +1,47 @@
-import React from 'react' 
-import DocPaper from '../../../DocPaper';
-const contents = [
-  {
-    order: 1,
-    type: 'code',
-    title: 'MiddlewareExtension',
-    language: 'csharp',
-    startingLineNumber: 3,
-    item: `
-    namespace Patika.Framework.Identity.JwtToken.Extensions
-    {
-        public static class MiddlewareExtension
-        {
-            public static IApplicationBuilder UseHashedToken(this IApplicationBuilder app)
-            {
-                return app.UseMiddleware<HandleHashedToken>();
-            }
-        }
-    }`,
-    descriptions: [
-      "You can call app.UseHashedToken to use this middleware in Startup or Program.cs ",  
-    ],
-  } 
-]
-
-const header = 'Patika.Framework.Identity.JwtToken.Extensions';
+import { Box} from '@mui/material'
+import { grey} from '@mui/material/colors'
+import React from 'react'
+import Tab from '@mui/material/Tab';
+import { TabContext, TabList, TabPanel } from '@mui/lab' 
+import ServiceExtensions from './ServiceExtensions' 
+import MiddlewareExtensions from './MiddlewareExtensions' 
+ 
 const JwtTokenExtensions = () => {
+
+  const [selectedTab, setSelectedTab] = React.useState('ServiceExtensions');
+  const handleChangeTab = (event, newValue) => {
+    setSelectedTab(newValue);
+  };
+
+  const width = '95%';
   return (
-    <DocPaper  header={header} contents={contents} />     
+    <Box
+      sx={{ width: '100%', typography: 'body1' }}
+    >
+      <TabContext value={selectedTab}  >
+        <Box sx={{ position: "fixed", bgcolor: grey[50], border: 2, borderColor: 'divider' }}>
+          <TabList
+            onChange={handleChangeTab}
+            //orientation="vertical" 
+            indicatorColor="primary"
+            sx={{ alignContent: 'center', overflow: 'visible' }}
+            selectionFollowsFocus
+          >
+            <Tab label='ServiceExtensions' value='ServiceExtensions' sx={{ alignContent: 'center' }} />
+            <Tab label='MiddlewareExtensions' value='MiddlewareExtensions' sx={{ alignContent: 'center' }} />
+          </TabList>
+        </Box>
+        <TabPanel value="ServiceExtensions" sx={{ width: width }}>
+          <ServiceExtensions />
+        </TabPanel>
+        <TabPanel value="MiddlewareExtensions" sx={{ width: width }}>
+          <MiddlewareExtensions />
+        </TabPanel>
+
+      </TabContext>
+    </Box>
   )
-}  
+}
+
+ 
 export default JwtTokenExtensions

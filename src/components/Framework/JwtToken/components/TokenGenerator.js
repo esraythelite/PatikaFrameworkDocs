@@ -6,18 +6,18 @@ const contents = [
     type: 'code',
     title: 'TokenGenerator',
     language: 'csharp',
-    startingLineNumber: 10,
+    startingLineNumber: 11,
     item: `
     namespace Patika.Framework.Identity.JwtToken.Services
     {
-        public class TokenGenerator : ITokenGenerator
+        public class TokenGenerator : CoreService, ITokenGenerator
         {
             private readonly ISimpleHash Hasher;
             private readonly Configuration Configuration;
-            public TokenGenerator(Configuration configuration, ISimpleHash hasher)
+            public TokenGenerator(IServiceProvider serviceProvider) : base(serviceProvider)
             {
-                Configuration = configuration;
-                Hasher = hasher;
+                Configuration = GetService<Configuration>();
+                Hasher = GetService<ISimpleHash>(); 
             }`,
     descriptions: [
       "Constructor and props",   
@@ -28,7 +28,7 @@ const contents = [
     type: 'code',
     title: 'GenerateToken',
     language: 'csharp',
-    startingLineNumber: 22,
+    startingLineNumber: 23,
     item: `
             public Token GenerateToken(IEnumerable<Claim>? claims)
             {
@@ -56,7 +56,7 @@ const contents = [
     type: 'code',
     title: 'RefreshToken',
     language: 'csharp',
-    startingLineNumber: 39,
+    startingLineNumber: 40,
     item: ` 
             public Token RefreshToken(string accessToken)
             {
@@ -84,7 +84,7 @@ const contents = [
     type: 'code',
     title: 'GetPrincipalFromExpiredToken',
     language: 'csharp',
-    startingLineNumber: 57,
+    startingLineNumber: 58,
     item: `
             public ClaimsPrincipal? GetPrincipalFromExpiredToken(string token)
             {
@@ -116,7 +116,7 @@ const contents = [
     type: 'code',
     title: 'GetJwtTokenHashed',
     language: 'csharp',
-    startingLineNumber: 79,
+    startingLineNumber: 80,
     item: ` 
             private string GetJwtTokenHashed(string jwtToken)
             {
@@ -137,7 +137,7 @@ const contents = [
     type: 'code',
     title: 'GetRefreshTokens',
     language: 'csharp',
-    startingLineNumber: 90,
+    startingLineNumber: 91,
     item: `  
             private Tuple<string, string> GetRefreshTokens()
             {
@@ -183,7 +183,7 @@ const contents = [
     type: 'code',
     title: 'GenerateSecurityToken',
     language: 'csharp',
-    startingLineNumber: 116,
+    startingLineNumber: 117,
     item: `  
             private JwtSecurityToken GenerateSecurityToken(IEnumerable<Claim>? claims)
             {

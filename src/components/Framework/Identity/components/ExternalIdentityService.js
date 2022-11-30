@@ -9,38 +9,26 @@ const contents = [
     type: 'code',
     title: 'ExternalIdentityService',
     language: 'csharp',
-    startingLineNumber: 17,
+    startingLineNumber: 16,
     item: `
-    using Configuration = Patika.Framework.Identity.Models.Configuration;
-
     namespace Patika.Framework.Identity.Service
     {
-        public class ExternalIdentityService : IdentityService, IExternalIdentityService
+        public class ExternalIdentityService : CoreService, IExternalIdentityService
         {
-            public ExternalIdentityService(
-                UserManager<ApplicationUser> userManager,
-                IUserStore<ApplicationUser> userStore,
-                SignInManager<ApplicationUser> signInManager,
-                IdentityDbContext<ApplicationUser> identityDbContext,
-                RoleManager<IdentityRole> roleManager,
-                ITokenGenerator tokenGenerator,
-                IWrongPasswordAttemptRepository wrongPasswordAttemptRepository,
-                IUserRefreshTokenRepository userRefreshTokenRepository, 
-                IUserTenantRepository userTenantRepository,
-                Configuration configuration
-                ) : base(
-                    userManager,
-                    userStore,
-                    signInManager,
-                    identityDbContext,
-                    roleManager,
-                    tokenGenerator,
-                    wrongPasswordAttemptRepository,
-                    userRefreshTokenRepository,
-                    userTenantRepository,
-                    configuration)
+            UserManager<ApplicationUser> UserManager { get; }
+            IUserStore<ApplicationUser> UserStore { get; }
+            SignInManager<ApplicationUser> SignInManager { get; } 
+            IUserEmailStore<ApplicationUser> EmailStore { get; set; } 
+            IIdentityService IdentityService { get; }
+    
+            public ExternalIdentityService(IServiceProvider serviceProvider) : base(serviceProvider)
             {
-            }  `,
+                UserManager = GetService<UserManager<ApplicationUser>>();
+                UserStore = GetService<IUserStore<ApplicationUser>>();
+                SignInManager = GetService<SignInManager<ApplicationUser>>();   
+                IdentityService = GetService<IIdentityService>();
+                EmailStore = IdentityService.GetEmailStore();
+            }`,
     descriptions: [
       "Constructor and props"
        ],
@@ -50,7 +38,7 @@ const contents = [
     type: 'code',
     title: 'LoginWithGoogle',
     language: 'csharp',
-    startingLineNumber: 48,
+    startingLineNumber: 38,
     item: `
           public ChallengeResult LoginWithGoogle(string callback)
           {
@@ -66,7 +54,7 @@ const contents = [
     type: 'code',
     title: 'LoginWithFacebook',
     language: 'csharp',
-    startingLineNumber: 55,
+    startingLineNumber: 42,
     item: ` 
           public ChallengeResult LoginWithFacebook(string callback)
           {
@@ -82,7 +70,7 @@ const contents = [
     type: 'code',
     title: 'LoginWithApple',
     language: 'csharp',
-    startingLineNumber: 62,
+    startingLineNumber: 49,
     item: ` 
           public ChallengeResult LoginWithApple(string callback)
           {
@@ -98,7 +86,7 @@ const contents = [
     type: 'code',
     title: 'LoginWithOkta',
     language: 'csharp',
-    startingLineNumber: 69,
+    startingLineNumber: 56,
     item: `
           public ChallengeResult LoginWithOkta(string callback)
           {
@@ -114,7 +102,7 @@ const contents = [
     type: 'code',
     title: 'Login',
     language: 'csharp',
-    startingLineNumber: 76,
+    startingLineNumber: 63,
     item: ` 
           private ChallengeResult Login(string callback, string provider, string url)
           {
@@ -133,7 +121,7 @@ const contents = [
     type: 'code',
     title: 'ProcessCallback',
     language: 'csharp',
-    startingLineNumber: 86,
+    startingLineNumber: 73,
     item: `
           public async Task<Token> ProcessCallback(string remoteError, string callback, string role)
           {
@@ -202,7 +190,7 @@ const contents = [
     type: 'code',
     title: 'CreateUserAsync',
     language: 'csharp',
-    startingLineNumber: 147,
+    startingLineNumber: 133,
     item: `
           private async Task<bool> CreateUserAsync(string role)
           {

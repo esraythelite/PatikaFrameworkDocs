@@ -9,51 +9,41 @@ const contents = [
     type: 'code',
     title: 'IdentityService',
     language: 'csharp',
-    startingLineNumber: 14,
+    startingLineNumber: 15,
     item: `
     using Configuration = Patika.Framework.Identity.Models.Configuration;
-    
+
     namespace Patika.Framework.Identity.Service
     {
-        public class IdentityService : IIdentityService
+        public class IdentityService : CoreService, IIdentityService
         {
-            protected UserManager<ApplicationUser> UserManager { get; }
-            protected IUserStore<ApplicationUser> UserStore { get; }
-            protected SignInManager<ApplicationUser> SignInManager { get; }
-            protected IdentityDbContext<ApplicationUser> IdentityDbContext { get; }
-            protected RoleManager<IdentityRole> RoleManager { get; }
-            protected IUserEmailStore<ApplicationUser> EmailStore { get; set; }
-            protected ITokenGenerator TokenGenerator { get; }
-            protected IWrongPasswordAttemptRepository WrongPasswordAttemptRepository { get; }
-            protected IUserRefreshTokenRepository UserRefreshTokenRepository { get; }
-            protected IUserTenantRepository UserTenantRepository { get; }
-            public Configuration Configuration { get; }
+            UserManager<ApplicationUser> UserManager { get; }
+            IUserStore<ApplicationUser> UserStore { get; }
+            SignInManager<ApplicationUser> SignInManager { get; }
+            IdentityDbContext<ApplicationUser> IdentityDbContext { get; }
+            RoleManager<IdentityRole> RoleManager { get; }
+            IUserEmailStore<ApplicationUser> EmailStore { get; set; }
+            ITokenGenerator TokenGenerator { get; }
+            IWrongPasswordAttemptRepository WrongPasswordAttemptRepository { get; }
+            IUserRefreshTokenRepository UserRefreshTokenRepository { get; }
+            IUserTenantRepository UserTenantRepository { get; }
+            Configuration Configuration { get; }
     
-            public IdentityService(
-                UserManager<ApplicationUser> userManager,
-                IUserStore<ApplicationUser> userStore,
-                SignInManager<ApplicationUser> signInManager,
-                IdentityDbContext<ApplicationUser> identityDbContext,
-                RoleManager<IdentityRole> roleManager,
-                ITokenGenerator tokenGenerator,
-                IWrongPasswordAttemptRepository wrongPasswordAttemptRepository,
-                IUserRefreshTokenRepository userRefreshTokenRepository,
-                IUserTenantRepository userTenantRepository,
-                Configuration configuration
-                )
+            public IdentityService(IServiceProvider serviceProvider
+                ) : base(serviceProvider)
             {
-                UserManager = userManager;
-                UserStore = userStore;
-                SignInManager = signInManager;
-                IdentityDbContext = identityDbContext;
-                RoleManager = roleManager;
+                UserManager = GetService<UserManager<ApplicationUser>>();
+                UserStore = GetService<IUserStore<ApplicationUser>>();
+                SignInManager = GetService<SignInManager<ApplicationUser>>();
+                IdentityDbContext = GetService<IdentityDbContext<ApplicationUser>>();
+                RoleManager = GetService<RoleManager<IdentityRole>>();
                 EmailStore = GetEmailStore();
-                TokenGenerator = tokenGenerator;
-                WrongPasswordAttemptRepository = wrongPasswordAttemptRepository;
-                UserRefreshTokenRepository = userRefreshTokenRepository;
-                UserTenantRepository = userTenantRepository;
-                Configuration = configuration;
-            }  `,
+                TokenGenerator = GetService<ITokenGenerator>();
+                WrongPasswordAttemptRepository = GetService<IWrongPasswordAttemptRepository>();
+                UserRefreshTokenRepository = GetService<IUserRefreshTokenRepository>();
+                UserTenantRepository = GetService<IUserTenantRepository>();
+                Configuration = GetService<Configuration>();
+            } `,
     descriptions: [
         "Constructor and props"
     ],
@@ -63,7 +53,7 @@ const contents = [
     type: 'code',
     title: 'LoginAsync',
     language: 'csharp',
-    startingLineNumber: 58,
+    startingLineNumber: 49,
     item: `
           public async Task<Token> LoginAsync(LoginInput input)
           {
@@ -96,7 +86,7 @@ const contents = [
     type: 'code',
     title: 'SignOutAsync',
     language: 'csharp',
-    startingLineNumber: 81,
+    startingLineNumber: 72,
     item: `
           public async Task SignOutAsync()
           {
@@ -111,7 +101,7 @@ const contents = [
     type: 'code',
     title: 'RegisterAsync',
     language: 'csharp',
-    startingLineNumber: 86,
+    startingLineNumber: 77,
     item: `
           public async Task<Token> RegisterAsync(RegistrationInput input)
           {
@@ -154,7 +144,7 @@ const contents = [
     type: 'code',
     title: 'RefreshTokenAsync',
     language: 'csharp',
-    startingLineNumber: 119,
+    startingLineNumber: 110,
     item: `
           public async Task<Token> RefreshTokenAsync(RefreshTokenInputDTO input)
           {
@@ -206,7 +196,7 @@ const contents = [
     type: 'code',
     title: 'FindByNameAsync',
     language: 'csharp',
-    startingLineNumber: 161,
+    startingLineNumber: 152,
     item: `
           public async Task<ApplicationUser> FindByNameAsync(string userName)
           {
@@ -222,7 +212,7 @@ const contents = [
     type: 'code',
     title: 'FindByIdAsync',
     language: 'csharp',
-    startingLineNumber: 167,
+    startingLineNumber: 158,
     item: `
           public async Task<ApplicationUser> FindByIdAsync(string userId)
           {
@@ -237,7 +227,7 @@ const contents = [
     type: 'code',
     title: 'FindByEmailAsync',
     language: 'csharp',
-    startingLineNumber: 172,
+    startingLineNumber: 163,
     item: `
           public async Task<ApplicationUser> FindByEmailAsync(string email)
           {
@@ -252,7 +242,7 @@ const contents = [
     type: 'code',
     title: 'CreateApplicationAsync',
     language: 'csharp',
-    startingLineNumber: 177,
+    startingLineNumber: 168,
     item: `
           public async Task CreateApplicationAsync(ApplicationRegistrationInput input)
           {
@@ -275,7 +265,7 @@ const contents = [
     type: 'code',
     title: 'AddRolesByUserNameAsync',
     language: 'csharp',
-    startingLineNumber: 188,
+    startingLineNumber: 179,
     item: `
           public async Task AddRolesByUserNameAsync(string userName, params string[] roles)
           {
@@ -292,7 +282,7 @@ const contents = [
     type: 'code',
     title: 'CreateRoleAsync',
     language: 'csharp',
-    startingLineNumber: 195,
+    startingLineNumber: 186,
     item: `
           public async Task CreateRoleAsync(string role)
           {
@@ -312,7 +302,7 @@ const contents = [
     type: 'code',
     title: 'GetRolesAsync',
     language: 'csharp',
-    startingLineNumber: 205,
+    startingLineNumber: 196,
     item: `
           public async Task<IList<string>> GetRolesAsync(ApplicationUser user)
           {
@@ -327,7 +317,7 @@ const contents = [
     type: 'code',
     title: 'ResetPassword',
     language: 'csharp',
-    startingLineNumber: 210,
+    startingLineNumber: 201,
     item: `
           public async Task ResetPassword(ResetPasswordInput input)
           {
@@ -357,7 +347,7 @@ const contents = [
     type: 'code',
     title: 'RegisterApplicationAsync',
     language: 'csharp',
-    startingLineNumber: 230,
+    startingLineNumber: 221,
     item: `
           private async Task<string> RegisterApplicationAsync(ApplicationRegistrationInput input)
           {
@@ -383,7 +373,7 @@ const contents = [
     type: 'code',
     title: 'CreateUserInstance',
     language: 'csharp',
-    startingLineNumber: 245,
+    startingLineNumber: 237,
     item: ` 
           protected ApplicationUser CreateUserInstance()
           {
@@ -405,7 +395,7 @@ const contents = [
     type: 'code',
     title: 'AddToRoleAsync',
     language: 'csharp',
-    startingLineNumber: 258,
+    startingLineNumber: 249,
     item: `
         private async Task AddToRoleAsync(ApplicationUser user, params string[] roles)
         {
@@ -424,7 +414,7 @@ const contents = [
     type: 'code',
     title: 'GetEmailStore',
     language: 'csharp',
-    startingLineNumber: 267,
+    startingLineNumber: 258,
     item: ` 
           private IUserEmailStore<ApplicationUser> GetEmailStore()
           {
@@ -443,7 +433,7 @@ const contents = [
     type: 'code',
     title: 'GetClaimsAsync',
     language: 'csharp',
-    startingLineNumber: 276,
+    startingLineNumber: 267,
     item: `
     public async Task<List<Claim>> GetClaimsAsync(ApplicationUser user)
     {
@@ -477,7 +467,7 @@ const contents = [
     type: 'code',
     title: 'CreateTokenAsync',
     language: 'csharp',
-    startingLineNumber: 300,
+    startingLineNumber: 291,
     item: ` 
           public async Task<Token> CreateTokenAsync(ApplicationUser user)
           {

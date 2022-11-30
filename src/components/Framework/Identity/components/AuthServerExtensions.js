@@ -9,7 +9,7 @@ const contents = [
     type: 'code',
     title: 'AddAuthServerAuthentications',
     language: 'csharp',
-    startingLineNumber: 16,
+    startingLineNumber: 9,
     item: `
     using Configuration = Patika.Framework.Identity.Models.Configuration;
     
@@ -19,10 +19,8 @@ const contents = [
         {
             public static AuthenticationBuilder AddAuthServerAuthentications(
                 this IServiceCollection services, Configuration configuration)
-            {
-                AddConfiguration(services, configuration);
-    
-                AddServices(services);
+            {            
+                services.AddIdentityServices(configuration); 
     
                 var auth = services.AddAuthentication(options =>
                 {

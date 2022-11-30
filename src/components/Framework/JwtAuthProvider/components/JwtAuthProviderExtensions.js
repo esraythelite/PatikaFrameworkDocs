@@ -9,7 +9,7 @@ const contents = [
     type: 'code',
     title: 'JwtAuthProviderExtension',
     language: 'csharp',
-    startingLineNumber: 4,
+    startingLineNumber: 7,
     item: `
     namespace Patika.Framework.Identity.JwtAuthProvider.Extensions
     {
@@ -17,9 +17,7 @@ const contents = [
         {
             public static AuthenticationBuilder AddJwtAuthentication(this AuthenticationBuilder builder, Configuration configuration)
             {
-                configuration.Validate();
-    
-                AddConfiguration(builder.Services, configuration);
+                AddJwtTokenServices(builder.Services, configuration);
     
                 builder.AddJwtBearer(options =>
                 {
@@ -40,15 +38,17 @@ const contents = [
     
                 return builder;
             }
-    
-            private static void AddConfiguration(IServiceCollection services, Configuration configuration)
+
+            private static void AddJwtTokenServices(IServiceCollection services, Configuration configuration)
             {
-                services.AddSingleton(configuration);
+                services.AddJwtTokenServices(configuration);
             }
         }
     }`,
     descriptions: [
-      ""
+      "Use AddJwtAuthentication to add Jwt Authentication",
+      "Used by Patika.Framework.Identity",
+      "AddJwtTokenServices inject all services to use Patika.Framework.Identity.JwtAuthProvider and Patika.Framework.Identity.JwtToken"
     ],
   } ,
   {
@@ -56,7 +56,7 @@ const contents = [
     type: 'code',
     title: 'Example',
     language: 'csharp',
-    startingLineNumber: 4,
+    startingLineNumber: 0,
     showLineNumbers : false,
     item: `
     var auth = services.AddAuthentication(options =>
