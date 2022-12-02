@@ -86,6 +86,13 @@ import ExcelExtensions from "./components/Framework/UtilitiesExcel/components/Ex
 import ExcelExceptions from "./components/Framework/UtilitiesExcel/components/ExcelExceptions";
 import ExcelInterfaces from "./components/Framework/UtilitiesExcel/components/ExcelInterfaces";
 import ExcelModels from "./components/Framework/UtilitiesExcel/components/ExcelModels";
+import UtilitiesImage from "./components/Framework/UtilitiesImage/UtilitiesImage";
+import ImageExtensions from "./components/Framework/UtilitiesImage/components/ImageExtensions";
+import ImageExceptions from "./components/Framework/UtilitiesImage/components/ImageExceptions";
+import ImageInterfaces from "./components/Framework/UtilitiesImage/components/ImageInterfaces";
+import ImageModels from "./components/Framework/UtilitiesImage/components/ImageModels";
+import ImageEnums from "./components/Framework/UtilitiesImage/components/ImageEnums";
+import ImageServices from "./components/Framework/UtilitiesImage/components/ImageServices";
 
 let theme = createTheme({
 	palette: {
@@ -412,6 +419,14 @@ function App() {
 							<Route path="contents/framework/packages/exceluitilities/exceptions" element={<ExcelExceptions />} />
 							<Route path="contents/framework/packages/exceluitilities/interfaces" element={<ExcelInterfaces />} />
 							<Route path="contents/framework/packages/exceluitilities/models" element={<ExcelModels />} />
+						
+							<Route path="contents/framework/packages/imageuitilities" element={<UtilitiesImage />} />
+							<Route path="contents/framework/packages/imageuitilities/extensions" element={<ImageExtensions />} />
+							<Route path="contents/framework/packages/imageuitilities/exceptions" element={<ImageExceptions />} />
+							<Route path="contents/framework/packages/imageuitilities/interfaces" element={<ImageInterfaces />} />
+							<Route path="contents/framework/packages/imageuitilities/models" element={<ImageModels />} />
+							<Route path="contents/framework/packages/imageuitilities/enums" element={<ImageEnums />} />
+							<Route path="contents/framework/packages/imageuitilities/services" element={<ImageServices />} />
 						
 						</Routes>
 						{
