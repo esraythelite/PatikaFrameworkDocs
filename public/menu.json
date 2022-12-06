@@ -30,6 +30,16 @@
 			]
 		},
 		{
+			"title": "Patika Git",
+			"author": "Saim Nasır",
+			"version": "",
+			"link": "/contents/git",
+			"status": 0,
+			"isGeneral": true,
+			"isReact": true,
+			"children": []
+		},
+		{
 			"title": "Framework Packages",
 			"author": "Saim Nasır",
 			"version": "",
