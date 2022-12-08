@@ -30,14 +30,45 @@
 			]
 		},
 		{
-			"title": "Patika Git",
+			"title": "Git",
 			"author": "Saim Nasır",
 			"version": "",
 			"link": "/contents/git",
 			"status": 0,
 			"isGeneral": true,
 			"isReact": true,
-			"children": []
+			"children": [
+				{
+					"title": "Version Control",
+					"author": "Saim Nasır",
+					"version": "",
+					"link": "/contents/git/versioncontrol",
+					"status": 0,
+					"isGeneral": true,
+					"isReact": true,
+					"children": []
+				},
+				{
+					"title": "Commands",
+					"author": "Saim Nasır",
+					"version": "",
+					"link": "/contents/git/commands",
+					"status": 0,
+					"isGeneral": true,
+					"isReact": true,
+					"children": []
+				},
+				{
+					"title": "Flow",
+					"author": "Saim Nasır",
+					"version": "",
+					"link": "/contents/git/flow",
+					"status": 0,
+					"isGeneral": true,
+					"isReact": true,
+					"children": []
+				}
+			]
 		},
 		{
 			"title": "Framework Packages",
@@ -381,7 +412,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						}, 
+						},
 						{
 							"title": "Models",
 							"author": "Saim Nasır",
@@ -432,7 +463,7 @@
 					"status": 0,
 					"isGeneral": true,
 					"isReact": true,
-					"children": [ 
+					"children": [
 						{
 							"title": "Extensions",
 							"author": "Saim Nasır",
@@ -453,7 +484,7 @@
 					"status": 0,
 					"isGeneral": true,
 					"isReact": true,
-					"children": [ 						
+					"children": [
 						{
 							"title": "Consts",
 							"author": "Saim Nasır",
@@ -463,7 +494,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						}, 						
+						},
 						{
 							"title": "Enums",
 							"author": "Saim Nasır",
@@ -473,7 +504,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						},						
+						},
 						{
 							"title": "Models",
 							"author": "Saim Nasır",
@@ -495,7 +526,7 @@
 							"children": []
 						}
 					]
-				}, 
+				},
 				{
 					"title": "Identity.Facebook",
 					"author": "Saim Nasır",
@@ -504,7 +535,7 @@
 					"status": 0,
 					"isGeneral": true,
 					"isReact": true,
-					"children": [ 						
+					"children": [
 						{
 							"title": "Consts",
 							"author": "Saim Nasır",
@@ -514,7 +545,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						}, 						
+						},
 						{
 							"title": "Enums",
 							"author": "Saim Nasır",
@@ -524,7 +555,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						},						
+						},
 						{
 							"title": "Models",
 							"author": "Saim Nasır",
@@ -546,7 +577,7 @@
 							"children": []
 						}
 					]
-				}, 
+				},
 				{
 					"title": "Identity.Google",
 					"author": "Saim Nasır",
@@ -555,7 +586,7 @@
 					"status": 0,
 					"isGeneral": true,
 					"isReact": true,
-					"children": [ 						
+					"children": [
 						{
 							"title": "Consts",
 							"author": "Saim Nasır",
@@ -565,7 +596,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						}, 						
+						},
 						{
 							"title": "Enums",
 							"author": "Saim Nasır",
@@ -575,7 +606,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						},						
+						},
 						{
 							"title": "Models",
 							"author": "Saim Nasır",
@@ -597,7 +628,7 @@
 							"children": []
 						}
 					]
-				}, 
+				},
 				{
 					"title": "Identity.Okta",
 					"author": "Saim Nasır",
@@ -606,7 +637,7 @@
 					"status": 0,
 					"isGeneral": true,
 					"isReact": true,
-					"children": [ 						
+					"children": [
 						{
 							"title": "Consts",
 							"author": "Saim Nasır",
@@ -616,7 +647,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						}, 						
+						},
 						{
 							"title": "Enums",
 							"author": "Saim Nasır",
@@ -626,7 +657,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						},						
+						},
 						{
 							"title": "Models",
 							"author": "Saim Nasır",
@@ -648,7 +679,7 @@
 							"children": []
 						}
 					]
-				}, 
+				},
 				{
 					"title": "Identity",
 					"author": "Saim Nasır",
@@ -657,7 +688,7 @@
 					"status": 0,
 					"isGeneral": true,
 					"isReact": true,
-					"children": [ 						
+					"children": [
 						{
 							"title": "Models",
 							"author": "Saim Nasır",
@@ -677,7 +708,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						} ,
+						},
 						{
 							"title": "Services",
 							"author": "Saim Nasır",
@@ -699,7 +730,7 @@
 							"children": []
 						}
 					]
-				}, 
+				},
 				{
 					"title": "Utilities.File",
 					"author": "Saim Nasır",
@@ -708,7 +739,7 @@
 					"status": 0,
 					"isGeneral": true,
 					"isReact": true,
-					"children": [ 						
+					"children": [
 						{
 							"title": "Extensions",
 							"author": "Saim Nasır",
@@ -718,7 +749,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						}, 
+						},
 						{
 							"title": "Exceptions",
 							"author": "Saim Nasır",
@@ -730,7 +761,7 @@
 							"children": []
 						}
 					]
-				}, 
+				},
 				{
 					"title": "Utilities.Excel",
 					"author": "Saim Nasır",
@@ -739,7 +770,7 @@
 					"status": 0,
 					"isGeneral": true,
 					"isReact": true,
-					"children": [ 	
+					"children": [
 						{
 							"title": "Interfaces",
 							"author": "Saim Nasır",
@@ -749,7 +780,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						}, 
+						},
 						{
 							"title": "Models",
 							"author": "Saim Nasır",
@@ -759,7 +790,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						}, 					
+						},
 						{
 							"title": "Extensions",
 							"author": "Saim Nasır",
@@ -769,7 +800,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						}, 
+						},
 						{
 							"title": "Exceptions",
 							"author": "Saim Nasır",
@@ -790,7 +821,7 @@
 					"status": 0,
 					"isGeneral": true,
 					"isReact": true,
-					"children": [ 	
+					"children": [
 						{
 							"title": "Interfaces",
 							"author": "Saim Nasır",
@@ -800,7 +831,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						}, 
+						},
 						{
 							"title": "Models",
 							"author": "Saim Nasır",
@@ -810,7 +841,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						}, 					
+						},
 						{
 							"title": "Enums",
 							"author": "Saim Nasır",
@@ -820,7 +851,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						}, 					
+						},
 						{
 							"title": "Services",
 							"author": "Saim Nasır",
@@ -830,7 +861,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						}, 					
+						},
 						{
 							"title": "Extensions",
 							"author": "Saim Nasır",
@@ -840,7 +871,7 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
-						}, 
+						},
 						{
 							"title": "Exceptions",
 							"author": "Saim Nasır",
@@ -854,6 +885,6 @@
 					]
 				}
 			]
-		} 
+		}
 	]
 }

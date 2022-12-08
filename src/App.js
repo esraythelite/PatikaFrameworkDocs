@@ -94,6 +94,9 @@ import ImageModels from "./components/Framework/UtilitiesImage/components/ImageM
 import ImageEnums from "./components/Framework/UtilitiesImage/components/ImageEnums";
 import ImageServices from "./components/Framework/UtilitiesImage/components/ImageServices";
 import Git from "./components/Git/Git";
+import GitFlow from "./components/Git/components/GitFlow";
+import GitCommands from "./components/Git/components/GitCommands";
+import VersionControl from "./components/Git/components/VersionControl";
 
 let theme = createTheme({
 	palette: {
@@ -327,6 +330,10 @@ function App() {
 							<Route path="/home" element={<Home />} /> 
 
 							<Route path="contents/git" element={<Git />} />
+							<Route path="contents/git/flow" element={<GitFlow />} />
+							<Route path="contents/git/commands" element={<GitCommands />} />
+							<Route path="contents/git/versioncontrol" element={<VersionControl />} />
+
 							<Route path="contents/framework/packages" element={<Framework />} />
 
 							<Route path="contents/framework/packages/shared" element={<Shared />} />
