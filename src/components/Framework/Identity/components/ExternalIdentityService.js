@@ -18,6 +18,7 @@ const contents = [
             SignInManager<ApplicationUser> SignInManager { get; } 
             IUserEmailStore<ApplicationUser> EmailStore { get; set; } 
             IIdentityService IdentityService { get; }
+            ICallbackValidator CallbackValidator { get; }
     
             public ExternalIdentityService(IServiceProvider serviceProvider) : base(serviceProvider)
             {
@@ -25,6 +26,7 @@ const contents = [
                 UserStore = GetService<IUserStore<ApplicationUser>>();
                 SignInManager = GetService<SignInManager<ApplicationUser>>();   
                 IdentityService = GetService<IIdentityService>();
+                CallbackValidator = GetService<ICallbackValidator>();
                 EmailStore = IdentityService.GetEmailStore();
             }`,
     descriptions: [
@@ -36,13 +38,12 @@ const contents = [
     type: 'code',
     title: 'LoginWithGoogle',
     language: 'csharp',
-    startingLineNumber: 38,
+    startingLineNumber: 37,
     item: `
           public ChallengeResult LoginWithGoogle(string callback)
           {
-              var provider = GoogleDefaults.AuthenticationScheme;
-              var url = $"/identity/authorize/callback?callback={callback}";
-              return Login(callback, provider, url);
+                var provider = GoogleDefaults.AuthenticationScheme;
+                return Login(callback, provider);
           }`,
     descriptions: [
        ],
@@ -52,13 +53,12 @@ const contents = [
     type: 'code',
     title: 'LoginWithFacebook',
     language: 'csharp',
-    startingLineNumber: 42,
+    startingLineNumber: 43,
     item: ` 
           public ChallengeResult LoginWithFacebook(string callback)
-          {
-              var provider = FacebookDefaults.AuthenticationScheme;
-              var url = $"/identity/authorize/callback?callback={callback}";
-              return Login(callback, provider, url);
+          {              
+                var provider = FacebookDefaults.AuthenticationScheme;
+                return Login(callback, provider);
           }  `,
     descriptions: [
        ],
@@ -72,9 +72,8 @@ const contents = [
     item: ` 
           public ChallengeResult LoginWithApple(string callback)
           {
-              var provider = AppleAuthenticationDefaults.AuthenticationScheme;
-              var url = $"/identity/authorize/callback?callback={callback}";
-              return Login(callback, provider, url);
+                var provider = AppleAuthenticationDefaults.AuthenticationScheme;
+                return Login(callback, provider);
           }  `,
     descriptions: [
        ],
@@ -84,13 +83,12 @@ const contents = [
     type: 'code',
     title: 'LoginWithOkta',
     language: 'csharp',
-    startingLineNumber: 56,
+    startingLineNumber: 55,
     item: `
           public ChallengeResult LoginWithOkta(string callback)
           {
-              var provider = OpenIdConnectDefaults.AuthenticationScheme;
-              var url = $"/identity/authorize/callback?callback={callback}";
-              return Login(callback, provider, url);
+                var provider = OpenIdConnectDefaults.AuthenticationScheme;
+                return Login(callback, provider);
           }   `,
     descriptions: [
        ],
@@ -100,16 +98,14 @@ const contents = [
     type: 'code',
     title: 'Login',
     language: 'csharp',
-    startingLineNumber: 63,
+    startingLineNumber: 61,
     item: ` 
           private ChallengeResult Login(string callback, string provider, string url)
           {
-              if (string.IsNullOrEmpty(callback))
-              {
-                  throw new ExternalAuthCallbackIsRequiredException();
-              }
-              var properties = SignInManager.ConfigureExternalAuthenticationProperties(provider, url);
-              return new ChallengeResult(provider, properties);
+                ValidateCallback(callback);
+                var url = $"/identity/authorize/callback?callback={callback}";
+                var properties = SignInManager.ConfigureExternalAuthenticationProperties(provider, url);
+                return new ChallengeResult(provider, properties);
           }  `,
     descriptions: [
        ],
@@ -119,17 +115,14 @@ const contents = [
     type: 'code',
     title: 'ProcessCallback',
     language: 'csharp',
-    startingLineNumber: 73,
+    startingLineNumber: 69,
     item: `
           public async Task<Token> ProcessCallback(string remoteError, string callback, string role)
           {
+              ValidateCallback(callback);
               if (!string.IsNullOrEmpty(remoteError))
               {
                   throw new ExternalProviderRemoteErrorException($"Error from external provider: {remoteError}");
-              }
-              if (string.IsNullOrEmpty(callback))
-              {
-                  throw new ExternalAuthCallbackIsRequiredException();
               }
               var info = await SignInManager.GetExternalLoginInfoAsync();
               if (info == null)
@@ -188,7 +181,7 @@ const contents = [
     type: 'code',
     title: 'CreateUserAsync',
     language: 'csharp',
-    startingLineNumber: 133,
+    startingLineNumber: 126,
     item: `
           private async Task<bool> CreateUserAsync(string role)
           {
@@ -255,10 +248,25 @@ const contents = [
                   str += $"\r\n {error.Description}";
               }
               throw new GeneralAuthException(str);
-          }
-      }
+          } `,
+    descriptions: [
+       ],
+  }, 
+  {
+    order: 8,
+    type: 'code',
+    title: 'ValidateCallback',
+    language: 'csharp',
+    startingLineNumber: 192,
+    item: `
+            public  void ValidateCallback(string callback)
+            {
+                CallbackValidator.ValidateAndThrowAsync(callback).Wait();
+            }
+        }
     }`,
     descriptions: [
+        "Validates callback url"
        ],
   }
 ]

@@ -6,8 +6,7 @@ const contents = [
     order: 1,
     type: 'code',
     title: 'BaseException',
-    language: 'csharp',
-    startingLineNumber: 7,
+    language: 'csharp',    
     item: `
     namespace Patika.Framework.Shared.Exceptions
     {
@@ -53,8 +52,7 @@ const contents = [
     order: 2,
     type: 'code',
     title: 'BaseSystemException',
-    language: 'csharp',
-    startingLineNumber: 7,
+    language: 'csharp',    
     item: `
     namespace Patika.Framework.Shared.Exceptions
     {
@@ -74,8 +72,7 @@ const contents = [
     order: 3,
     type: 'code',
     title: 'BaseApplicationException',
-    language: 'csharp',
-    startingLineNumber: 7,
+    language: 'csharp',    
     item: `
     namespace Patika.Framework.Shared.Exceptions
     {
@@ -98,7 +95,6 @@ const contents = [
     type: 'code',
     title: 'BaseFatalException',
     language: 'csharp',
-    startingLineNumber: 7,
     item: `
     namespace Patika.Framework.Shared.Exceptions
     {
@@ -122,8 +118,7 @@ const contents = [
     order: 5,
     type: 'code',
     title: 'ApplicationException',
-    language: 'csharp',
-    startingLineNumber: 7,
+    language: 'csharp',    
     item: `
     namespace Patika.Framework.Shared.Exceptions
     {
@@ -144,7 +139,7 @@ const contents = [
         }
     }`,
     descriptions: [
-      "Inherited from ApplicationException",
+      "Inherited from BaseApplicationException",
       "*"
     ],
   },
@@ -152,8 +147,7 @@ const contents = [
     order: 6,
     type: 'code',
     title: 'GeneralException',
-    language: 'csharp',
-    startingLineNumber: 7,
+    language: 'csharp',    
     item: `
     namespace Patika.Framework.Shared.Exceptions
     {
@@ -174,8 +168,7 @@ const contents = [
     order: 7,
     type: 'code',
     title: 'StringToGuidFailedException',
-    language: 'csharp',
-    startingLineNumber: 7,
+    language: 'csharp',    
     item: `
     namespace Patika.Framework.Shared.Exceptions.Convertions
     {
@@ -194,8 +187,7 @@ const contents = [
     order: 8,
     type: 'code',
     title: 'FieldRequiredException',
-    language: 'csharp',
-    startingLineNumber: 7,
+    language: 'csharp',    
     item: `
     namespace Patika.Framework.Shared.Exceptions
     {
@@ -215,8 +207,7 @@ const contents = [
     order: 8,
     type: 'code',
     title: 'UserIsUnauthorizedException',
-    language: 'csharp',
-    startingLineNumber: 7,
+    language: 'csharp',    
     item: `
     namespace Patika.Framework.Shared.Exceptions.Identity
     {
@@ -236,8 +227,7 @@ const contents = [
     order: 8,
     type: 'code',
     title: 'TokenInvalidException',
-    language: 'csharp',
-    startingLineNumber: 7,
+    language: 'csharp',    
     item: `
     namespace Patika.Framework.Shared.Exceptions.Identity
     {
@@ -257,8 +247,7 @@ const contents = [
     order: 9,
     type: 'code',
     title: 'ServiceNotInjectedException',
-    language: 'csharp',
-    startingLineNumber: 6,
+    language: 'csharp',    
     item: `
     namespace Patika.Framework.Shared.Exceptions
     {
@@ -273,10 +262,153 @@ const contents = [
     descriptions: [
       "Auto throwed when GetService failed with null service"
     ],
+  },
+  {
+    order: 10,
+    type: 'code',
+    title: 'OnlyTurkishLettersException',
+    language: 'csharp',    
+    item: `
+    namespace Patika.Framework.Shared.Exceptions.Common
+    {
+        public class OnlyTurkishLettersException : BaseApplicationException
+        {
+            public OnlyTurkishLettersException() : base($"{typeof(OnlyTurkishLettersException).FullName}")
+            {
+    
+            }
+        }
+    }`,
+    descriptions: [
+      "Exceptions for text must contains only Turkish letters, throws after regex match failed."
+    ],
+  },
+  {
+    order: 11,
+    type: 'code',
+    title: 'ConfirmPasswordMustMatchWithPasswordException',
+    language: 'csharp',    
+    item: `
+    namespace Patika.Framework.Shared.Exceptions.Identity
+    {
+        public class ConfirmPasswordMustMatchWithPasswordException : BaseApplicationException
+        {
+            public ConfirmPasswordMustMatchWithPasswordException() : base($"{typeof(ConfirmPasswordMustMatchWithPasswordException).FullName}")
+            {
+    
+            }
+        }
+    }`,
+    descriptions: [
+      "Throws when Password and ConfirmPassword not matched!"
+    ],
+  },
+  {
+    order: 12,
+    type: 'code',
+    title: 'InvalidEmailAddressException',
+    language: 'csharp',    
+    item: `
+    namespace Patika.Framework.Shared.Exceptions.Identity
+    {
+        public class InvalidEmailAddressException : BaseApplicationException
+        {
+            public InvalidEmailAddressException() : base($"{typeof(InvalidEmailAddressException).FullName}")
+            {
+    
+            }
+        }
+    }    `,
+    descriptions: [
+      "Throws when Email address is invalid"
+    ],
+  },
+  {
+    order: 13,
+    type: 'code',
+    title: 'PasswordMinLengthException',
+    language: 'csharp',    
+    item: `
+    namespace Patika.Framework.Shared.Exceptions.Identity
+    {
+        public class PasswordMinLengthException : BaseApplicationException
+        {
+            public PasswordMinLengthException(int minLength) : base($"{typeof(PasswordMinLengthException).FullName}", message : $"{minLength}")
+            {
+    
+            }
+        }
+    }    `,
+    descriptions: [
+      "Throws when Password length is smaller than required"
+    ],
+  },
+  {
+    order: 14,
+    type: 'code',
+    title: 'PasswordRequiredException',
+    language: 'csharp',
+    
+    item: `
+    namespace Patika.Framework.Shared.Exceptions.Identity
+    {
+        public class PasswordRequiredException : BaseApplicationException
+        {
+            public PasswordRequiredException() : base($"{typeof(PasswordRequiredException).FullName}")
+            {
+    
+            }
+        }
+    }      `,
+    descriptions: [
+      "Throws when Password is empty"
+    ],
+  },
+  {
+    order: 15,
+    type: 'code',
+    title: 'UserNameRequiredException',
+    language: 'csharp',
+    
+    item: `
+    namespace Patika.Framework.Shared.Exceptions.Identity
+    {
+        public class UserNameRequiredException : BaseApplicationException
+        {
+            public UserNameRequiredException() : base($"{typeof(UserNameRequiredException).FullName}")
+            {
+    
+            }
+        }
+    } `,
+    descriptions: [
+      "Throws when Username is empty"
+    ],
+  },
+  {
+    order: 16,
+    type: 'code',
+    title: 'UserNameMinLengthException',
+    language: 'csharp',
+    
+    item: `
+    namespace Patika.Framework.Shared.Exceptions.Identity
+    {
+        public class UserNameMinLengthException : BaseApplicationException
+        {
+            public UserNameMinLengthException(int minLength) : base($"{typeof(UserNameMinLengthException).FullName}", message: $"{minLength}")
+            {
+    
+            }
+        }
+    }   `,
+    descriptions: [
+      "Throws when Username length is smaller than required"
+    ],
   }
 ]
 const header = 'Patika.Framework.Shared.Exceptions';
-const Exceptions = () => {
+const Exceptions = () => { 
   return (
     <DocPaper header={header} contents={contents} />     
   )

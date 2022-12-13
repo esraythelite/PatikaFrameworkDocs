@@ -7,7 +7,6 @@ const contents = [
     type: 'code',
     title: 'Consts',
     language: 'csharp',
-    startingLineNumber: 0,
     item: `
     namespace Patika.Framework.Identity.FacebookAuthProvider.Consts
     {

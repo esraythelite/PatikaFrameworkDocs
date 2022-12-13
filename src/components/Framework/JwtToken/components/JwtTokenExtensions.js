@@ -2,13 +2,12 @@ import { Box} from '@mui/material'
 import { grey} from '@mui/material/colors'
 import React from 'react'
 import Tab from '@mui/material/Tab';
-import { TabContext, TabList, TabPanel } from '@mui/lab' 
-import ServiceExtensions from './ServiceExtensions' 
+import { TabContext, TabList, TabPanel } from '@mui/lab'  
 import MiddlewareExtensions from './MiddlewareExtensions' 
  
 const JwtTokenExtensions = () => {
 
-  const [selectedTab, setSelectedTab] = React.useState('ServiceExtensions');
+  const [selectedTab, setSelectedTab] = React.useState('MiddlewareExtensions');
   const handleChangeTab = (event, newValue) => {
     setSelectedTab(newValue);
   };
@@ -27,13 +26,9 @@ const JwtTokenExtensions = () => {
             sx={{ alignContent: 'center', overflow: 'visible' }}
             selectionFollowsFocus
           >
-            <Tab label='ServiceExtensions' value='ServiceExtensions' sx={{ alignContent: 'center' }} />
             <Tab label='MiddlewareExtensions' value='MiddlewareExtensions' sx={{ alignContent: 'center' }} />
           </TabList>
         </Box>
-        <TabPanel value="ServiceExtensions" sx={{ width: width }}>
-          <ServiceExtensions />
-        </TabPanel>
         <TabPanel value="MiddlewareExtensions" sx={{ width: width }}>
           <MiddlewareExtensions />
         </TabPanel>

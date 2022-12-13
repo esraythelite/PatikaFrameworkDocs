@@ -7,7 +7,6 @@ const contents = [
     type: 'code',
     title: 'Consts',
     language: 'csharp',
-    startingLineNumber: 0,
     item: `
     namespace Patika.Framework.Identity.AppleAuthProvider.Consts
     {
@@ -20,9 +19,12 @@ const contents = [
                 "openid",
             };
         }
+
+        public const string Audience = "https://appleid.apple.com";
     }`,
     descriptions: [
-      "DefaultScopes: This scopes are automatically added to Apple Authentication"
+      "DefaultScopes: This scopes are automatically added to Apple Authentication",
+      "Audience: used ing client secret generation"
     ],
   }  
 ]

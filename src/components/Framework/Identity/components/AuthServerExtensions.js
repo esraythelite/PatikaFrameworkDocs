@@ -10,15 +10,15 @@ const contents = [
     startingLineNumber: 9,
     item: `
     using Configuration = Patika.Framework.Identity.Models.Configuration;
-    
+
     namespace Patika.Framework.Identity.Extensions
     {
         public static class AuthServerExtensions
         {
             public static AuthenticationBuilder AddAuthServerAuthentications(
                 this IServiceCollection services, Configuration configuration)
-            {            
-                services.AddIdentityServices(configuration); 
+            {
+                AddConfiguration(services, configuration);
     
                 var auth = services.AddAuthentication(options =>
                 {
@@ -29,29 +29,13 @@ const contents = [
     
                 auth.AddJwtAuthentication(configuration.JwtAuthConfiguration);
     
-                if (configuration.GoogleAuthConfiguration is not null)
-                {
-                    auth.AddGoogleAuthentication(configuration.GoogleAuthConfiguration);
-                }
-    
-                if (configuration.FacebookAuthConfiguration is not null)
-                {
-                    auth.AddFacebookAuthentication(configuration.FacebookAuthConfiguration);
-                }
-    
-                if (configuration.OktaAuthConfiguration is not null)
-                {
-                    auth.AddOktaAuthentication(configuration.OktaAuthConfiguration);
-                }
-    
-                if (configuration.AppleAuthConfiguration is not null)
-                {
-                    auth.AddAppleAuthentication(configuration.AppleAuthConfiguration);
-                }
+                AddExternalAuthentications(configuration, auth);
     
                 return auth;
             }`,
     descriptions: [
+        "Adds Jwt Authentication ",
+        "Adds External Authentications if "
        ],
   },
   {
@@ -59,7 +43,7 @@ const contents = [
     type: 'code',
     title: 'AddConfiguration',
     language: 'csharp',
-    startingLineNumber: 60,
+    startingLineNumber: 34,
     item: `
           private static void AddConfiguration(IServiceCollection services, Configuration configuration)
           {
@@ -69,28 +53,43 @@ const contents = [
        ],
   } ,
   {
-    order: 2,
+    order: 3,
     type: 'code',
-    title: 'AddServices',
+    title: 'AddExternalAuthentications',
     language: 'csharp',
-    startingLineNumber: 65,
+    startingLineNumber: 34,
     item: ` 
-          private static void AddServices(IServiceCollection services)
-          {
-              services.AddSingleton<IEmailSender, NullEmailSender>();
-              services.AddScoped<IIdentityService, IdentityService>();
-              services.AddScoped<IExternalIdentityService, ExternalIdentityService>();
-              services.AddScoped<ITokenGenerator, TokenGenerator>();
+            private static void AddExternalAuthentications(
+                Configuration configuration, 
+                AuthenticationBuilder auth)
+            {
+                if (configuration.GoogleAuthConfiguration is not null)
+                {
+                    auth.AddGoogleAuthentication(configuration.GoogleAuthConfiguration);
+                }
 
-              services.AddScoped<IWrongPasswordAttemptRepository, WrongPasswordAttemptRepository>();
-              services.AddScoped<IUserRefreshTokenRepository, UserRefreshTokenRepository>();
-              services.AddScoped<IUserTenantRepository, UserTenantRepository>();
-          }
-       }
+                if (configuration.FacebookAuthConfiguration is not null)
+                {
+                    auth.AddFacebookAuthentication(configuration.FacebookAuthConfiguration);
+                }
+
+                if (configuration.OktaAuthConfiguration is not null)
+                {
+                    auth.AddOktaAuthentication(configuration.OktaAuthConfiguration);
+                }
+
+                if (configuration.AppleAuthConfiguration is not null)
+                {
+                    auth.AddAppleAuthentication(configuration.AppleAuthConfiguration);
+                
+                }
+            }
+        }
     }`,
     descriptions: [
+        "Add configured external authentications"
        ],
-  } 
+  }  
 ]
 
 const header = 'Patika.Framework.Identity.Extensions';

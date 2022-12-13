@@ -6,8 +6,7 @@ const contents = [
     order: 1,
     type: 'code',
     title: 'Configuration',
-    language: 'csharp',
-    startingLineNumber: 5,
+    language: 'csharp', 
     item: `
     namespace Patika.Framework.Identity.OktaAuthProvider.Models
     {

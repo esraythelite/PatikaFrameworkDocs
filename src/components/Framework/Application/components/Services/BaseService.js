@@ -7,7 +7,7 @@ const contents = [
     type: 'code',
     title: 'BaseService',
     language: 'csharp',
-    startingLineNumber: 4,
+    startingLineNumber: 5,
     item: `
     namespace Patika.Framework.Application.Services
     {
@@ -31,7 +31,7 @@ const contents = [
     type: 'code',
     title: 'WithLogging',
     language: 'csharp',
-    startingLineNumber: 20,
+    startingLineNumber: 18,
     item: `
     public async Task<T> WithLogging<T>(
         IDTO input, 
@@ -54,7 +54,7 @@ const contents = [
     type: 'code',
     title: 'WithLogging',
     language: 'csharp',
-    startingLineNumber: 32,
+    startingLineNumber: 30,
     item: `
     public async Task WithLogging(
         IDTO input, 

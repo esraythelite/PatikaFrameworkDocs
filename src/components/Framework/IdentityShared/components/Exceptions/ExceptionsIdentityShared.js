@@ -5,9 +5,29 @@ const contents = [
   {
     order: 1,
     type: 'code',
+    title: 'AccessTokenRequiredException',
+    language: 'csharp',
+    
+    item: `
+  namespace Patika.Framework.Identity.Shared.Exceptions
+  {
+      public class AccessTokenRequiredException : BaseApplicationException
+      {
+          public AccessTokenRequiredException( ) : base($"{typeof(AccessTokenRequiredException).FullName}")
+          {
+          }
+      }
+  }`,
+    descriptions: [
+      "Throw this exception if user account not confirmed yet"
+    ],
+  },
+  {
+    order: 2,
+    type: 'code',
     title: 'AccountConfirmationRequiredException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -23,11 +43,31 @@ const contents = [
     ],
   },
   {
-    order: 2,
+    order: 3,
+    type: 'code',
+    title: 'ActivationCodeRequiredException',
+    language: 'csharp',
+    
+    item: `
+    namespace Patika.Framework.Identity.Shared.Exceptions
+    {
+        public class ActivationCodeRequiredException : BaseApplicationException
+        {
+            public ActivationCodeRequiredException( ) : base($"{typeof(ActivationCodeRequiredException).FullName}")
+            {
+            }
+        }
+    }`,
+    descriptions: [
+      "Throw this exception if user account not confirmed yet"
+    ],
+  },
+  {
+    order: 4,
     type: 'code',
     title: 'ApplicationRegistrationFailedException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -45,11 +85,11 @@ const contents = [
     ],
   },
   {
-    order: 3,
+    order: 5,
     type: 'code',
     title: 'CreateUserFailedException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -65,11 +105,11 @@ const contents = [
     ],
   },
   {
-    order: 4,
+    order: 6,
     type: 'code',
     title: 'CreateUserInstanceFailedException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -85,11 +125,11 @@ const contents = [
     ],
   },
   {
-    order: 5,
+    order: 7,
     type: 'code',
     title: 'ExternalAuthCallbackIsRequiredException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -106,11 +146,11 @@ const contents = [
     ],
   },
   {
-    order: 6,
+    order: 8,
     type: 'code',
     title: 'ExternalLoginFailedException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -127,11 +167,11 @@ const contents = [
     ],
   },
   {
-    order: 7,
+    order: 9,
     type: 'code',
     title: 'ExternalProviderRemoteErrorException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -148,11 +188,11 @@ const contents = [
     ],
   },
   {
-    order: 8,
+    order: 10,
     type: 'code',
     title: 'GeneralAuthException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -168,11 +208,11 @@ const contents = [
     ],
   },
   {
-    order: 9,
+    order: 11,
     type: 'code',
     title: 'GetPrincipalFromExpireTokenFailed',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -188,11 +228,11 @@ const contents = [
     ],
   },
   {
-    order: 10,
+    order: 12,
     type: 'code',
     title: 'GettingUserClaimsFailedException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -208,11 +248,11 @@ const contents = [
     ],
   },
   {
-    order: 11,
+    order: 13,
     type: 'code',
     title: 'InvalidAccessTokenException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -228,11 +268,11 @@ const contents = [
     ],
   },
   {
-    order: 12,
+    order: 14,
     type: 'code',
     title: 'InvalidRefreshTokenException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -248,11 +288,31 @@ const contents = [
     ],
   },
   {
-    order: 13,
+    order: 15,
+    type: 'code',
+    title: 'NewPasswordRequiredException',
+    language: 'csharp',
+    
+    item: `
+    namespace Patika.Framework.Identity.Shared.Exceptions
+    {
+        public class NewPasswordRequiredException : BaseApplicationException
+        {
+            public NewPasswordRequiredException() : base($"{typeof(NewPasswordRequiredException).FullName}")
+            {
+            }
+        }
+    }`,
+    descriptions: [
+      "Throw this exception when user refresh token is not valid",
+    ],
+  },
+  {
+    order: 16,
     type: 'code',
     title: 'PasswordFormatInvalidException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -268,11 +328,11 @@ const contents = [
     ],
   },
   {
-    order: 14,
+    order: 17,
     type: 'code',
     title: 'PasswordSignInFailedException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -288,11 +348,31 @@ const contents = [
     ],
   },
   {
-    order: 15,
+    order: 18,
+    type: 'code',
+    title: 'RefreshTokenRequiredException',
+    language: 'csharp',
+    
+    item: `
+    namespace Patika.Framework.Identity.Shared.Exceptions
+    {
+        public class RefreshTokenRequiredException : BaseApplicationException
+        {
+            public RefreshTokenRequiredException() : base($"{typeof(RefreshTokenRequiredException).FullName}")
+            {
+            }
+        }
+    }`,
+    descriptions: [
+      "Throw this exception when user login with password fails",
+    ],
+  },
+  {
+    order: 19,
     type: 'code',
     title: 'SetUserNameFailedException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -308,11 +388,11 @@ const contents = [
     ],
   },
   {
-    order: 16,
+    order: 20,
     type: 'code',
     title: 'UnauthorizedException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -329,11 +409,11 @@ const contents = [
     ],
   },
   {
-    order: 17,
+    order: 21,
     type: 'code',
     title: 'UserCreationOnRegistrationFailed',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -349,11 +429,11 @@ const contents = [
     ],
   },
   {
-    order: 18,
+    order: 22,
     type: 'code',
     title: 'UserIsLockedException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -369,11 +449,11 @@ const contents = [
     ],
   },
   {
-    order: 19,
+    order: 23,
     type: 'code',
     title: 'UserManagerEmailNotSupportedException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -389,11 +469,11 @@ const contents = [
     ],
   },
   {
-    order: 20,
+    order: 24,
     type: 'code',
     title: 'UserNotFoundException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -409,31 +489,30 @@ const contents = [
     ],
   },
   {
-    order: 21,
+    order: 25,
     type: 'code',
-    title: 'UserRoleDoesNotMatch',
+    title: 'UserRoleDoesNotMatchException',
     language: 'csharp',
-    startingLineNumber: 3,
+    
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
-        public class UserRoleDoesNotMatch : BaseApplicationException
+        public class UserRoleDoesNotMatchException : BaseApplicationException
         {
-            public UserRoleDoesNotMatch() : base($"{typeof(UserRoleDoesNotMatch).FullName}")
+            public UserRoleDoesNotMatchException() : base($"{typeof(UserRoleDoesNotMatchException).FullName}")
             {
             }
         }
     }`,
     descriptions: [
-      "Throw this exception when userroles is not match with required role",
+      "Throw this exception when user is not found",
     ],
   },
   {
-    order: 22,
+    order: 26,
     type: 'code',
     title: 'WrongUsernameOrPasswordException',
-    language: 'csharp',
-    startingLineNumber: 3,
+    language: 'csharp', 
     item: `
     namespace Patika.Framework.Identity.Shared.Exceptions
     {
@@ -445,7 +524,7 @@ const contents = [
         }
     }`,
     descriptions: [
-      "Throw this exception when username and/or password is wrong in login process",
+      "Throw this exception when userroles is not match with required role",
     ],
   }
 ]
@@ -462,5 +541,5 @@ const ExceptionsIdentityShared = () => {
   return (
     <DocPaper header={header} contents={contents} commonDetails={commonDetails} />
   )
-} 
+}
 export default ExceptionsIdentityShared

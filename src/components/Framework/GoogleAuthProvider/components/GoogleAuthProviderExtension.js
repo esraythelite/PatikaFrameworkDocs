@@ -7,7 +7,7 @@ const contents = [
     type: 'code',
     title: 'AddGoogleAuthentication',
     language: 'csharp',
-    startingLineNumber: 4,
+    startingLineNumber: 6,
     item: `
     using GoogleAuthProviderConsts =Patika.Framework.Identity.GoogleAuthProvider.Consts.Consts;
 
@@ -16,10 +16,13 @@ const contents = [
         public static class GoogleAuthProviderExtension
         {
             public static AuthenticationBuilder AddGoogleAuthentication(this AuthenticationBuilder builder, Configuration configuration)
-            {    
+            {
                 AddConfiguration(builder.Services, configuration);
     
+                ValidateConfiguration(builder);
+    
                 var scopes = GetScopes(configuration);
+    
                 builder.AddGoogle(options =>
                 {
                     options.ClientId = configuration.ClientId;
@@ -41,7 +44,7 @@ const contents = [
     type: 'code',
     title: 'AddConfiguration',
     language: 'csharp',
-    startingLineNumber: 28,
+    startingLineNumber: 32,
     item: `  
           private static void AddConfiguration(IServiceCollection services, Configuration configuration)
           {
@@ -52,11 +55,28 @@ const contents = [
     ],
   },
   {
+    order: 2,
+    type: 'code',
+    title: 'ValidateConfiguration',
+    language: 'csharp',
+    startingLineNumber: 37,
+    item: `  
+          private static void ValidateConfiguration(AuthenticationBuilder builder)
+          {
+              var configuration = builder.Services.BuildServiceProvider().GetService<Configuration>() ?? throw new ServiceNotInjectedException(typeof(Configuration).FullName ?? "");
+              var validator = builder.Services.BuildServiceProvider().GetService<IConfigurationValidator>() ?? throw new ServiceNotInjectedException(typeof(IConfigurationValidator).FullName ?? "");
+              validator.ValidateAndThrowAsync(configuration).Wait();
+          }`,
+    descriptions: [
+      "Validates injected configuration"
+    ],
+  },
+  {
     order: 3,
     type: 'code',
     title: 'GetScopes',
     language: 'csharp',
-    startingLineNumber: 35,
+    startingLineNumber: 44,
     item: `
           private static List<string> GetScopes(Configuration configuration)
           {

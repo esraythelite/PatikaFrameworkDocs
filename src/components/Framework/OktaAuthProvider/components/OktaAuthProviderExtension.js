@@ -16,10 +16,13 @@ const contents = [
         public static class OktaAuthProviderExtension
         {
             public static AuthenticationBuilder AddOktaAuthentication(this AuthenticationBuilder builder, Configuration configuration)
-            {    
-                AddConfiguration(builder.Services, configuration);
+            {
+                AddConfiguration(builder, configuration);
+    
+                ValidateConfiguration(builder);
     
                 var scopes = GetScopes(configuration);
+    
                 builder.AddOpenIdConnect(options =>
                 {
                     options.ClientId = configuration.ClientId;
@@ -37,7 +40,7 @@ const contents = [
                     options.TokenValidationParameters.NameClaimType = "name";
                 });
                 return builder;
-            }`,
+    `,
     descriptions: [
       "Adds okta authentication using configuration",
       "Adds configuration dependency injection"
@@ -48,7 +51,7 @@ const contents = [
     type: 'code',
     title: 'AddConfiguration',
     language: 'csharp',
-    startingLineNumber: 35,
+    startingLineNumber: 40,
     item: `  
           private static void AddConfiguration(IServiceCollection services, Configuration configuration)
           {
@@ -59,11 +62,28 @@ const contents = [
     ],
   },
   {
+    order: 2,
+    type: 'code',
+    title: 'ValidateConfiguration',
+    language: 'csharp',
+    startingLineNumber: 45,
+    item: `  
+          private static void ValidateConfiguration(AuthenticationBuilder builder)
+          {
+              var configuration = builder.Services.BuildServiceProvider().GetService<Configuration>() ?? throw new ServiceNotInjectedException(typeof(Configuration).FullName ?? "");
+              var validator = builder.Services.BuildServiceProvider().GetService<IConfigurationValidator>() ?? throw new ServiceNotInjectedException(typeof(IConfigurationValidator).FullName ?? "");
+              validator.ValidateAndThrowAsync(configuration).Wait();
+          }`,
+    descriptions: [
+      "ValidateConfiguration validates injected configuration"
+    ],
+  },
+  {
     order: 3,
     type: 'code',
     title: 'GetScopes',
     language: 'csharp',
-    startingLineNumber: 40,
+    startingLineNumber: 52,
     item: `
           private static List<string> GetScopes(Configuration configuration)
           {

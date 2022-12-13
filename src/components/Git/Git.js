@@ -4,7 +4,7 @@ import React from 'react'
 import DocPaper from '../DocPaper';
 
 const Git = () => {
-  const link = 'https://www.nuget.org/packages/';
+
   const header = 'Git'
   const contents = [
     {
@@ -93,14 +93,7 @@ const Git = () => {
   ]
   return (
     <>
-      <Typography variant='h4' sx={{ mb: 2 }} align='center'>{header}</Typography>
-      {/* <Card elevation={1} sx={{ m: 1, p: 2 }}>
-        <CardContent  >
-        </CardContent>
-        <CardActions>
-          <Typography variant='body1'>Go to <Link target={'_blank'} href={link}  >NUGET.ORG</Link> to see package info, dependencies and versions.</Typography>
-        </CardActions>
-      </Card > */}
+      <Typography variant='h4' sx={{ mb: 2 }} align='center'>{header}</Typography> 
       <DocPaper contents={contents} />
     </>
   )

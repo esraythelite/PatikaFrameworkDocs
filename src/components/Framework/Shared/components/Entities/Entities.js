@@ -7,17 +7,19 @@ const contents = [
     type: 'code',
     title: 'AccountConfig',
     language: 'csharp',
-    startingLineNumber: 1,
+    
     item: `namespace Patika.Framework.Shared.Entities
-    {
-        public class AccountConfig
-        {
-            public int ActivationCodeExpireInSeconds { get; set; }
-            public int ActivationCodeMaxTryCount { get; set; }
-        }
-    }`,
+  {
+      public class AccountConfig
+      {
+          public int ActivationCodeExpireInSeconds { get; set; }
+          public int ActivationCodeMaxTryCount { get; set; }
+          public int UserNameMinLength { get; set; } = 2;
+          public int PasswordMinLength { get; set; } = 10;
+      }
+  }`,
     descriptions: [
-      "A configuration object that used for activation codes."
+      "A configuration object that used for activation codes and validation rules"
     ],
   },
   {
@@ -25,7 +27,7 @@ const contents = [
     type: 'code',
     title: 'ApplicationUser',
     language: 'csharp',
-    startingLineNumber: 5,
+    
     item: `namespace Patika.Framework.Shared.Entities
 { 
     public class ApplicationUser : IdentityUser
@@ -59,14 +61,14 @@ const contents = [
     type: 'code',
     title: 'AzureConfig',
     language: 'csharp',
-    startingLineNumber: 4,
+    
     item: `namespace Patika.Framework.Shared.Entities
+{
+    public class AzureConfig  
     {
-        public class AzureConfig  
-        {
-            public string ConnectionString { get; set; } = string.Empty;     
-        }
-    }`,
+        public string ConnectionString { get; set; } = string.Empty;     
+    }
+}`,
     descriptions: [
       "AzureConfig.ConnectionString is provides to connect Azure blob storage for uplading files.",
     ],
@@ -76,7 +78,7 @@ const contents = [
     type: 'code',
     title: 'ClientAuthenticationParams',
     language: 'csharp',
-    startingLineNumber: 1,
+    
     item: `namespace Patika.Framework.Shared.Entities
 {
   public class ClientAuthenticationParams 
@@ -107,16 +109,16 @@ const contents = [
     type: 'code',
     title: 'Condition',
     language: 'csharp',
-    startingLineNumber: 1,
+    
     item: `namespace Patika.Framework.Shared.Entities
+{
+    public class Condition
     {
-        public class Condition
-        {
-            public string PropertyName { get; set; } = string.Empty;
-            public ConditionOperatorEnum Operator { get; set; } = ConditionOperatorEnum.Equal;
-            public List<string> Values { get; set; } = new List<string>();
-        }
-    }`,
+        public string PropertyName { get; set; } = string.Empty;
+        public ConditionOperatorEnum Operator { get; set; } = ConditionOperatorEnum.Equal;
+        public List<string> Values { get; set; } = new List<string>();
+    }
+}`,
     descriptions: [
       "You can use a List of Condition in repositories to filter queries.",
     ],
@@ -126,7 +128,7 @@ const contents = [
     type: 'code',
     title: 'Configuration',
     language: 'csharp',
-    startingLineNumber: 1,
+    
     item: `namespace Patika.Framework.Shared.Entities
 {
     public class Configuration : IEntity<Guid>
@@ -161,7 +163,7 @@ const contents = [
     type: 'code',
     title: 'Entity',
     language: 'csharp',
-    startingLineNumber: 1,
+    
     item: `namespace Patika.Framework.Shared.Entities
 {
     public abstract class Entity : IEntity<Guid>
@@ -179,7 +181,7 @@ const contents = [
     type: 'code',
     title: 'EntityWithCreated',
     language: 'csharp',
-    startingLineNumber: 1,
+    
     item: `namespace Patika.Framework.Shared.Entities
 {
     public abstract class EntityWithCreated<T> : IEntity<T>, IHasCreated where T : struct
@@ -206,7 +208,7 @@ const contents = [
     type: 'code',
     title: 'EntityWithCreatedAndUpdated',
     language: 'csharp',
-    startingLineNumber: 1,
+    
     item: `namespace Patika.Framework.Shared.Entities
 {
     public abstract class EntityWithCreatedAndUpdated<T> : IEntity<T>, IHasCreated, IHasUpdated where T : struct
@@ -235,7 +237,7 @@ const contents = [
     type: 'code',
     title: 'GenericEntity',
     language: 'csharp',
-    startingLineNumber: 1,
+    
     item: `namespace Patika.Framework.Shared.Entities
 {
     public abstract class GenericEntity<T> : IEntity<T>, IEquatable<T>, IHasCreated, IHasUpdated where T : struct
@@ -263,7 +265,7 @@ const contents = [
     type: 'code',
     title: 'HangfireConfig',
     language: 'csharp',
-    startingLineNumber: 1,
+    
     item: `namespace Patika.Framework.Shared.Entities
 {
     public class HangfireConfig
@@ -286,7 +288,7 @@ const contents = [
     type: 'code',
     title: 'Log',
     language: 'csharp',
-    startingLineNumber: 1,
+    
     item: `namespace Patika.Framework.Shared.Entities
 {
     public class Log : Entity
@@ -309,7 +311,7 @@ const contents = [
     type: 'code',
     title: 'LogDetail',
     language: 'csharp',
-    startingLineNumber: 1,
+    
     item: `namespace Patika.Framework.Shared.Entities
 {
     public class LogDetail : EntityWithCreated
@@ -339,16 +341,16 @@ const contents = [
     type: 'code',
     title: 'Pagination',
     language: 'csharp',
-    startingLineNumber: 1,
+    
     item: `namespace Patika.Framework.Shared.Entities
+{
+    public class Pagination
     {
-        public class Pagination
-        {
-            public int Page { get; set; } = 1;
-            public int Count { get; set; } = 0;
-            public int TotalCount { get; set; } = 0;
-        }
-    }`,
+        public int Page { get; set; } = 1;
+        public int Count { get; set; } = 0;
+        public int TotalCount { get; set; } = 0;
+    }
+}`,
     descriptions: [
       "This object provides query data paginated.", 
     ],
@@ -358,15 +360,15 @@ const contents = [
     type: 'code',
     title: 'Sort',
     language: 'csharp',
-    startingLineNumber: 1,
+    
     item: `namespace Patika.Framework.Shared.Entities
+{
+    public class Sort
     {
-        public class Sort
-        {
-            public string Name { get; set; } = string.Empty;
-            public SortTypeEnum Type { get; set; }
-        }
-    }`,
+        public string Name { get; set; } = string.Empty;
+        public SortTypeEnum Type { get; set; }
+    }
+}`,
     descriptions: [
       "This object provides query data paginated.", 
     ],
@@ -376,7 +378,7 @@ const contents = [
     type: 'code',
     title: 'RDBConnectionString',
     language: 'csharp',
-    startingLineNumber: 1,
+    
     item: `namespace Patika.Framework.Shared.Entities
 {
     public class RDBConnectionString 

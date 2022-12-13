@@ -1,6 +1,7 @@
 import { Box, Paper, Stack, Typography } from '@mui/material'
 import React from 'react'
 import ContentCard from './ContentCard'
+import ContentSwitcher from './ContentSwitcher'
 import Highlighter from './Highlighter'
 import ImageItem from './ImageItem'
 import ImageItems from './ImageItems'
@@ -30,14 +31,7 @@ const DocPaper = ({ contents, header, commonDetails }) => {
                 }
                 {contents.sort((a, b) => (a.order - b.order)).map((content) => {
                     return (
-                        <>
-                            {content.type === 'code' &&
-                                <Highlighter key={content.order} item={content} />}
-                            {content.type === 'img' &&
-                                <ImageItems key={content.order} data={content} />}
-                            {content.type === 'text' &&
-                                <ContentCard key={content.order} data={content} />}
-                        </>
+                        <ContentSwitcher content={content}/> 
                     )
                 })}
             </Stack>

@@ -9,11 +9,11 @@ const Highlighter = ({ item }) => {
         setData({
             ...data,
             language: data.language ?? 'csharp',
-            showLineNumbers: (data.showLineNumbers !== undefined ? data.showLineNumbers : true),
+            showLineNumbers: data.startingLineNumber !== undefined,
             startingLineNumber: (data.startingLineNumber !== undefined ? data.startingLineNumber : 1)
         })
-    }, [item]) 
-    
+    }, [item])
+
     return (
         <Card elevation={1} sx={{ m: 1 }}>
             <CardHeader title={data.title} subheader={data.subtitle} style={{ textAlign: 'center' }} />
@@ -31,14 +31,16 @@ const Highlighter = ({ item }) => {
                         customStyle={{
                             maxWidth: '100%',
                             width: '100%',
-                            maxHeight: '400px'
+                            maxHeight: '400px',
+                            lineHeight: "1.2",
+                            fontSize: "0.9rem"
                         }}
                         children={data.item}
                         language={data.language}
                         style={dracula}
                         showLineNumbers={data.showLineNumbers}
-                        startingLineNumber={data.startingLineNumber} 
-                        />
+                        startingLineNumber={data.startingLineNumber}
+                    />
                 }
             </CardContent>
         </Card >

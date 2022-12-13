@@ -6,8 +6,7 @@ const contents = [
     order: 1,
     type: 'code',
     title: 'ScopeEnum',
-    language: 'csharp',
-    startingLineNumber: 0,
+    language: 'csharp', 
     item: `
     namespace Patika.Framework.Identity.AppleAuthProvider.Enums
     {

@@ -13,9 +13,13 @@ const contents = [
     {
         public static class JwtAuthProviderExtension
         {
-            public static AuthenticationBuilder AddJwtAuthentication(this AuthenticationBuilder builder, Configuration configuration)
+            public static AuthenticationBuilder AddJwtAuthentication(
+                this AuthenticationBuilder builder,
+                Configuration configuration)
             {
-                AddJwtTokenServices(builder.Services, configuration);
+                AddConfiguration(builder, configuration);
+    
+                ValidateConfiguration(builder);
     
                 builder.AddJwtBearer(options =>
                 {
@@ -36,17 +40,26 @@ const contents = [
     
                 return builder;
             }
-
-            private static void AddJwtTokenServices(IServiceCollection services, Configuration configuration)
+    
+            private static void AddConfiguration(AuthenticationBuilder builder, Configuration configuration)
             {
-                services.AddJwtTokenServices(configuration);
+                builder.Services.AddSingleton(configuration);
             }
+    
+            private static void ValidateConfiguration(AuthenticationBuilder builder )
+            {
+                var configuration = builder.Services.BuildServiceProvider().GetService<Configuration>() ?? throw new ServiceNotInjectedException(typeof(Configuration).FullName ?? "");
+                var validator = builder.Services.BuildServiceProvider().GetService<IConfigurationValidator>()?? throw new ServiceNotInjectedException(typeof(IConfigurationValidator).FullName ?? "");
+                validator.ValidateAndThrowAsync(configuration).Wait();
+            }
+    
         }
     }`,
     descriptions: [
       "Use AddJwtAuthentication to add Jwt Authentication",
       "Used by Patika.Framework.Identity",
-      "AddJwtTokenServices inject all services to use Patika.Framework.Identity.JwtAuthProvider and Patika.Framework.Identity.JwtToken"
+      "AddConfiguration inject configuration",
+      "ValidateConfiguration validates injected configuration",
     ],
   } ,
   {
@@ -54,8 +67,6 @@ const contents = [
     type: 'code',
     title: 'Example',
     language: 'csharp',
-    startingLineNumber: 0,
-    showLineNumbers : false,
     item: `
     var auth = services.AddAuthentication(options =>
     {

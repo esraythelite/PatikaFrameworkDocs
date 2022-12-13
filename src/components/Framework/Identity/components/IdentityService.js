@@ -7,7 +7,7 @@ const contents = [
     type: 'code',
     title: 'IdentityService',
     language: 'csharp',
-    startingLineNumber: 15,
+    startingLineNumber: 16,
     item: `
     using Configuration = Patika.Framework.Identity.Models.Configuration;
 
@@ -26,6 +26,10 @@ const contents = [
             IUserRefreshTokenRepository UserRefreshTokenRepository { get; }
             IUserTenantRepository UserTenantRepository { get; }
             Configuration Configuration { get; }
+            IRegistrationInputValidator RegistrationInputValidator { get; }
+            IRefreshTokenInputDTOValidator RefreshTokenInputDTOValidator { get; }
+            IApplicationRegistrationInputValidator ApplicationRegistrationInputValidator { get; }
+            IResetPasswordInputValidator ResetPasswordInputValidator { get; }
     
             public IdentityService(IServiceProvider serviceProvider
                 ) : base(serviceProvider)
@@ -41,6 +45,10 @@ const contents = [
                 UserRefreshTokenRepository = GetService<IUserRefreshTokenRepository>();
                 UserTenantRepository = GetService<IUserTenantRepository>();
                 Configuration = GetService<Configuration>();
+                RegistrationInputValidator = GetService<IRegistrationInputValidator>();
+                RefreshTokenInputDTOValidator = GetService<IRefreshTokenInputDTOValidator>();
+                ApplicationRegistrationInputValidator = GetService<IApplicationRegistrationInputValidator>();
+                ResetPasswordInputValidator = GetService<IResetPasswordInputValidator>();
             } `,
     descriptions: [
         "Constructor and props"
@@ -51,7 +59,7 @@ const contents = [
     type: 'code',
     title: 'LoginAsync',
     language: 'csharp',
-    startingLineNumber: 49,
+    startingLineNumber: 57,
     item: `
           public async Task<Token> LoginAsync(LoginInput input)
           {
@@ -84,7 +92,7 @@ const contents = [
     type: 'code',
     title: 'SignOutAsync',
     language: 'csharp',
-    startingLineNumber: 72,
+    startingLineNumber: 80,
     item: `
           public async Task SignOutAsync()
           {
@@ -99,11 +107,11 @@ const contents = [
     type: 'code',
     title: 'RegisterAsync',
     language: 'csharp',
-    startingLineNumber: 77,
+    startingLineNumber: 85,
     item: `
           public async Task<Token> RegisterAsync(RegistrationInput input)
           {
-              input.Validate();
+              await RegistrationInputValidator.ValidateAndThrowAsync(input);
 
               input.Email = input.Email.Trim();
               var user = CreateUserInstance();
@@ -142,11 +150,11 @@ const contents = [
     type: 'code',
     title: 'RefreshTokenAsync',
     language: 'csharp',
-    startingLineNumber: 110,
+    startingLineNumber: 118,
     item: `
           public async Task<Token> RefreshTokenAsync(RefreshTokenInputDTO input)
           {
-              input.Validate();
+              await RefreshTokenInputDTOValidator.ValidateAndThrowAsync(input);
 
               var claims = TokenGenerator.GetPrincipalFromExpiredToken(input.AccessToken);
               if (claims is null)
@@ -194,7 +202,7 @@ const contents = [
     type: 'code',
     title: 'FindByNameAsync',
     language: 'csharp',
-    startingLineNumber: 152,
+    startingLineNumber: 160,
     item: `
           public async Task<ApplicationUser> FindByNameAsync(string userName)
           {
@@ -210,7 +218,7 @@ const contents = [
     type: 'code',
     title: 'FindByIdAsync',
     language: 'csharp',
-    startingLineNumber: 158,
+    startingLineNumber: 166,
     item: `
           public async Task<ApplicationUser> FindByIdAsync(string userId)
           {
@@ -225,7 +233,7 @@ const contents = [
     type: 'code',
     title: 'FindByEmailAsync',
     language: 'csharp',
-    startingLineNumber: 163,
+    startingLineNumber: 171,
     item: `
           public async Task<ApplicationUser> FindByEmailAsync(string email)
           {
@@ -240,11 +248,11 @@ const contents = [
     type: 'code',
     title: 'CreateApplicationAsync',
     language: 'csharp',
-    startingLineNumber: 168,
+    startingLineNumber: 176,
     item: `
           public async Task CreateApplicationAsync(ApplicationRegistrationInput input)
           {
-              input.Validate();
+              await ApplicationRegistrationInputValidator.ValidateAndThrowAsync(input);
 
               if (await UserManager.FindByEmailAsync(input.Email) != null)
                   return;
@@ -263,7 +271,7 @@ const contents = [
     type: 'code',
     title: 'AddRolesByUserNameAsync',
     language: 'csharp',
-    startingLineNumber: 179,
+    startingLineNumber: 187,
     item: `
           public async Task AddRolesByUserNameAsync(string userName, params string[] roles)
           {
@@ -280,7 +288,7 @@ const contents = [
     type: 'code',
     title: 'CreateRoleAsync',
     language: 'csharp',
-    startingLineNumber: 186,
+    startingLineNumber: 194,
     item: `
           public async Task CreateRoleAsync(string role)
           {
@@ -300,7 +308,7 @@ const contents = [
     type: 'code',
     title: 'GetRolesAsync',
     language: 'csharp',
-    startingLineNumber: 196,
+    startingLineNumber: 204,
     item: `
           public async Task<IList<string>> GetRolesAsync(ApplicationUser user)
           {
@@ -315,11 +323,11 @@ const contents = [
     type: 'code',
     title: 'ResetPassword',
     language: 'csharp',
-    startingLineNumber: 201,
+    startingLineNumber: 209,
     item: `
           public async Task ResetPassword(ResetPasswordInput input)
           {
-              input.Validate();
+              await ResetPasswordInputValidator.ValidateAndThrowAsync(input);
 
               var user = await IdentityDbContext.Users.FirstOrDefaultAsync(m => m.UserName == input.UserName);
               if (user is null)
@@ -345,11 +353,11 @@ const contents = [
     type: 'code',
     title: 'RegisterApplicationAsync',
     language: 'csharp',
-    startingLineNumber: 221,
+    startingLineNumber: 229,
     item: `
           private async Task<string> RegisterApplicationAsync(ApplicationRegistrationInput input)
           {
-              input.Validate();
+              await ApplicationRegistrationInputValidator.ValidateAndThrowAsync(input);
 
               var user = CreateUserInstance();
               await UserStore.SetUserNameAsync(user, input.Name, CancellationToken.None);
@@ -371,7 +379,7 @@ const contents = [
     type: 'code',
     title: 'CreateUserInstance',
     language: 'csharp',
-    startingLineNumber: 237,
+    startingLineNumber: 245,
     item: ` 
           protected ApplicationUser CreateUserInstance()
           {
@@ -393,7 +401,7 @@ const contents = [
     type: 'code',
     title: 'AddToRoleAsync',
     language: 'csharp',
-    startingLineNumber: 249,
+    startingLineNumber: 257,
     item: `
         private async Task AddToRoleAsync(ApplicationUser user, params string[] roles)
         {
@@ -412,7 +420,7 @@ const contents = [
     type: 'code',
     title: 'GetEmailStore',
     language: 'csharp',
-    startingLineNumber: 258,
+    startingLineNumber: 266,
     item: ` 
           private IUserEmailStore<ApplicationUser> GetEmailStore()
           {
@@ -431,7 +439,7 @@ const contents = [
     type: 'code',
     title: 'GetClaimsAsync',
     language: 'csharp',
-    startingLineNumber: 267,
+    startingLineNumber: 276,
     item: `
     public async Task<List<Claim>> GetClaimsAsync(ApplicationUser user)
     {
@@ -465,7 +473,7 @@ const contents = [
     type: 'code',
     title: 'CreateTokenAsync',
     language: 'csharp',
-    startingLineNumber: 291,
+    startingLineNumber: 299,
     item: ` 
           public async Task<Token> CreateTokenAsync(ApplicationUser user)
           {

@@ -5,42 +5,37 @@ const contents = [
   {
     order: 1,
     type: 'code',
-    title: 'AddAppleAuthentication',
+    title: 'ClientSecretGenerator',
     language: 'csharp',
-    startingLineNumber: 4,
+    startingLineNumber: 5,
     item: `
-    namespace Patika.Framework.Identity.AppleAuthProvider.Extensions
+    public static class ClientSecretGenerator
     {
-        public static class ClientSecretGenerator
+        public static string GenerateClientSecret(this Configuration configuration)
         {
-            private const string Audience = "https://appleid.apple.com";
-    
-            public static string GenerateClientSecret(this Configuration configuration)
+            var now = DateTime.UtcNow;
+            var ecdsa = ECDsa.Create();
+            ecdsa?.ImportPkcs8PrivateKey(Convert.FromBase64String(configuration.PrivateKey), out _);
+
+            var handler = new JsonWebTokenHandler();
+
+            return handler.CreateToken(new SecurityTokenDescriptor
             {
-                var now = DateTime.UtcNow;
-                var ecdsa = ECDsa.Create();
-                ecdsa?.ImportPkcs8PrivateKey(Convert.FromBase64String(configuration.PrivateKey), out _);
-    
-                var handler = new JsonWebTokenHandler();
-    
-                return handler.CreateToken(new SecurityTokenDescriptor
-                {
-                    Issuer = configuration.TeamId,
-                    Audience = Audience,
-                    Claims = new Dictionary<string, object> { { "sub", configuration.ClientId } },
-                    Expires = now.AddMinutes(245), // expiry can be a maximum of 6 months - generate one per request or re-use until expiration
-                    IssuedAt = now,
-                    NotBefore = now,
-                    SigningCredentials = new SigningCredentials
-                    (
-                        new ECDsaSecurityKey(ecdsa)
-                        {
-                            KeyId = configuration.KeyId
-                        },
-                        SecurityAlgorithms.EcdsaSha256
-                    )
-                });
-            }
+                Issuer = configuration.TeamId,
+                Audience = Consts.Consts.Audience,
+                Claims = new Dictionary<string, object> { { "sub", configuration.ClientId } },
+                Expires = now.AddMinutes(245), // expiry can be a maximum of 6 months - generate one per request or re-use until expiration
+                IssuedAt = now,
+                NotBefore = now,
+                SigningCredentials = new SigningCredentials
+                (
+                    new ECDsaSecurityKey(ecdsa)
+                    {
+                        KeyId = configuration.KeyId
+                    },
+                    SecurityAlgorithms.EcdsaSha256
+                )
+            });
         }
     } `,
     descriptions: [

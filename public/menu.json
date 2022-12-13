@@ -71,6 +71,17 @@
 			]
 		},
 		{
+			"title": "Validation",
+			"author": "Saim Nasır",
+			"version": "",
+			"link": "/contents/validation",
+			"status": 0,
+			"isGeneral": true,
+			"isReact": true,
+			"children": [				
+			]
+		},
+		{
 			"title": "Framework Packages",
 			"author": "Saim Nasır",
 			"version": "",
@@ -197,6 +208,16 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
+						},
+						{
+							"title": "Validators",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/shared/validators",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
 						}
 					]
 				},
@@ -315,6 +336,16 @@
 							"author": "Saim Nasır",
 							"version": "1.0",
 							"link": "/contents/framework/packages/identityshared/consts",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Validators",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityshared/validators",
 							"status": 0,
 							"isGeneral": true,
 							"isReact": true,
@@ -452,6 +483,16 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
+						},
+						{
+							"title": "Validators",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityjwttoken/validators",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
 						}
 					]
 				},
@@ -524,6 +565,16 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
+						},
+						{
+							"title": "Validators",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityappleauthprovider/validators",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
 						}
 					]
 				},
@@ -571,6 +622,16 @@
 							"author": "Saim Nasır",
 							"version": "1.0",
 							"link": "/contents/framework/packages/identityfacebookauthprovider/extensions",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Validators",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityfacebookauthprovider/validators",
 							"status": 0,
 							"isGeneral": true,
 							"isReact": true,
@@ -626,6 +687,16 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
+						},
+						{
+							"title": "Validators",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identitygoogleauthprovider/validators",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
 						}
 					]
 				},
@@ -677,6 +748,16 @@
 							"isGeneral": true,
 							"isReact": true,
 							"children": []
+						},
+						{
+							"title": "Validators",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identityoktaauthprovider/validators",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
 						}
 					]
 				},
@@ -724,6 +805,16 @@
 							"author": "Saim Nasır",
 							"version": "1.0",
 							"link": "/contents/framework/packages/identity/extensions",
+							"status": 0,
+							"isGeneral": true,
+							"isReact": true,
+							"children": []
+						},
+						{
+							"title": "Validators",
+							"author": "Saim Nasır",
+							"version": "1.0",
+							"link": "/contents/framework/packages/identity/validators",
 							"status": 0,
 							"isGeneral": true,
 							"isReact": true,

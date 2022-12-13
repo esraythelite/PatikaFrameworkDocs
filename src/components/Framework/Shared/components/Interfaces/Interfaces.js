@@ -166,6 +166,26 @@ const contents = [
     descriptions: [
       "Provides basic storage methods"
     ],
+  },
+  {
+    order: 10,
+    type: 'code',
+    title: 'ILogWriter',
+    language: 'csharp',
+    item: `
+namespace Patika.Framework.Shared.Interfaces
+{
+    public interface ILogWriter
+    {
+        Task<Log> CreateLog(string applicationName, Guid? userId = null, LogStatusEnum intialStatus = LogStatusEnum.Started);
+        Task AddLogDetail(Guid logId, LogDetail detail);
+        Task FinishLog(Guid logId, LogStatusEnum finalStatus = LogStatusEnum.Success);
+    }
+}`,
+    descriptions: [
+      "Writes logs ",
+      "You can inject logWriter as Db, file etc"
+    ],
   }
 ]
 

@@ -7,37 +7,34 @@ const contents = [
     type: 'code',
     title: 'AddAppleAuthentication',
     language: 'csharp',
-    startingLineNumber: 4,
+    startingLineNumber: 6,
     item: `
     using AppleAuthProviderConsts = Patika.Framework.Identity.AppleAuthProvider.Consts.Consts;
     
     namespace Patika.Framework.Identity.AppleAuthProvider.Extensions
     {
-        public static class AppleAuthProviderExtension
+        public static AuthenticationBuilder AddAppleAuthentication(
+            this AuthenticationBuilder builder, Configuration configuration)
         {
-            public static AuthenticationBuilder AddAppleAuthentication(
-                this AuthenticationBuilder builder, Configuration configuration)
-            {    
-                AddConfiguration(builder.Services, configuration);
-    
-                var scopes = GetScopes(configuration);
-                var clientSecret = configuration.GenerateClientSecret();
-        
-                builder.AddApple(options =>
+            AddConfiguration(builder.Services, configuration);
+            ValidateConfiguration(builder);
+            var scopes = GetScopes(configuration); 
+
+            builder.AddApple(options =>
+            {
+                options.KeyId = configuration.KeyId;
+                options.ClientId = configuration.ClientId;
+                options.TeamId = configuration.TeamId;
+                options.CallbackPath = configuration.CallbackPath;
+                options.ClientSecret = configuration.GenerateClientSecret();
+                options.Scope.Clear();
+                scopes.ForEach(scope =>
                 {
-                    options.KeyId = configuration.KeyId;
-                    options.ClientId = configuration.ClientId;
-                    options.TeamId = configuration.TeamId;
-                    options.CallbackPath = configuration.CallbackPath;
-                    options.ClientSecret = clientSecret;
-                    options.Scope.Clear();
-                    scopes.ForEach(scope =>
-                    {
-                        options.Scope.Add(scope);
-                    });
+                    options.Scope.Add(scope);
                 });
-                return builder;
-            } `,
+            });
+            return builder;
+        } `,
     descriptions: [
       "Adds apple authentication using configuration",
       "Adds configuration dependency injection"
@@ -48,7 +45,7 @@ const contents = [
     type: 'code',
     title: 'AddConfiguration',
     language: 'csharp',
-    startingLineNumber: 34,
+    startingLineNumber: 35,
     item: `  
           private static void AddConfiguration(IServiceCollection services, Configuration configuration)
           {
@@ -59,11 +56,28 @@ const contents = [
     ],
   },
   {
+    order: 2,
+    type: 'code',
+    title: 'ValidateConfiguration',
+    language: 'csharp',
+    startingLineNumber: 40,
+    item: `  
+          private static void ValidateConfiguration(AuthenticationBuilder builder)
+          {
+              var configuration = builder.Services.BuildServiceProvider().GetService<Configuration>() ?? throw new ServiceNotInjectedException(typeof(Configuration).FullName ?? "");
+              var validator = builder.Services.BuildServiceProvider().GetService<IConfigurationValidator>() ?? throw new ServiceNotInjectedException(typeof(IConfigurationValidator).FullName ?? "");
+              validator.ValidateAndThrowAsync(configuration).Wait();
+          }`,
+    descriptions: [
+      "Validates injected configuration"
+    ],
+  },
+  {
     order: 3,
     type: 'code',
     title: 'GetScopes',
     language: 'csharp',
-    startingLineNumber: 39,
+    startingLineNumber: 47,
     item: `
           private static List<string> GetScopes(Configuration configuration)
           {

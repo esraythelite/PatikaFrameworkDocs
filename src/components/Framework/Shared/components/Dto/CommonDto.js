@@ -7,7 +7,7 @@ const contents = [
         type: 'code',
         title: 'DTO',
         language: 'csharp',
-        startingLineNumber: 9,
+        
         item: `namespace Patika.Framework.Shared.DTO
 {
     public class DTO : IDTO
@@ -26,7 +26,7 @@ const contents = [
         type: 'code',
         title: 'GeneralResponseDTO',
         language: 'csharp',
-        startingLineNumber: 7,
+        
         item: `namespace Patika.Framework.Shared.DTO
 {
     public class GeneralResponseDTO<T> where T : class
@@ -134,7 +134,7 @@ or established connection failed because connected host has failed to respond.")
         type: 'code',
         title: 'FinalResponseDTO',
         language: 'csharp',
-        startingLineNumber: 8,
+        
         item: `namespace Patika.Framework.Shared.DTO
 {
     public class FinalResponseDTO<T> : GeneralResponseDTO<T> where T : class

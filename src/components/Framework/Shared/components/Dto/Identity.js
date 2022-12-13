@@ -7,7 +7,7 @@ const contents = [
         type: 'code',
         title: 'ApplicationUserDTO',
         language: 'csharp',
-        startingLineNumber: 7,
+        
         item: `namespace Patika.Framework.Shared.DTO.Identity
 {
     public class ApplicationUserDTO : DTO
@@ -42,7 +42,7 @@ const contents = [
         type: 'code',
         title: 'TokenResultDTO',
         language: 'csharp',
-        startingLineNumber: 3,
+        
         item: `namespace Patika.Framework.Shared.DTO.Identity
 {
     public class TokenResultDTO
@@ -68,7 +68,7 @@ const contents = [
         type: 'code',
         title: 'BasicLoginInputDTO',
         language: 'csharp',
-        startingLineNumber: 5,
+        
         item: `namespace Patika.Framework.Shared.DTO.Identity
 {
     public class BasicLoginInputDTO : DTO 
@@ -86,7 +86,7 @@ const contents = [
         type: 'code',
         title: 'UserRegistrationInputDTO',
         language: 'csharp',
-        startingLineNumber: 10,
+        
         item: `namespace Patika.Framework.Shared.DTO.Identity
 {
     public class UserRegistrationInputDTO : DTO

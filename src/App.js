@@ -12,7 +12,7 @@ import Drawer from "@mui/material/Drawer";
 import { Divider } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
 import Switcher from "./components/Switcher";
-import Home from "./components/Home"; 
+import Home from "./components/Home";
 import Framework from "./components/Framework/Framework";
 import Shared from "./components/Framework/Shared/Shared";
 import Consts from "./components/Framework/Shared/components/Consts/Consts";
@@ -79,7 +79,7 @@ import IdentityServices from "./components/Framework/Identity/components/Identit
 import IdentityExtensions from "./components/Framework/Identity/components/IdentityExtensions";
 import IdentityPackage from "./components/Framework/Identity/IdentityPackage";
 import UtilitiesFile from "./components/Framework/UtilitiesFile/UtilitiesFile";
-import FileExtensions from "./components/Framework/UtilitiesFile/components/FileExtensions"; 
+import FileExtensions from "./components/Framework/UtilitiesFile/components/FileExtensions";
 import FileExceptions from "./components/Framework/UtilitiesFile/components/FileExceptions";
 import UtilitiesExcel from "./components/Framework/UtilitiesExcel/UtilitiesExcel";
 import ExcelExtensions from "./components/Framework/UtilitiesExcel/components/ExcelExtensions";
@@ -97,6 +97,15 @@ import Git from "./components/Git/Git";
 import GitFlow from "./components/Git/components/GitFlow";
 import GitCommands from "./components/Git/components/GitCommands";
 import VersionControl from "./components/Git/components/VersionControl";
+import Validation from "./components/Validation/Validation";
+import SharedValidators from "./components/Framework/Shared/components/Validators/SharedValidators";
+import IdentitySharedValidators from "./components/Framework/IdentityShared/components/Validators/IdentitySharedValidators";
+import JwtTokenValidators from "./components/Framework/JwtToken/components/Validators/JwtTokenValidators";
+import OktaValidators from "./components/Framework/OktaAuthProvider/components/Validators/OktaValidators";
+import GoogleValidators from "./components/Framework/GoogleAuthProvider/components/Validators/GoogleValidators";
+import FacebookValidators from "./components/Framework/FacebookAuthProvider/components/Validators/FacebookValidators";
+import AppleValidators from "./components/Framework/AppleAuthProvider/components/Validators/AppleValidators";
+import IdentityValidators from "./components/Framework/Identity/components/Validators/IdentityValidators";
 
 let theme = createTheme({
 	palette: {
@@ -327,13 +336,14 @@ function App() {
 						sx={{ flex: 1, py: 1, px: 1, bgcolor: "#eaeff1" }}
 					>
 						<Routes>
-							<Route path="/home" element={<Home />} /> 
+							<Route path="/home" element={<Home />} />
 
 							<Route path="contents/git" element={<Git />} />
 							<Route path="contents/git/flow" element={<GitFlow />} />
 							<Route path="contents/git/commands" element={<GitCommands />} />
 							<Route path="contents/git/versioncontrol" element={<VersionControl />} />
 
+							<Route path="contents/validation" element={<Validation />} />
 							<Route path="contents/framework/packages" element={<Framework />} />
 
 							<Route path="contents/framework/packages/shared" element={<Shared />} />
@@ -350,6 +360,7 @@ function App() {
 							<Route path="contents/framework/packages/shared/interfaces" element={<Interfaces />} />
 							<Route path="contents/framework/packages/shared/mapper" element={<Mapper />} />
 							<Route path="contents/framework/packages/shared/services" element={<Services />} />
+							<Route path="contents/framework/packages/shared/validators" element={<SharedValidators />} />
 
 							<Route path="contents/framework/packages/domain" element={<Domain />} />
 							<Route path="contents/framework/packages/domain/interfaces" element={<DomainInterfaces />} />
@@ -362,9 +373,11 @@ function App() {
 							<Route path="contents/framework/packages/identityshared/attributes" element={<AttributesIdentityShared />} />
 							<Route path="contents/framework/packages/identityshared/dto" element={<DtoIdentityShared />} />
 							<Route path="contents/framework/packages/identityshared/exceptions" element={<ExceptionsIdentityShared />} />
-							<Route path="contents/framework/packages/identityshared/dbcontext" element={<IdentitySharedDbContext />} />							<Route path="contents/framework/packages/identityshared/interfaces" element={<InterfacesIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/dbcontext" element={<IdentitySharedDbContext />} />
+							<Route path="contents/framework/packages/identityshared/interfaces" element={<InterfacesIdentityShared />} />
 							<Route path="contents/framework/packages/identityshared/models" element={<ModelsIdentityShared />} />
 							<Route path="contents/framework/packages/identityshared/consts" element={<ConstsIdentityShared />} />
+							<Route path="contents/framework/packages/identityshared/validators" element={<IdentitySharedValidators />} />
 
 							<Route path="contents/framework/packages/applicationcontracts" element={<ApplicationContracts />} />
 							<Route path="contents/framework/packages/applicationcontracts/interfaces" element={<InterfacesAppContracts />} />
@@ -381,7 +394,8 @@ function App() {
 							<Route path="contents/framework/packages/identityjwttoken/middlewares" element={<JwtTokenMiddlewares />} />
 							<Route path="contents/framework/packages/identityjwttoken/extensions" element={<JwtTokenExtensions />} />
 							<Route path="contents/framework/packages/identityjwttoken/exceptions" element={<JwtTokenExceptions />} />
-
+							
+							<Route path="contents/framework/packages/identityjwttoken/validators" element={<JwtTokenValidators />} />
 
 							<Route path="contents/framework/packages/identityjwtauthprovider" element={<JwtAuthProvider />} />
 							<Route path="contents/framework/packages/identityjwtauthprovider/extensions" element={<JwtAuthProviderExtensions />} />
@@ -391,44 +405,47 @@ function App() {
 							<Route path="contents/framework/packages/identityappleauthprovider/enums" element={<AppleAuthProviderEnums />} />
 							<Route path="contents/framework/packages/identityappleauthprovider/models" element={<AppleAuthProviderModels />} />
 							<Route path="contents/framework/packages/identityappleauthprovider/extensions" element={<AppleAuthProviderExtensions />} />
+							<Route path="contents/framework/packages/identityappleauthprovider/validators" element={<AppleValidators />} />
 
 							<Route path="contents/framework/packages/identityfacebookauthprovider" element={<FacebookAuthProvider />} />
 							<Route path="contents/framework/packages/identityfacebookauthprovider/consts" element={<FacebookAuthProviderConsts />} />
 							<Route path="contents/framework/packages/identityfacebookauthprovider/enums" element={<FacebookAuthProviderEnums />} />
 							<Route path="contents/framework/packages/identityfacebookauthprovider/models" element={<FacebookAuthProviderModels />} />
 							<Route path="contents/framework/packages/identityfacebookauthprovider/extensions" element={<FacebookAuthProviderExtensions />} />
-
+							<Route path="contents/framework/packages/identityfacebookauthprovider/validators" element={<FacebookValidators />} />
 
 							<Route path="contents/framework/packages/identitygoogleauthprovider" element={<GoogleAuthProvider />} />
 							<Route path="contents/framework/packages/identitygoogleauthprovider/consts" element={<GoogleAuthProviderConsts />} />
 							<Route path="contents/framework/packages/identitygoogleauthprovider/enums" element={<GoogleAuthProviderEnums />} />
 							<Route path="contents/framework/packages/identitygoogleauthprovider/models" element={<GoogleAuthProviderModels />} />
 							<Route path="contents/framework/packages/identitygoogleauthprovider/extensions" element={<GoogleAuthProviderExtensions />} />
-
+							<Route path="contents/framework/packages/identitygoogleauthprovider/validators" element={<GoogleValidators />} />
 
 							<Route path="contents/framework/packages/identityoktaauthprovider" element={<OktaAuthProvider />} />
 							<Route path="contents/framework/packages/identityoktaauthprovider/consts" element={<OktaAuthProviderConsts />} />
 							<Route path="contents/framework/packages/identityoktaauthprovider/enums" element={<OktaAuthProviderEnums />} />
 							<Route path="contents/framework/packages/identityoktaauthprovider/models" element={<OktaAuthProviderModels />} />
-							<Route path="contents/framework/packages/identityoktaauthprovider/extensions" element={<OktaAuthProviderExtensions/>} />
+							<Route path="contents/framework/packages/identityoktaauthprovider/extensions" element={<OktaAuthProviderExtensions />} />
+							<Route path="contents/framework/packages/identityoktaauthprovider/validators" element={<OktaValidators />} />
 
 							<Route path="contents/framework/packages/identity" element={<IdentityPackage />} />
 							<Route path="contents/framework/packages/identity/models" element={<IdentityModels />} />
 							<Route path="contents/framework/packages/identity/interfaces" element={<IdentityInterfaces />} />
 							<Route path="contents/framework/packages/identity/services" element={<IdentityServices />} />
 							<Route path="contents/framework/packages/identity/extensions" element={<IdentityExtensions />} />
+							<Route path="contents/framework/packages/identity/validators" element={<IdentityValidators />} />
 
 							<Route path="contents/framework/packages/fileuitilities" element={<UtilitiesFile />} />
 							<Route path="contents/framework/packages/fileuitilities/extensions" element={<FileExtensions />} />
 							<Route path="contents/framework/packages/fileuitilities/exceptions" element={<FileExceptions />} />
 
-							
+
 							<Route path="contents/framework/packages/exceluitilities" element={<UtilitiesExcel />} />
 							<Route path="contents/framework/packages/exceluitilities/extensions" element={<ExcelExtensions />} />
 							<Route path="contents/framework/packages/exceluitilities/exceptions" element={<ExcelExceptions />} />
 							<Route path="contents/framework/packages/exceluitilities/interfaces" element={<ExcelInterfaces />} />
 							<Route path="contents/framework/packages/exceluitilities/models" element={<ExcelModels />} />
-						
+
 							<Route path="contents/framework/packages/imageuitilities" element={<UtilitiesImage />} />
 							<Route path="contents/framework/packages/imageuitilities/extensions" element={<ImageExtensions />} />
 							<Route path="contents/framework/packages/imageuitilities/exceptions" element={<ImageExceptions />} />
@@ -436,7 +453,7 @@ function App() {
 							<Route path="contents/framework/packages/imageuitilities/models" element={<ImageModels />} />
 							<Route path="contents/framework/packages/imageuitilities/enums" element={<ImageEnums />} />
 							<Route path="contents/framework/packages/imageuitilities/services" element={<ImageServices />} />
-						
+
 						</Routes>
 						{
 							selectedItem.isReact ?

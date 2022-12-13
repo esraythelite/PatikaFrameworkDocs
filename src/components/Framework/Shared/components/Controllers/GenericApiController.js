@@ -7,7 +7,7 @@ const contents = [
         type: 'code',
         title: 'Constructor',
         language: 'csharp',
-        startingLineNumber: 16,
+        startingLineNumber: 14,
         item: `namespace Patika.Framework.Shared.Controllers
 {
     [ApiController]
@@ -39,7 +39,7 @@ const contents = [
         type: 'code',
         title: 'GetService',
         language: 'csharp',
-        startingLineNumber: 35,
+        startingLineNumber: 33,
         item: `
         protected T GetService<T>() => ServiceProvider.GetService<T>() ?? throw new ServiceInjectionFailedexception($"{typeof(T).FullName}");
         `,
@@ -53,7 +53,7 @@ const contents = [
         type: 'code',
         title: 'GetToken',
         language: 'csharp',
-        startingLineNumber: 28,
+        startingLineNumber: 35,
         item: `
         protected string GetToken()
         {
@@ -77,7 +77,7 @@ const contents = [
         type: 'code',
         title: 'User Info',
         language: 'csharp',
-        startingLineNumber: 41,
+        startingLineNumber: 48,
         item: `
         protected string GetUserId() => User.FindFirstValue(ClaimTypes.Name);
 
@@ -132,9 +132,10 @@ const contents = [
     {
         order: 6,
         type: 'code',
-        title: 'WithLogging (GeneralResponseDTO)',
+        title: 'WithLogging',
+        subtitle: 'GeneralResponseDTO',
         language: 'csharp',
-        startingLineNumber: 72,
+        startingLineNumber: 80,
         item: `
         protected async Task<ActionResult<GeneralResponseDTO<T>>> WithLogging<T>(IDTO input,
             Func<Task<T>> tryPart, 
@@ -176,9 +177,10 @@ const contents = [
     {
         order: 7,
         type: 'code',
-        title: 'WithLogging (FileContentResult)',
+        title: 'WithLogging',
+        subtitle: 'FileContentResult',
         language: 'csharp',
-        startingLineNumber: 108,
+        startingLineNumber: 115,
         item: `
         protected async Task<FileContentResult?> WithLogging<T>(IDTO input,
             Func<Task<FileContentResult>> tryPart,
@@ -222,9 +224,10 @@ const contents = [
     {
         order:8,
         type: 'code',
-        title: 'WithLoggingFinalResponse (FinalResponseDTO)',
+        title: 'WithLoggingFinalResponse',
+        subtitle: 'FinalResponseDTO',
         language: 'csharp',
-        startingLineNumber: 108,
+        startingLineNumber: 150,
         item: `
         protected async Task<ActionResult<FinalResponseDTO<T>>> WithLoggingFinalResponse<T>(
             IDTO input, Func<Task<T>> tryPart, Func<IDTO, Task>? catchPart = null, 
