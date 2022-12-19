@@ -28,13 +28,16 @@ namespace Patika.Framework.Shared.Interfaces.Validators
             item: `  
 public class BasicLoginInputDTOValidator : PatikaAbstractValidator<BasicLoginInputDTO>, IBasicLoginInputDTOValidator
 {
+    private const string UserNameRequired = nameof(UserNameRequired);
+    private const string PasswordRequired = nameof(PasswordRequired);
+    
     public BasicLoginInputDTOValidator(IServiceProvider serviceProvider) : base(serviceProvider)
     {
         RuleFor(x => x.UserName)
-            .NotEmpty().WithErrorCode("UserNameRequired");
+                .NotEmpty().WithErrorCode(UserNameRequired);
 
         RuleFor(x => x.Password)
-            .NotEmpty().WithErrorCode("PasswordRequired");
+            .NotEmpty().WithErrorCode(PasswordRequired);
     }
 
     public async Task ValidateAndThrowAsync(BasicLoginInputDTO input)
@@ -45,8 +48,8 @@ public class BasicLoginInputDTOValidator : PatikaAbstractValidator<BasicLoginInp
             var errorCode = result.Errors.First().ErrorCode;
             throw errorCode switch
             {
-                "UserNameRequired" => new UserNameRequiredException(),
-                "PasswordRequired" => new PasswordRequiredException(),
+                UserNameRequired => new UserNameRequiredException(),
+                PasswordRequired => new PasswordRequiredException(),
                 _ => new BaseApplicationException(errorCode),
             };
         }
@@ -84,28 +87,39 @@ namespace Patika.Framework.Shared.Interfaces.Validators
             
             item: `    
 public class UserRegistrationInputDTOValidator : PatikaAbstractValidator<UserRegistrationInputDTO>, IUserRegistrationInputDTOValidator
-{
+{ 
+    private const string UserNameRequired = nameof(UserNameRequired);
+    private const string UserNameMinLength = nameof(UserNameMinLength);
+    private const string OnlyTurkishLetters = nameof(OnlyTurkishLetters);
+    private const string InvalidEmail = nameof(InvalidEmail);
+    private const string EmailContainsOnlyOneAtSingPattern = nameof(EmailContainsOnlyOneAtSingPattern);
+    private const string EmailNotContainsPattern = nameof(EmailNotContainsPattern);
+    private const string EmailNotContainsExceptThisCharactersPattern = nameof(EmailNotContainsExceptThisCharactersPattern);
+    private const string PasswordRequired = nameof(PasswordRequired);
+    private const string PasswordMinLength = nameof(PasswordMinLength);
+    private const string ConfirmPasswordMustMatchWithPassword = nameof(ConfirmPasswordMustMatchWithPassword);
+
     public UserRegistrationInputDTOValidator(IServiceProvider serviceProvider) : base(serviceProvider)
     {
         RuleFor(x => x.UserName).Cascade(CascadeMode.Stop)
-            .NotEmpty().WithErrorCode("UserNameRequired")
-            .MinimumLength(Configuration.AccountConfig.UserNameMinLength).WithErrorCode("UserNameMinLength")
-            .Matches(RegexPatterns.OnlyTurkishLettersPattern).WithErrorCode("OnlyTurkishLetters");
+        .NotEmpty().WithErrorCode(UserNameRequired)
+        .MinimumLength(Configuration.AccountConfig.UserNameMinLength).WithErrorCode(UserNameMinLength)
+            .Matches(RegexPatterns.OnlyTurkishLettersPattern).WithErrorCode(OnlyTurkishLetters);
         // TODO: TODO: other rules for UserRegistrationInputDTO.UserName
 
         RuleFor(x => x.Email).Cascade(CascadeMode.Stop)
-            .EmailAddress(EmailValidationMode.AspNetCoreCompatible).WithErrorCode("InvalidEmail")
-            .Matches(RegexPatterns.EmailContainsOnlyOneAtSingPattern).WithErrorCode("EmailContainsOnlyOneAtSingPattern")
-            .Matches(RegexPatterns.EmailNotContainsPattern).WithErrorCode("EmailNotContainsPattern")
-            .Matches(RegexPatterns.EmailNotContainsExceptThisCharactersPattern).WithErrorCode("EmailNotContainsExceptThisCharactersPattern");
+        .EmailAddress(EmailValidationMode.AspNetCoreCompatible).WithErrorCode(InvalidEmail)
+        .Matches(RegexPatterns.EmailContainsOnlyOneAtSingPattern).WithErrorCode(EmailContainsOnlyOneAtSingPattern)
+        .Matches(RegexPatterns.EmailNotContainsPattern).WithErrorCode(EmailNotContainsPattern)
+        .Matches(RegexPatterns.EmailNotContainsExceptThisCharactersPattern).WithErrorCode(EmailNotContainsExceptThisCharactersPattern);
 
         RuleFor(x => x.Password).Cascade(CascadeMode.Stop)
-            .NotEmpty().WithErrorCode("PasswordRequired")
-            .MinimumLength(Configuration.AccountConfig.PasswordMinLength).WithErrorCode("PasswordMinLength");
+            .NotEmpty().WithErrorCode(PasswordRequired)
+            .MinimumLength(Configuration.AccountConfig.PasswordMinLength).WithErrorCode(PasswordMinLength);
         // TODO: TODO: other rules for UserRegistrationInputDTO.Password
 
         RuleFor(x => x.ConfirmPassword)
-            .Equal(x => x.Password).WithErrorCode("ConfirmPasswordMustMatchWithPassword");
+        .Equal(x => x.Password).WithErrorCode(ConfirmPasswordMustMatchWithPassword);
     }
 
     public async Task ValidateAndThrowAsync(UserRegistrationInputDTO input)
@@ -116,19 +130,19 @@ public class UserRegistrationInputDTOValidator : PatikaAbstractValidator<UserReg
             var errorCode = result.Errors.First().ErrorCode;
             throw errorCode switch
             {
-                "UserNameRequired" => new UserNameRequiredException(),
-                "UserNameMinLength" => new UserNameMinLengthException(Configuration.AccountConfig.UserNameMinLength),
-                "OnlyTurkishLetters" => new OnlyTurkishLettersException(),
+                UserNameRequired => new UserNameRequiredException(),
+                UserNameMinLength => new UserNameMinLengthException(Configuration.AccountConfig.UserNameMinLength),
+                OnlyTurkishLetters => new OnlyTurkishLettersException(),
 
-                "InvalidEmail"  => new InvalidEmailAddressException(),
-                "EmailContainsOnlyOneAtSingPattern" => new InvalidEmailAddressException(),
-                "EmailNotContainsPattern" => new InvalidEmailAddressException(),
-                "EmailNotContainsExceptThisCharactersPattern" => new InvalidEmailAddressException(), 
+                InvalidEmail  => new InvalidEmailAddressException(),
+                EmailContainsOnlyOneAtSingPattern => new InvalidEmailAddressException(),
+                EmailNotContainsPattern => new InvalidEmailAddressException(),
+                EmailNotContainsExceptThisCharactersPattern => new InvalidEmailAddressException(), 
 
-                "PasswordRequired" => new PasswordRequiredException(),
-                "PasswordMinLength" => new PasswordMinLengthException(Configuration.AccountConfig.PasswordMinLength),
+                PasswordRequired => new PasswordRequiredException(),
+                PasswordMinLength => new PasswordMinLengthException(Configuration.AccountConfig.PasswordMinLength),
 
-                "ConfirmPasswordMustMatchWithPassword" => new ConfirmPasswordMustMatchWithPasswordException(),
+                ConfirmPasswordMustMatchWithPassword => new ConfirmPasswordMustMatchWithPasswordException(),
                 _ => new BaseApplicationException(errorCode),
             };
         }

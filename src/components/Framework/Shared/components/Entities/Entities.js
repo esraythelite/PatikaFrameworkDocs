@@ -16,10 +16,12 @@ const contents = [
           public int ActivationCodeMaxTryCount { get; set; }
           public int UserNameMinLength { get; set; } = 2;
           public int PasswordMinLength { get; set; } = 10;
+          public string TenantKey { get; set; } = "TenantKey";
       }
   }`,
     descriptions: [
-      "A configuration object that used for activation codes and validation rules"
+      "A configuration object that used for activation codes and validation rules",
+      "TenantKey: is the keyword for tenant to getting tenantId from request query string. Default value is 'TenantKey' "
     ],
   },
   {

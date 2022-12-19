@@ -106,6 +106,9 @@ import GoogleValidators from "./components/Framework/GoogleAuthProvider/componen
 import FacebookValidators from "./components/Framework/FacebookAuthProvider/components/Validators/FacebookValidators";
 import AppleValidators from "./components/Framework/AppleAuthProvider/components/Validators/AppleValidators";
 import IdentityValidators from "./components/Framework/Identity/components/Validators/IdentityValidators";
+import IdentitySharedMiddlewares from "./components/Framework/IdentityShared/components/Middlevares/IdentitySharedMiddlewares";
+import ServicesIdentityShared from "./components/Framework/IdentityShared/components/Services/ServicesIdentityShared";
+import MultiTenancy from "./components/MultiTenancy/MultiTenancy";
 
 let theme = createTheme({
 	palette: {
@@ -342,6 +345,8 @@ function App() {
 							<Route path="contents/git/flow" element={<GitFlow />} />
 							<Route path="contents/git/commands" element={<GitCommands />} />
 							<Route path="contents/git/versioncontrol" element={<VersionControl />} />
+							
+							<Route path="contents/multitenancy" element={<MultiTenancy />} />
 
 							<Route path="contents/validation" element={<Validation />} />
 							<Route path="contents/framework/packages" element={<Framework />} />
@@ -378,6 +383,8 @@ function App() {
 							<Route path="contents/framework/packages/identityshared/models" element={<ModelsIdentityShared />} />
 							<Route path="contents/framework/packages/identityshared/consts" element={<ConstsIdentityShared />} />
 							<Route path="contents/framework/packages/identityshared/validators" element={<IdentitySharedValidators />} />
+							<Route path="contents/framework/packages/identityshared/Middlewares" element={<IdentitySharedMiddlewares />} />
+							<Route path="contents/framework/packages/identityshared/services" element={<ServicesIdentityShared />} />
 
 							<Route path="contents/framework/packages/applicationcontracts" element={<ApplicationContracts />} />
 							<Route path="contents/framework/packages/applicationcontracts/interfaces" element={<InterfacesAppContracts />} />
