@@ -109,6 +109,13 @@ import IdentityValidators from "./components/Framework/Identity/components/Valid
 import IdentitySharedMiddlewares from "./components/Framework/IdentityShared/components/Middlevares/IdentitySharedMiddlewares";
 import ServicesIdentityShared from "./components/Framework/IdentityShared/components/Services/ServicesIdentityShared";
 import MultiTenancy from "./components/MultiTenancy/MultiTenancy";
+import UtilitiesStorage from "./components/Framework/UtilitiesStorage/UtilitiesStorage";
+import StorageExtensions from "./components/Framework/UtilitiesStorage/components/StorageExtensions";
+import StorageExceptions from "./components/Framework/UtilitiesStorage/components/StorageExceptions";
+import StorageInterfaces from "./components/Framework/UtilitiesStorage/components/StorageInterfaces";
+import StorageModels from "./components/Framework/UtilitiesStorage/components/StorageModels";
+import StorageEnums from "./components/Framework/UtilitiesStorage/components/StorageEnums";
+import StorageServices from "./components/Framework/UtilitiesStorage/components/StorageServices";
 
 let theme = createTheme({
 	palette: {
@@ -460,6 +467,15 @@ function App() {
 							<Route path="contents/framework/packages/imageuitilities/models" element={<ImageModels />} />
 							<Route path="contents/framework/packages/imageuitilities/enums" element={<ImageEnums />} />
 							<Route path="contents/framework/packages/imageuitilities/services" element={<ImageServices />} />
+
+							
+							<Route path="contents/framework/packages/storageuitilities" element={<UtilitiesStorage />} />
+							<Route path="contents/framework/packages/storageuitilities/extensions" element={<StorageExtensions />} />
+							<Route path="contents/framework/packages/storageuitilities/exceptions" element={<StorageExceptions />} />
+							<Route path="contents/framework/packages/storageuitilities/interfaces" element={<StorageInterfaces />} />
+							<Route path="contents/framework/packages/storageuitilities/models" element={<StorageModels />} />
+							<Route path="contents/framework/packages/storageuitilities/enums" element={<StorageEnums />} />
+							<Route path="contents/framework/packages/storageuitilities/services" element={<StorageServices />} />
 
 						</Routes>
 						{
